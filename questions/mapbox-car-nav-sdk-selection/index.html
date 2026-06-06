@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapboxでカーナビを作るときのSDK選定</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>Mapboxでカーナビを作るときのSDK選定</h1>
+      <p class="meta">最終更新: 2026-06-07</p>
+
+      <p>
+        Mapboxでカーナビアプリを作るときは、1つのSDKですべてを完結させるというより、
+        地図表示、目的地検索、経路案内、独自ロジックを役割ごとに分けて組み合わせる考え方が実用的です。
+        結論から言うと、運転中の案内体験を作る中心は
+        <strong>Navigation SDK</strong>、地図の見た目や独自レイヤー制御の中心は
+        <strong>Maps SDK</strong>、目的地入力や候補提示は
+        <strong>Search SDK</strong> または Search / Geocoding API が適しています。
+      </p>
+
+      <h2>まず結論</h2>
+      <ul>
+        <li>地図を表示する: Maps SDK</li>
+        <li>ターンバイターン案内を実装する: Navigation SDK</li>
+        <li>住所、施設、POI検索を入れる: Search SDK または Search / Geocoding API</li>
+        <li>独自の配車、配送、車両制約ロジックを組む: バックエンド側で Directions 系 API や独自判定を併用する</li>
+        <li>独自データを地図に重ねる: Maps SDK + Mapbox Studio / Tiling Service</li>
+      </ul>
+
+      <h2>SDKごとの役割</h2>
+
+      <h3>1. Maps SDK</h3>
+      <p>
+        Maps SDKは、地図を描画して操作するための土台です。
+        現在地表示、ピン、GeoJSONレイヤー、渋滞表示風の独自表現、配送先一覧、走行軌跡、危険地点オーバーレイなど、
+        ナビ画面の「見せ方」を細かく作り込みたいならここが中心になります。
+      </p>
+      <p>
+        ただし、Maps SDKだけではターンバイターン案内や音声案内は完成しません。
+        地図を描くためのSDKであり、案内体験そのものはNavigation SDKの担当です。
+      </p>
+
+      <h3>2. Navigation SDK</h3>
+      <p>
+        カーナビを作るなら最重要なのがNavigation SDKです。
+        ルート取得、リルート、音声案内、案内UI、到着判定、走行中の追従、ルートライン表示など、
+        一般的なカーナビに必要な要素をまとめて扱えます。
+      </p>
+      <p>
+        「とりあえず運転ナビとして動かしたい」段階では、まずNavigation SDKを中核に選ぶのが妥当です。
+        逆に言うと、Maps SDKだけでゼロから案内体験を組むのは実装負荷が高く、保守も重くなります。
+      </p>
+
+      <h3>3. Search SDK / Search API / Geocoding API</h3>
+      <p>
+        目的地検索は別レイヤーで考えたほうが整理しやすいです。
+        アプリ内で検索ボックス、候補補完、POI検索を自然に出したいならSearch SDKが向いています。
+        一方、サーバー側で検索を制御したい、あるいは独自UIからHTTPベースで扱いたいなら
+        Search APIやGeocoding APIが扱いやすいです。
+      </p>
+      <p>
+        「住所を入れて候補を出す」「店舗名から目的地を選ぶ」「地図の中心点から住所を引く」といった処理は、
+        Navigation SDK本体よりこちらの担当です。
+      </p>
+
+      <h2>用途別の選び方</h2>
+
+      <h3>最短で一般的なカーナビを作りたい</h3>
+      <p>
+        <strong>Navigation SDK + Search SDK</strong> が基本です。
+        地図描画はNavigation SDK側の機能でかなり賄えるため、最初からMaps SDKを深く触らなくても始められます。
+        ただし、UIの自由度を強く求めるならMaps SDKの理解は結局必要になります。
+      </p>
+
+      <h3>地図表現を大きくカスタマイズしたい</h3>
+      <p>
+        <strong>Maps SDK + Navigation SDK</strong> の組み合わせが向いています。
+        例として、配送ルート以外に立ち寄り候補、危険物ルート警告、車高制限地点、営業エリア、社内案件データを
+        重ねたい場合はMaps SDK側のレイヤー制御が重要になります。
+      </p>
+
+      <h3>検索体験を独自UIで作りたい</h3>
+      <p>
+        フロントにSearch SDKを直接入れる方法と、バックエンドからSearch API / Geocoding APIを叩く方法があります。
+        モバイルUIに自然に組み込みたいならSDK、検索ログ管理や事業ロジック統合を優先するならAPIベースが扱いやすいです。
+      </p>
+
+      <h3>トラック、配送、業務車両向けに作り込みたい</h3>
+      <p>
+        ここではMapbox標準SDKだけで完結すると考えないほうが現実的です。
+        ルート案内の基盤はNavigation SDKで持ちつつ、車両制約、訪問順最適化、社内マスタとの突合、到着業務フローは
+        自前バックエンドや別ロジック層で補う構成が安定します。
+      </p>
+
+      <h2>実装判断の目安</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>やりたいこと</th>
+            <th>主に使うもの</th>
+            <th>補足</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>地図を表示する</td>
+            <td>Maps SDK</td>
+            <td>ベース地図、マーカー、レイヤー制御向け</td>
+          </tr>
+          <tr>
+            <td>音声付き経路案内をする</td>
+            <td>Navigation SDK</td>
+            <td>カーナビの中心機能</td>
+          </tr>
+          <tr>
+            <td>検索候補を出す</td>
+            <td>Search SDK</td>
+            <td>モバイルUI一体型で使いやすい</td>
+          </tr>
+          <tr>
+            <td>住所と座標を変換する</td>
+            <td>Geocoding API</td>
+            <td>バックエンド連携にも向く</td>
+          </tr>
+          <tr>
+            <td>独自の地図データを重ねる</td>
+            <td>Maps SDK + Studio / Tiling Service</td>
+            <td>業務データ可視化向け</td>
+          </tr>
+          <tr>
+            <td>配車、配送、業務制約を入れる</td>
+            <td>SDK単体ではなく独自ロジック併用</td>
+            <td>業務要件は別設計が必要</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>迷ったときの実践的な選び方</h2>
+      <ul>
+        <li>まず運転ナビとして成立させたいなら Navigation SDK から入る</li>
+        <li>地図演出や重ね合わせが肝なら Maps SDK の設計を先に詰める</li>
+        <li>目的地検索が重要なら Search SDK か Search API を最初から分離して考える</li>
+        <li>業務車両向けなら SDK 選定だけでなく、業務制約をどこで処理するかを先に決める</li>
+      </ul>
+
+      <h2>要点のまとめ</h2>
+      <p>
+        Mapboxでカーナビを作る場合、中心はNavigation SDKです。
+        その上で、地図表現を作るMaps SDK、目的地入力を支えるSearch系機能、業務要件を支える独自ロジックを
+        どう分担するかが設計の要点になります。
+        単純な乗用車ナビなら Navigation SDK を起点に進めるのが最短で、配送や特殊車両まで踏み込むなら
+        Maps SDK とバックエンド設計を早めに並行検討したほうが崩れにくいです。
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li>
+            <a href="https://docs.mapbox.com/android/navigation/overview/">Mapbox Navigation SDK for Android</a>
+          </li>
+          <li>
+            <a href="https://docs.mapbox.com/ios/navigation/api/2.16.0/index.html">Mapbox Navigation SDK for iOS</a>
+          </li>
+          <li>
+            <a href="https://docs.mapbox.com/help/getting-started/maps/">Mapbox Maps products overview</a>
+          </li>
+          <li>
+            <a href="https://docs.mapbox.com/android/maps/api-reference/">Mapbox Maps SDK for Android</a>
+          </li>
+          <li>
+            <a href="https://docs.mapbox.com/ios/maps/api/11.0.0-rc.1-docc/documentation/mapboxmaps">Mapbox Maps SDK for iOS</a>
+          </li>
+          <li>
+            <a href="https://docs.mapbox.com/help/getting-started/search/">Mapbox Search products overview</a>
+          </li>
+          <li>
+            <a href="https://docs.mapbox.com/android/search/guides/search/">Mapbox Search SDK for Android</a>
+          </li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

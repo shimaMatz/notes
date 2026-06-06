@@ -129,6 +129,25 @@ p.meta,
   color: #f8ede3;
 }
 
+.note table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.note th,
+.note td {
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.note th {
+  background: var(--accent-soft);
+}
+
 .sources {
   margin-top: 2rem;
   padding-top: 1rem;
