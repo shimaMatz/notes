@@ -129,6 +129,25 @@ p.meta,
   color: #f8ede3;
 }
 
+.note figure {
+  margin: 1.5rem 0;
+}
+
+.note img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff8ef;
+}
+
+.note figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .note table {
   width: 100%;
   border-collapse: collapse;

@@ -11,6 +11,7 @@ https://shimamatz.github.io/notes/
 
 - `index.html`: ノート一覧のトップページ
 - `questions/<slug>/index.html`: 1トピックごとの個別ノート
+- `questions/<slug>/...`: 記事ごとの画像や図版
 - `styles/site.css`: 共通スタイル
 - `.github/workflows/static.yml`: GitHub Pages デプロイ設定
 - `AGENTS.md`: 記事作成ルールと安全上の注意
@@ -38,9 +39,10 @@ python3 -m http.server 8000
 `質問:` で始まるメッセージを送ると、エージェントは次を行います。
 
 1. `questions/<slug>/index.html` にノートを作成または更新する
-2. `index.html` にリンクを追加する
-3. 変更を commit する
-4. `origin/main` に push する
+2. 記事に関連する画像や図版を少なくとも1つ入れる
+3. `index.html` にリンクを追加する
+4. 変更を commit する
+5. `origin/main` に push する
 
 ### 2. GitHub Issue から記事を追加する
 
@@ -50,7 +52,7 @@ python3 -m http.server 8000
 
 1. `shimaMatz/notes` の open issue を確認する
 2. タイトルが `質問:` で始まるもの、または `article-request` ラベルが付いたものを処理する
-3. ノートと `index.html` を更新する
+3. ノート、画像、`index.html` を更新する
 4. commit して `main` に push する
 5. 公開 URL を Issue にコメントする
 6. 処理済み Issue を close する

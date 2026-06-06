@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Mapbox car navigation SDK selection diagram</title>
+  <desc id="desc">A diagram showing Search SDK, Maps SDK, and Navigation SDK connected in a car navigation application flow.</desc>
+  <rect width="1200" height="720" fill="#fcfaf6" />
+  <rect x="50" y="50" width="1100" height="620" rx="28" fill="#fff8ef" stroke="#d4c8b8" stroke-width="4" />
+  <rect x="110" y="160" width="280" height="140" rx="22" fill="#f6d7c6" stroke="#9a3412" stroke-width="3" />
+  <text x="250" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#241f1a">Search SDK</text>
+  <text x="250" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6a5f55">destination input</text>
+  <rect x="460" y="110" width="280" height="190" rx="22" fill="#9a3412" />
+  <text x="600" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#fff8ef">Navigation SDK</text>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#fff8ef">routing reroute voice UI</text>
+  <text x="600" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#fff8ef">turn by turn guidance</text>
+  <rect x="810" y="160" width="280" height="140" rx="22" fill="#f6d7c6" stroke="#9a3412" stroke-width="3" />
+  <text x="950" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#241f1a">Maps SDK</text>
+  <text x="950" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6a5f55">map rendering layers</text>
+  <rect x="260" y="420" width="680" height="150" rx="22" fill="#efe6da" stroke="#d4c8b8" stroke-width="3" />
+  <text x="600" y="478" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#241f1a">Business logic and backend</text>
+  <text x="600" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#6a5f55">vehicle constraints dispatch stop order company data</text>
+  <line x1="390" y1="230" x2="460" y2="205" stroke="#9a3412" stroke-width="6" />
+  <line x1="810" y1="230" x2="740" y2="205" stroke="#9a3412" stroke-width="6" />
+  <line x1="600" y1="300" x2="600" y2="420" stroke="#9a3412" stroke-width="6" />
+</svg>

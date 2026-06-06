@@ -12,6 +12,11 @@
       <h1>Mapboxでカーナビを作るときのSDK選定</h1>
       <p class="meta">最終更新: 2026-06-07</p>
 
+      <figure>
+        <img src="sdk-selection-diagram.svg" alt="Mapboxでカーナビを作る際のSDKの役割分担図" />
+        <figcaption>運転案内の中心はNavigation SDKで、検索と地図描画を周辺SDKで支える構成が基本になる。</figcaption>
+      </figure>
+
       <p>
         Mapboxでカーナビアプリを作るときは、1つのSDKですべてを完結させるというより、
         地図表示、目的地検索、経路案内、独自ロジックを役割ごとに分けて組み合わせる考え方が実用的です。
