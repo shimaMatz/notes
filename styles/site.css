@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light;
+  --bg: #f3efe7;
+  --panel: rgba(255, 252, 246, 0.88);
+  --line: #d4c8b8;
+  --text: #241f1a;
+  --muted: #6a5f55;
+  --accent: #9a3412;
+  --accent-soft: #f6d7c6;
+  --shadow: 0 18px 48px rgba(36, 31, 26, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(154, 52, 18, 0.12), transparent 24rem),
+    linear-gradient(180deg, #fcfaf6 0%, var(--bg) 100%);
+}
+
+a {
+  color: var(--accent);
+}
+
+.hero,
+.container {
+  width: min(960px, calc(100vw - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 5rem 0 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.lead {
+  max-width: 44rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.container {
+  padding-bottom: 4rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.panel {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.note-list li + li {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.note-list p,
+p.meta,
+.sources {
+  color: var(--muted);
+}
+
+.note {
+  width: min(760px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.note article {
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 252, 246, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.note h1,
+.note h2,
+.note h3 {
+  line-height: 1.2;
+}
+
+.note pre,
+.note code {
+  font-family: "SFMono-Regular", "Menlo", monospace;
+}
+
+.note pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 16px;
+  background: #1d1a17;
+  color: #f8ede3;
+}
+
+.sources {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .panel,
+  .note article {
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+# Keep the repo limited to static site assets and authoring docs.
+*
+!*/
+!*.html
+!*.css
+!*.svg
+!*.png
+!*.jpg
+!*.jpeg
+!*.webp
+!*.gif
+!*.md
+!.gitignore
+!.gitkeep
+!.github/
+!.github/workflows/
+!.github/workflows/static.yml
