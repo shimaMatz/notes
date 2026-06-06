@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapboxでルート案内条件をどこまで設定できるか</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>Mapboxでルート案内条件をどこまで設定できるか</h1>
+      <p class="meta">最終更新: 2026-06-07</p>
+
+      <figure>
+        <img src="routing-parameters.svg" alt="Mapboxルーティング条件の設定範囲を示す図" />
+        <figcaption>標準のDirections APIで触れる条件と、独自ロジックが必要な条件は分けて考える。</figcaption>
+      </figure>
+
+      <p>
+        Mapboxで「高速道路優先」「下道優先」「大型車向け」などのルート案内を作るときは、
+        まず<strong>Directions API と Navigation SDK で標準対応している条件</strong>と、
+        <strong>自前ロジックが必要な条件</strong>を分けて考える必要があります。
+      </p>
+
+      <h2>標準で触れる主な条件</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>目的</th>
+            <th>使うもの</th>
+            <th>補足</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>通常の車ルート</td>
+            <td>`mapbox/driving`</td>
+            <td>高速道路を好む一般的な自動車ルート</td>
+          </tr>
+          <tr>
+            <td>交通考慮ルート</td>
+            <td>`mapbox/driving-traffic`</td>
+            <td>対応地域では交通情報を考慮する</td>
+          </tr>
+          <tr>
+            <td>高速道路を避ける</td>
+            <td>`exclude=motorway`</td>
+            <td>高速道路や motorway を除外する</td>
+          </tr>
+          <tr>
+            <td>有料道路を避ける</td>
+            <td>`exclude=toll`</td>
+            <td>料金所ルートを避ける</td>
+          </tr>
+          <tr>
+            <td>フェリーを避ける</td>
+            <td>`exclude=ferry`</td>
+            <td>水路横断を避ける</td>
+          </tr>
+          <tr>
+            <td>未舗装路を避ける</td>
+            <td>`exclude=unpaved`</td>
+            <td>ダートやトラック道を避ける</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>高速道路優先と下道優先</h2>
+      <p>
+        高速道路優先は、実質的には `mapbox/driving` か `mapbox/driving-traffic` を使うのが基本です。
+        一方で「下道優先」は専用の `prefer_local_roads=true` のような単独パラメータが見当たらないため、
+        実務上は `exclude=motorway` を使って高速道路を除外する構成になります。
+      </p>
+      <p>
+        つまり、厳密には「下道を好む」というより「高速道路を避ける」に寄せる考え方です。
+      </p>
+
+      <h2>再ルートや進行方向制御で効くもの</h2>
+      <ul>
+        <li>`bearings`: 現在の進行方向に近い道路へルートを乗せたいときに使う</li>
+        <li>`avoid_maneuver_radius`: 再ルート直後の危険な急操作を避けたいときに使う</li>
+        <li>`waypoint_targets`: 道路の左右どちら側に目的地があるかを考慮したいときに使う</li>
+      </ul>
+
+      <h2>大型車向けの案内について</h2>
+      <p>
+        ここが重要です。今回確認した公式のDirections APIドキュメント上では、
+        <strong>車高、車幅、重量、危険物区分、トラック専用プロファイル</strong>のような
+        大型車ルーティング専用パラメータは見当たりませんでした。
+      </p>
+      <p>
+        そのため、大型車対応を本気でやるなら、Mapbox標準ルートをそのまま信じるのではなく、
+        低床橋、重量制限、車高制限、通行区分などを自社データとして持ち、
+        ルート計算前後で独自判定を挟む設計が必要です。これは公式資料からの直接記述ではなく、
+        標準パラメータの範囲から導ける実装上の判断です。
+      </p>
+
+      <h2>現実的な構成</h2>
+      <ul>
+        <li>普通乗用車向け: `driving` または `driving-traffic` を中心に使う</li>
+        <li>下道優先: `exclude=motorway` を軸にする</li>
+        <li>有料回避: `exclude=toll` を併用する</li>
+        <li>大型車向け: Mapbox標準案内に独自制約データと業務判定を追加する</li>
+      </ul>
+
+      <h2>要点</h2>
+      <p>
+        Mapbox標準で強いのは、一般車向けルート、交通考慮、いくつかの除外条件です。
+        逆に、大型車特有の制約は今回確認した範囲では標準パラメータだけでは足りません。
+        乗用車ナビと業務車両ナビを同じ設計で考えないことが重要です。
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://docs.mapbox.com/api/navigation/directions/">Directions API</a></li>
+          <li><a href="https://docs.mapbox.com/help/tutorials/getting-started-directions-api/">Getting started with the Mapbox Directions API</a></li>
+          <li><a href="https://docs.mapbox.com/help/ja/dive-deeper/directions/">How Mapbox Directions services work</a></li>
+          <li><a href="https://docs.mapbox.com/help/ja/glossary/mapbox-navigation-sdk/">Mapbox Navigation SDKs</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

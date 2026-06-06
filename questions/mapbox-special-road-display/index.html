@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapbox SDKで高速道路など特殊な表示を実装する方法</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>Mapbox SDKで高速道路など特殊な表示を実装する方法</h1>
+      <p class="meta">最終更新: 2026-06-07</p>
+
+      <figure>
+        <img src="special-road-display.svg" alt="Mapboxで特殊な道路表示を重ねる構成図" />
+        <figcaption>ベース地図の上に独自ソースとレイヤーを重ねて、高速道路や業務向け表現を作る。</figcaption>
+      </figure>
+
+      <p>
+        Mapboxで高速道路や業務道路のような特殊な表示をしたいときは、
+        既存の地図そのものを書き換えるというより、<strong>Maps SDKのスタイル機能で独自レイヤーを重ねる</strong>
+        という考え方が基本になります。実装の中心はMaps SDKで、Mapbox Studioでベーススタイルを整え、
+        必要に応じてGeoJSON、ベクトルタイル、アノテーション、カスタムレイヤーを併用します。
+      </p>
+
+      <h2>まず結論</h2>
+      <ul>
+        <li>軽い強調表示ならアノテーションで足りる</li>
+        <li>道路種別ごとの色分けやズーム連動はスタイルレイヤーで実装する</li>
+        <li>大量データや本格運用なら独自ソースとベクトルタイルを使う</li>
+        <li>既定スタイルの限界を超える描画が必要ならカスタムレイヤーを使う</li>
+      </ul>
+
+      <h2>実装手段の使い分け</h2>
+
+      <h3>1. アノテーション</h3>
+      <p>
+        ピン、ライン、ポリゴンを素早く載せたいだけならアノテーションが最短です。
+        高速道路の走行ルート、危険地点、進入禁止ポイント、配送先などを少量表示する用途に向いています。
+        ただし、ベース道路の見た目全体を細かく制御する用途には向きません。
+      </p>
+
+      <h3>2. スタイルレイヤー</h3>
+      <p>
+        実務で一番よく使うのはここです。Mapboxのレイヤーは
+        `line`、`symbol`、`fill` などの型を持ち、色、太さ、表示条件、ズーム条件を設定できます。
+        高速道路だけ色を変える、特定条件の道路だけ太線にする、ズームでラベルを切り替える、といった表現は
+        スタイルレイヤーで作るのが本筋です。
+      </p>
+
+      <h3>3. 独自ソース</h3>
+      <p>
+        社内道路データ、危険物規制、車高制限、通行禁止区間のような独自情報を出したいなら、
+        GeoJSONやベクトルタイルをソースとして追加し、その上にレイヤーを載せます。
+        データ量が少なければGeoJSONで十分ですが、広域データや高頻度表示ではベクトルタイルのほうが安定します。
+      </p>
+
+      <h3>4. カスタムレイヤー</h3>
+      <p>
+        通常のレイヤーでは足りない独自描画が必要ならカスタムレイヤーを検討します。
+        たとえば、特殊な道路アニメーション、独自レンダラ、業務向けの強い視覚表現を入れたい場合です。
+        ただし保守負荷は上がるので、まずはスタイルレイヤーで成立するかを確認したほうがいいです。
+      </p>
+
+      <h2>高速道路表示でよくあるパターン</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>やりたいこと</th>
+            <th>主な手段</th>
+            <th>実装の考え方</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>高速道路だけ色を変える</td>
+            <td>スタイルレイヤー</td>
+            <td>道路種別でフィルタして line の色と太さを変える</td>
+          </tr>
+          <tr>
+            <td>走行中ルートを強調する</td>
+            <td>Navigation SDK または line レイヤー</td>
+            <td>ルートラインを別レイヤーで上から描く</td>
+          </tr>
+          <tr>
+            <td>危険地点や高さ制限を表示する</td>
+            <td>GeoJSON + symbol レイヤー</td>
+            <td>独自アイコンと属性ベース表示を使う</td>
+          </tr>
+          <tr>
+            <td>広域の規制情報を出す</td>
+            <td>ベクトルタイル + レイヤー</td>
+            <td>大量データ向けの構成にする</td>
+          </tr>
+          <tr>
+            <td>特殊な見せ方をする</td>
+            <td>カスタムレイヤー</td>
+            <td>通常レイヤーで足りない場合のみ使う</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>実務上の組み方</h2>
+      <p>
+        まずMapbox Studioでベーススタイルを作り、アプリ側ではMaps SDKから独自ソースとレイヤーを追加する構成が扱いやすいです。
+        ベース地図は静的なデザイン調整、アプリ側は走行ルートや業務データの動的表示、と責務を分けると崩れにくくなります。
+      </p>
+
+      <h2>注意点</h2>
+      <ul>
+        <li>Mapbox Standard では自前で追加したレイヤーを中心に制御する前提になる</li>
+        <li>大量のアノテーションは重くなるので、件数が増えたらレイヤー方式へ寄せる</li>
+        <li>道路表現の自由度が高い分、UI設計なしに要件を足すと見づらくなりやすい</li>
+      </ul>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://docs.mapbox.com/android/maps/guides/styles/work-with-layers/">Work with sources and layers</a></li>
+          <li><a href="https://docs.mapbox.com/android/maps/guides/styles/style-layers/">Styling layers with expressions</a></li>
+          <li><a href="https://docs.mapbox.com/style-spec/reference/layers/">Mapbox Style Specification: Layers</a></li>
+          <li><a href="https://docs.mapbox.com/ios/maps/guides/add-your-data/annotations/">Mapbox iOS annotations</a></li>
+          <li><a href="https://docs.mapbox.com/android/maps/examples/android-view/custom-layer/">Custom Layer example</a></li>
+          <li><a href="https://docs.mapbox.com/help/getting-started/map-design/">Map design and styles</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapboxで実画像やイラスト付き案内を実装する方法</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>Mapboxで実画像やイラスト付き案内を実装する方法</h1>
+      <p class="meta">最終更新: 2026-06-07</p>
+
+      <figure>
+        <img src="guidance-images.svg" alt="Mapboxの案内情報と独自画像表示の構成図" />
+        <figcaption>Mapbox標準の案内情報を土台にして、必要なら独自画像レイヤーを後付けする。</figcaption>
+      </figure>
+
+      <p>
+        高速道路の出口、右左折、分岐などを<strong>実際の画像や独自イラストで案内したい</strong>場合、
+        Mapbox標準だけで自動的に写実画像が出ると考えないほうが安全です。公式ドキュメントで確認できる標準機能は、
+        主に<strong>maneuver view、turn icon、lane guidance、road shield、voice instructions</strong>です。
+        実画像や独自イラストまで出したいなら、Navigation SDKの進捗情報に応じて自前表示を重ねる実装になります。
+      </p>
+
+      <h2>標準で使える案内要素</h2>
+      <ul>
+        <li>次の曲がり方を示す maneuver icon</li>
+        <li>出口番号や道路名を示す primary / secondary maneuver</li>
+        <li>lane guidance</li>
+        <li>road shield</li>
+        <li>voice instructions</li>
+      </ul>
+
+      <p>
+        まずは `MapboxManeuverView` を使うと、分岐案内、道路名、距離、レーン情報、シールド表示をかなり短時間で整えられます。
+        ここまでで足りるなら、独自画像資産を持たないほうが開発も運用も軽くなります。
+      </p>
+
+      <h2>実画像や独自イラストを出したいときの構成</h2>
+      <p>
+        本当に写真風のジャンクション画像やサービス独自の分岐イラストを出したいなら、
+        Navigation SDKから受け取る `RouteProgress` や `BannerInstructions` をトリガーにして、
+        アプリ側で対応画像を引き当てて表示します。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>層</th>
+            <th>役割</th>
+            <th>実装内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Navigation SDK</td>
+            <td>案内タイミング</td>
+            <td>次の maneuver、距離、レーン、道路名を取得する</td>
+          </tr>
+          <tr>
+            <td>画像判定ロジック</td>
+            <td>どの画像を出すか決める</td>
+            <td>道路ID、出口番号、maneuver type などでマッピングする</td>
+          </tr>
+          <tr>
+            <td>画像アセット</td>
+            <td>表示素材</td>
+            <td>社内制作イラスト、実画像、CG画像などを管理する</td>
+          </tr>
+          <tr>
+            <td>UIレイヤー</td>
+            <td>表示</td>
+            <td>maneuver view の上または別パネルで出す</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>現実的な設計判断</h2>
+      <h3>1. まずは標準UIで成立するか確認する</h3>
+      <p>
+        多くのケースでは、road shield、lane guidance、turn icon があれば運転案内として十分です。
+        写実画像は見栄えは上がりますが、画像整備、地域差分、分岐パターン管理が重くなります。
+      </p>
+
+      <h3>2. 画像は「完全自動生成」前提にしない</h3>
+      <p>
+        公式ドキュメントから確認できる範囲では、Navigation SDKは案内情報を返しますが、
+        高速道路出口の実景画像を自動で配信する標準機能までは読み取れません。
+        そのため、実画像ベースにしたいならアセット管理を自前で持つ設計が必要です。
+      </p>
+
+      <h3>3. 出し分けキーを早めに決める</h3>
+      <p>
+        画像を出し分けるには、出口番号、道路名、方面、分岐形状、地点IDなどをキーとして整備する必要があります。
+        これが曖昧だと、案内タイミングは正しくても画像選定が不安定になります。
+      </p>
+
+      <h2>実装の進め方</h2>
+      <ol>
+        <li>Navigation SDK の標準 maneuver UI を先に動かす</li>
+        <li>RouteProgress と BannerInstructions を監視する</li>
+        <li>特定の分岐パターンにだけ画像を出す PoC を作る</li>
+        <li>必要なら画像管理APIやローカルDBを用意する</li>
+      </ol>
+
+      <h2>要点</h2>
+      <p>
+        Mapbox標準で強いのは、曲がり方向、レーン、道路名、シールド、音声案内です。
+        実画像や独自イラストは、その上に自前ロジックで追加する領域です。
+        まず標準案内で運転品質を固めてから、差別化が必要な地点だけ画像化する進め方が実務的です。
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://docs.mapbox.com/android/navigation/guides/ui-components/maneuver/">Maneuver instructions</a></li>
+          <li><a href="https://docs.mapbox.com/android/navigation/examples/show-maneuvers/">Render maneuver instructions for a route</a></li>
+          <li><a href="https://docs.mapbox.com/android/navigation/guides/ui-components/voice/">Voice instructions</a></li>
+          <li><a href="https://docs.mapbox.com/android/navigation/guides/turn-by-turn-navigation/">Turn-by-turn navigation</a></li>
+          <li><a href="https://docs.mapbox.com/android/navigation/guides/ui-components/route-callout/">Route callouts</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MapboxとExpoの親和性</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>MapboxとExpoの親和性</h1>
+      <p class="meta">最終更新: 2026-06-07</p>
+
+      <figure>
+        <img src="expo-compatibility.svg" alt="MapboxとExpoやネイティブ開発の向き不向きを比較した図" />
+        <figcaption>Expoでも組めるが、Mapboxを深く使うほど native build 前提の設計になる。</figcaption>
+      </figure>
+
+      <p>
+        結論から言うと、<strong>MapboxとExpoの相性は悪くはないが、Expo Go のまま楽に使える種類の組み合わせではない</strong>
+        です。MapboxはネイティブSDKを土台にしているため、Expoで使うなら
+        <strong>development build</strong> や <strong>prebuild</strong> 前提で考えるのが現実的です。
+      </p>
+
+      <h2>まず押さえるべき点</h2>
+      <ul>
+        <li>Expo Go ではカスタム native code を含むライブラリはそのまま使えない</li>
+        <li>Expo でも development build を使えば native ライブラリを組み込める</li>
+        <li>MapboxのReact Native向け利用は、公式FAQ上では iOS/Android公式SDKを包む React Native wrapper という位置付け</li>
+      </ul>
+
+      <h2>Expoが向くケース</h2>
+      <ul>
+        <li>チームが React Native / Expo に慣れている</li>
+        <li>地図表示やピン表示、簡易ルート表示が中心</li>
+        <li>Mapbox を使うが、深い native カスタマイズは限定的</li>
+      </ul>
+
+      <h2>Expoが重くなるケース</h2>
+      <ul>
+        <li>本格的な turn-by-turn ナビを作る</li>
+        <li>音声案内、進捗監視、再ルート、独自 native UI を深く触る</li>
+        <li>Mapboxまわりの不具合を native 側まで追う必要がある</li>
+      </ul>
+
+      <h2>Swift や Flutter のほうがよいか</h2>
+      <p>
+        これは要件次第です。実務感としては次の整理が妥当です。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>選択肢</th>
+            <th>向く状況</th>
+            <th>コメント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Swift / Kotlin ネイティブ</td>
+            <td>ナビ品質最優先</td>
+            <td>Mapbox公式SDKに最も近く、制御しやすい</td>
+          </tr>
+          <tr>
+            <td>Flutter</td>
+            <td>クロスプラットフォームで地図を深く使いたい</td>
+            <td>Mapbox公式Flutter SDKがある</td>
+          </tr>
+          <tr>
+            <td>Expo / React Native</td>
+            <td>JS中心で開発しつつ native build も許容できる</td>
+            <td>Expo Go ではなく dev build 前提で考える</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>実務的な判断</h2>
+      <p>
+        単純な地図UIや検索中心ならExpoでも十分戦えます。
+        ただし、車載ナビ品質や業務車両向けナビまで踏み込むなら、Swift/Kotlinネイティブのほうが判断も保守もまっすぐです。
+        Flutterはその中間で、クロスプラットフォームのままMapboxを深く使いたい場合の有力候補です。
+      </p>
+      <p>
+        この比較のうち、「ExpoよりSwiftがよいか」という結論部分は一次情報の直接記述ではなく、
+        Expoが native build 前提であること、Mapboxの中核SDKが iOS/Android ネイティブ中心であることからの実装判断です。
+      </p>
+
+      <h2>要点</h2>
+      <p>
+        ExpoでもMapboxは使えますが、楽なのは Expo Go ではなく development build の世界です。
+        軽い地図体験ならExpo、深いナビ体験ならSwift/Kotlin、クロスプラットフォームで機能を取りたいならFlutter、
+        という見方が現実に近いです。
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://docs.expo.dev/workflow/customizing/">Add custom native code</a></li>
+          <li><a href="https://docs.expo.dev/develop/development-builds/introduction/">Introduction to development builds</a></li>
+          <li><a href="https://docs.expo.dev/develop/development-builds/create-a-build">Create a development build on EAS</a></li>
+          <li><a href="https://docs.expo.dev/faq/">Expo FAQ</a></li>
+          <li><a href="https://docs.mapbox.com/help/faq/does-mapbox-provide-react-native-sdk-support/">Maps SDK for React Native</a></li>
+          <li><a href="https://docs.mapbox.com/ja/flutter/maps/api-reference/">Mapbox Maps SDK for Flutter</a></li>
+          <li><a href="https://docs.mapbox.com/android/navigation/overview/">Mapbox Navigation SDK for Android</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>
