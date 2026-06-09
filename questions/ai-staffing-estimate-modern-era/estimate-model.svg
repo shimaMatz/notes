@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">AI時代の人材派遣見積もりモデル</title>
+  <desc id="desc">業務分解、AI前提の生産性、リスクと運用を分けて見積もる流れ</desc>
+  <rect width="960" height="520" fill="#fff8ef"/>
+  <rect x="48" y="48" width="864" height="424" rx="28" fill="#fcfaf6" stroke="#d4c8b8" stroke-width="3"/>
+  <text x="80" y="104" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="30" font-weight="700" fill="#241f1a">AIを前提にした派遣見積もり</text>
+  <text x="80" y="142" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="18" fill="#6a5f55">人数だけでなく、業務単位・AI寄与・統制コストを明示する</text>
+
+  <g font-family="Hiragino Sans, Yu Gothic, sans-serif">
+    <rect x="78" y="196" width="210" height="170" rx="18" fill="#f6d7c6" stroke="#9a3412" stroke-width="2"/>
+    <text x="104" y="238" font-size="22" font-weight="700" fill="#241f1a">1. 業務を分解</text>
+    <text x="104" y="276" font-size="17" fill="#241f1a">定型処理</text>
+    <text x="104" y="306" font-size="17" fill="#241f1a">判断・折衝</text>
+    <text x="104" y="336" font-size="17" fill="#241f1a">例外対応</text>
+
+    <path d="M306 281h80" fill="none" stroke="#9a3412" stroke-width="5" stroke-linecap="round"/>
+    <path d="M374 263l24 18-24 18" fill="none" stroke="#9a3412" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="410" y="196" width="210" height="170" rx="18" fill="#fff" stroke="#d4c8b8" stroke-width="2"/>
+    <text x="436" y="238" font-size="22" font-weight="700" fill="#241f1a">2. AI寄与を置く</text>
+    <text x="436" y="276" font-size="17" fill="#241f1a">削減できる時間</text>
+    <text x="436" y="306" font-size="17" fill="#241f1a">人が残す責任</text>
+    <text x="436" y="336" font-size="17" fill="#241f1a">教育・検証時間</text>
+
+    <path d="M638 281h80" fill="none" stroke="#9a3412" stroke-width="5" stroke-linecap="round"/>
+    <path d="M706 263l24 18-24 18" fill="none" stroke="#9a3412" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="742" y="196" width="180" height="170" rx="18" fill="#241f1a" stroke="#241f1a" stroke-width="2"/>
+    <text x="766" y="238" font-size="22" font-weight="700" fill="#fff8ef">3. 見積書化</text>
+    <text x="766" y="276" font-size="17" fill="#fff8ef">人月・単価</text>
+    <text x="766" y="306" font-size="17" fill="#fff8ef">AI利用条件</text>
+    <text x="766" y="336" font-size="17" fill="#fff8ef">品質保証範囲</text>
+  </g>
+
+  <line x1="80" y1="408" x2="880" y2="408" stroke="#d4c8b8" stroke-width="2"/>
+  <text x="80" y="442" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="18" fill="#6a5f55">結論: 「AIで安くなるか」ではなく「どの作業をAIが支援し、どの責任を人が持つか」を価格にする。</text>
+</svg>

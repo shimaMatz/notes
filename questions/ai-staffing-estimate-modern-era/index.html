@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIを前提とした人材派遣の見積もり</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>AIを前提とした人材派遣の見積もり</h1>
+      <p class="meta">最終更新: 2026-06-09</p>
+
+      <figure>
+        <img src="estimate-model.svg" alt="AI時代の派遣見積もりを業務分解、AI寄与、見積書化に分ける図" />
+        <figcaption>AI前提の見積もりでは、人数の前に業務単位と責任範囲を分ける。</figcaption>
+      </figure>
+
+      <p>
+        AIを前提に人材派遣の見積もりを行うとき、単に「AIで人数を減らせるか」と考えると危険です。
+        実務では、<strong>業務の分解、AIで短縮できる作業、人が負う責任、品質保証と教育のコスト</strong>を
+        分けて見積もる必要があります。
+      </p>
+
+      <h2>見積もりの前提が変わる</h2>
+      <p>
+        従来の見積もりは「必要人数 × 時間単価 × 期間」に寄りがちでした。
+        しかしAIを使う現場では、同じ1名でも成果量が変わります。一方で、AIの出力確認、プロンプト設計、
+        情報漏えい防止、誤回答の検知、社内ルール整備といった作業も増えます。
+      </p>
+      <p>
+        そのため、現代的な見積もりは「AIを使うから安い」ではなく、
+        <strong>AIで削れる時間と、AIを安全に使うために増える時間を両方出す</strong>形にするのが現実的です。
+      </p>
+
+      <h2>業務を3種類に分ける</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>分類</th>
+            <th>AIで変わること</th>
+            <th>見積もり上の扱い</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>定型処理</td>
+            <td>文章作成、要約、分類、一次チェックなどは短縮しやすい。</td>
+            <td>処理件数あたりの時間を下げて見積もる。ただし検品時間を残す。</td>
+          </tr>
+          <tr>
+            <td>判断業務</td>
+            <td>候補案の生成や論点整理は支援できるが、最終判断は人が持つ。</td>
+            <td>人のスキル単価を維持し、AIは補助ツールとして扱う。</td>
+          </tr>
+          <tr>
+            <td>例外対応</td>
+            <td>前例が少ない問い合わせ、顧客折衝、法務・労務判断は人への依存が高い。</td>
+            <td>削減率を小さく置き、リスク対応余力を見込む。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>見積書に入れるべき項目</h2>
+      <ul>
+        <li>対象業務: どの作業を派遣スタッフが行うか</li>
+        <li>AI利用範囲: 生成、要約、検索、分類、チェックなどのどこに使うか</li>
+        <li>AI非利用範囲: 個人情報、機密情報、最終判断、顧客説明などの制限</li>
+        <li>検品方法: AI出力を誰が、どの基準で確認するか</li>
+        <li>教育時間: 派遣スタッフへの業務教育とAI利用ルール教育</li>
+        <li>成果指標: 時間、件数、正確性、差し戻し率、顧客満足など</li>
+      </ul>
+
+      <h2>価格の考え方</h2>
+      <p>
+        AIがあるほど、単純な作業時間は下がる可能性があります。ただし、人材派遣の価格は作業時間だけでは決まりません。
+        厚生労働省は派遣料金や賃金、教育訓練、福利厚生などを含むマージン率情報の公開を求めており、
+        価格を見る側も単にマージン率の低さだけで判断しないことが重要です。
+      </p>
+      <p>
+        つまりAI時代の見積もりでは、派遣先に対して
+        <strong>「人の稼働」「AI利用環境」「品質保証」「教育・管理」</strong>を分解して提示する方が透明です。
+      </p>
+
+      <h2>実務で使える見積もり式</h2>
+      <pre><code>見積額 =
+  人の稼働時間 × 職種別単価
++ AI利用・運用に必要な管理時間
++ 教育・オンボーディング時間
++ 検品・品質保証時間
++ リスク対応の予備工数</code></pre>
+      <p>
+        AIによる削減率は全体に一律で掛けない方が安全です。
+        定型処理、判断業務、例外対応に分けて、作業ごとに削減率を置く方が説明しやすくなります。
+      </p>
+
+      <h2>注意点</h2>
+      <ul>
+        <li>AI利用の有無で、派遣スタッフに求めるスキルが変わる。</li>
+        <li>AIが出した内容の責任者を曖昧にしない。</li>
+        <li>個人情報や機密情報をAIに入力してよいかを契約前に決める。</li>
+        <li>「AI込み単価」を作る場合も、教育・検品・管理の内訳を隠さない。</li>
+        <li>AIによる成果量の改善を約束するなら、測定方法と除外条件を明記する。</li>
+      </ul>
+
+      <h2>要点</h2>
+      <p>
+        AIを前提とした人材派遣の見積もりは、人数を減らす交渉ではなく、
+        <strong>人が担う責任とAIが支援する作業を再設計する作業</strong>です。
+        派遣先、派遣元、派遣スタッフの三者が、AIの利用範囲、検品責任、教育コストを同じ前提で見られる
+        見積書にすることが重要です。
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/roudoushahakennjigyou.html">厚生労働省: 労働者派遣事業</a></li>
+          <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000077386_00013.html">厚生労働省: 派遣会社のマージン率等について</a></li>
+          <li><a href="https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html">経済産業省: AI事業者ガイドライン</a></li>
+          <li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST: AI Risk Management Framework</a></li>
+          <li><a href="https://www.oecd.org/en/topics/ai-principles.html">OECD: AI Principles</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>
