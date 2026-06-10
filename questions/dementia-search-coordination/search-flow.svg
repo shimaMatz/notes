@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">認知症の行方不明初動支援サービスの流れ</title>
+  <desc id="desc">家族、介護事業所、地域見守り、捜索の初動を一つにつなぐ図</desc>
+  <rect width="960" height="540" fill="#fff7ef" />
+  <rect x="42" y="44" width="876" height="452" rx="28" fill="#fffdf9" stroke="#d4c8b8" stroke-width="2" />
+  <text x="68" y="92" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="28" font-weight="700" fill="#241f1a">
+    認知症の行方不明初動は、通報前の準備不足で遅れやすい
+  </text>
+  <rect x="76" y="164" width="184" height="112" rx="18" fill="#f6d7c6" stroke="#9a3412" />
+  <rect x="294" y="164" width="184" height="112" rx="18" fill="#fce7d6" stroke="#9a3412" />
+  <rect x="512" y="164" width="184" height="112" rx="18" fill="#fdeedf" stroke="#9a3412" />
+  <rect x="730" y="164" width="146" height="112" rx="18" fill="#fff2e8" stroke="#9a3412" />
+  <text x="98" y="204" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">事前登録</text>
+  <text x="98" y="236" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">写真</text>
+  <text x="98" y="260" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">立ち回り先</text>
+  <text x="316" y="204" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">失踪時初動</text>
+  <text x="316" y="236" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">家族</text>
+  <text x="316" y="260" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">事業所</text>
+  <text x="534" y="204" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">地域共有</text>
+  <text x="534" y="236" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">見守り先</text>
+  <text x="534" y="260" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">捜索範囲</text>
+  <text x="752" y="204" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">記録</text>
+  <text x="752" y="236" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">対応履歴</text>
+  <path d="M260 220 H294" stroke="#9a3412" stroke-width="4" />
+  <path d="M478 220 H512" stroke="#9a3412" stroke-width="4" />
+  <path d="M696 220 H730" stroke="#9a3412" stroke-width="4" />
+  <rect x="92" y="334" width="776" height="116" rx="24" fill="#241f1a" opacity="0.92" />
+  <text x="124" y="378" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#fff8ef">
+    既存手段の限界
+  </text>
+  <text x="124" y="412" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef">
+    電話連絡は早いが、写真・立ち回り先・共有範囲が都度ばらばらになりやすい
+  </text>
+  <text x="124" y="440" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef">
+    GPS単体では足りず、誰にいつどこまで知らせたかの初動運営が残る
+  </text>
+</svg>

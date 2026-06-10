@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">地域観光の混雑平準化サービスの流れ</title>
+  <desc id="desc">混雑箇所の見える化と時間帯分散の導線を示す図</desc>
+  <rect width="960" height="540" fill="#fff7ef" />
+  <rect x="42" y="44" width="876" height="452" rx="28" fill="#fffdf9" stroke="#d4c8b8" stroke-width="2" />
+  <text x="68" y="92" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="28" font-weight="700" fill="#241f1a">
+    観光客は増えても、地域の小さな現場には分散運用ツールがない
+  </text>
+  <rect x="78" y="166" width="180" height="112" rx="18" fill="#f6d7c6" stroke="#9a3412" />
+  <rect x="294" y="166" width="180" height="112" rx="18" fill="#fce7d6" stroke="#9a3412" />
+  <rect x="510" y="166" width="180" height="112" rx="18" fill="#fdeedf" stroke="#9a3412" />
+  <rect x="726" y="166" width="156" height="112" rx="18" fill="#fff2e8" stroke="#9a3412" />
+  <text x="100" y="206" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">混雑入力</text>
+  <text x="100" y="238" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">店前</text>
+  <text x="100" y="262" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">待ち人数</text>
+  <text x="316" y="206" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">分散表示</text>
+  <text x="316" y="238" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">空き時間</text>
+  <text x="316" y="262" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">別導線</text>
+  <text x="532" y="206" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">店間共有</text>
+  <text x="532" y="238" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">商店街</text>
+  <text x="532" y="262" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">DMO</text>
+  <text x="748" y="206" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">分析</text>
+  <text x="748" y="238" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">時間帯別</text>
+  <text x="748" y="262" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">偏り</text>
+  <path d="M258 222 H294" stroke="#9a3412" stroke-width="4" />
+  <path d="M474 222 H510" stroke="#9a3412" stroke-width="4" />
+  <path d="M690 222 H726" stroke="#9a3412" stroke-width="4" />
+  <rect x="92" y="334" width="776" height="116" rx="24" fill="#241f1a" opacity="0.92" />
+  <text x="124" y="378" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#fff8ef">
+    既存手段の限界
+  </text>
+  <text x="124" y="412" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef">
+    地図は場所案内に強いが、地域全体で客をずらす運用には使いにくい
+  </text>
+  <text x="124" y="440" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef">
+    高価な予約基盤ではなく、現場が今日使える混雑平準化ツールが足りない
+  </text>
+</svg>
