@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">こども食堂向け供給調整サービスの全体像</title>
+  <desc id="desc">備蓄米申請、寄付食材、開催日、在庫記録を一つにまとめる運営図</desc>
+  <rect width="960" height="540" fill="#fff7ef" />
+  <rect x="40" y="44" width="880" height="452" rx="28" fill="#fffdf9" stroke="#d4c8b8" stroke-width="2" />
+  <text x="70" y="92" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="28" font-weight="700" fill="#241f1a">
+    こども食堂の備蓄米・寄付在庫ずれを埋める小規模サービス
+  </text>
+  <text x="70" y="126" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#6a5f55">
+    申請から配送、開催、報告までが分断されているため、現場は手作業で吸収している
+  </text>
+
+  <rect x="84" y="176" width="180" height="112" rx="18" fill="#f6d7c6" stroke="#9a3412" />
+  <text x="106" y="214" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">備蓄米申請</text>
+  <text x="106" y="248" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">受付中</text>
+  <text x="106" y="274" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">配送待ち</text>
+
+  <rect x="298" y="176" width="180" height="112" rx="18" fill="#fce7d6" stroke="#9a3412" />
+  <text x="320" y="214" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">開催予定</text>
+  <text x="320" y="248" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">必要食数</text>
+  <text x="320" y="274" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">献立</text>
+
+  <rect x="512" y="176" width="180" height="112" rx="18" fill="#fdeedf" stroke="#9a3412" />
+  <text x="534" y="214" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">寄付食材</text>
+  <text x="534" y="248" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">偏り</text>
+  <text x="534" y="274" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">期限</text>
+
+  <rect x="726" y="176" width="150" height="112" rx="18" fill="#fff2e8" stroke="#9a3412" />
+  <text x="748" y="214" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#241f1a">使用報告</text>
+  <text x="748" y="248" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">実績</text>
+  <text x="748" y="274" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#241f1a">証跡</text>
+
+  <path d="M264 232 H298" stroke="#9a3412" stroke-width="4" fill="none" />
+  <path d="M478 232 H512" stroke="#9a3412" stroke-width="4" fill="none" />
+  <path d="M692 232 H726" stroke="#9a3412" stroke-width="4" fill="none" />
+
+  <rect x="96" y="336" width="768" height="118" rx="24" fill="#241f1a" opacity="0.92" />
+  <text x="128" y="382" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#fff8ef">
+    欠けている機能
+  </text>
+  <text x="128" y="416" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef">
+    開催日基準で必要量を逆算し、寄付偏在と配送遅延を同じ画面で見られる仕組み
+  </text>
+  <text x="128" y="444" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef">
+    申請・受領・使用・報告を一筆書きにしないと、担当者の頭の中でしか運営できない
+  </text>
+</svg>
