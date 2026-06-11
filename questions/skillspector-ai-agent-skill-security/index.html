@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NVIDIA SkillSpectorとは何か</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>NVIDIA SkillSpectorとは何か</h1>
+      <p class="meta">最終更新: 2026-06-11</p>
+
+      <figure>
+        <img src="skillspector-flow.svg" alt="SkillSpectorがAIエージェントスキルを解析してレポート化する流れ" />
+        <figcaption>SkillSpectorは、AIエージェントのスキルをインストール前に検査するためのセキュリティスキャナーです。</figcaption>
+      </figure>
+
+      <p>
+        <strong>SkillSpector</strong>は、NVIDIAが公開しているAIエージェント用スキルのセキュリティ検査ツールです。
+        Claude Code、Codex CLI、Gemini CLIのようなエージェント環境では、スキルがファイル操作、コマンド実行、
+        外部通信などに関わることがあります。便利な一方で、悪意ある指示や危険なコードが混ざると、
+        秘密情報の漏えい、権限の乱用、サプライチェーン攻撃につながります。
+      </p>
+      <p>
+        このツールの狙いは「そのスキルを入れてよいか」を判断する材料を作ることです。Gitリポジトリ、URL、
+        zip、ローカルディレクトリ、単一の<code>SKILL.md</code>などを入力にして、危険パターンを検出し、
+        0から100のリスクスコア、重要度、推奨判断、SARIF/JSON/Markdownなどのレポートを出します。
+      </p>
+
+      <h2>何が新しいのか</h2>
+      <p>
+        従来のコードスキャナーは、主に一般的なアプリケーションコードの脆弱性を見るものでした。
+        SkillSpectorは、AIエージェントの「スキル」という新しい配布単位に寄せています。
+        スキルにはコードだけでなく、モデルに読ませる指示文、トリガー、外部ツールの使い方、MCP連携などが含まれます。
+        そのため、普通の依存関係チェックだけでは見落としやすい攻撃面を検査対象にしています。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>観点</th>
+            <th>SkillSpectorが見るもの</th>
+            <th>読者が気にする理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>プロンプト注入</td>
+            <td>安全制約を無視させる指示、隠し命令、外部送信の指示</td>
+            <td>スキルの説明が無害でも、本文に別の行動指示が埋め込まれる可能性がある。</td>
+          </tr>
+          <tr>
+            <td>データ漏えい</td>
+            <td>環境変数、秘密鍵、会話文脈、ファイル一覧を外部へ送る処理</td>
+            <td>エージェントは開発環境の秘密情報に近い場所で動くことが多い。</td>
+          </tr>
+          <tr>
+            <td>危険なコード</td>
+            <td><code>exec</code>、<code>eval</code>、<code>subprocess</code>、<code>os.system</code>など</td>
+            <td>便利な自動化スクリプトと任意コード実行の境目が曖昧になりやすい。</td>
+          </tr>
+          <tr>
+            <td>サプライチェーン</td>
+            <td>未固定依存、外部スクリプト実行、既知脆弱性、タイポスクワッティング</td>
+            <td>スキル本体が短くても、依存先からリスクが入る。</td>
+          </tr>
+          <tr>
+            <td>MCPとツール権限</td>
+            <td>過剰権限、ツールポイズニング、最小権限違反</td>
+            <td>エージェントのツール接続は、攻撃時の実行経路になり得る。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>内部の流れ</h2>
+      <p>
+        開発ドキュメントによると、SkillSpectorはLangGraphベースのワークフローです。
+        入力をローカルの検査対象に解決し、ファイル一覧やメタデータを作り、複数の解析ノードを並列に走らせます。
+        その後、任意のLLM評価で検出結果を絞り込み、最後にSARIF 2.1.0、リスクスコア、表示用レポートを生成します。
+      </p>
+      <ul>
+        <li><code>resolve_input</code>: Git URL、zip、単一ファイル、ディレクトリなどを検査可能なローカルパスに解決する。</li>
+        <li><code>build_context</code>: 対象ファイル、内容、メタデータ、実行可能スクリプトの有無を整理する。</li>
+        <li>解析ノード: 静的パターン、AST、YARA、OSV.dev照会、MCP関連、セマンティック検査などを実行する。</li>
+        <li><code>meta_analyzer</code>: LLMを使う設定なら、検出結果を意味的に確認・補強する。</li>
+        <li><code>report</code>: リスクスコア、推奨判断、SARIF/JSON/Markdown/端末表示を作る。</li>
+      </ul>
+
+      <h2>どう使うか</h2>
+      <p>
+        Python 3.12以上の環境でインストールし、<code>skillspector scan</code>に検査対象を渡すのが基本です。
+        LLM評価を使う場合は、OpenAI互換エンドポイント、Anthropic、NVIDIAの推論サービスなどを環境変数で指定できます。
+        速く静的解析だけを試したい場合は<code>--no-llm</code>を使います。
+      </p>
+      <pre><code>git clone https://github.com/NVIDIA/skillspector.git
+cd skillspector
+uv venv .venv &amp;&amp; source .venv/bin/activate
+make install
+
+skillspector scan ./my-skill/
+skillspector scan https://github.com/user/my-skill --format markdown --output report.md
+skillspector scan ./SKILL.md --no-llm</code></pre>
+
+      <h2>実用上の位置づけ</h2>
+      <p>
+        SkillSpectorは「安全を保証するツール」ではなく、インストール前レビューの初期フィルターとして見るのが現実的です。
+        機械的に検出できる危険な構文や依存関係を拾い、LLMで意味的な怪しさを補助し、レビュー担当者が確認すべき場所を絞ります。
+        CIに組み込むならSARIF出力が使いやすく、個人利用ならMarkdownや端末出力で十分です。
+      </p>
+      <p>
+        特に有効なのは、外部から拾ってきたスキル、社内に配る共通スキル、MCPサーバーやCLI実行を伴うスキルです。
+        反対に、検査結果だけで自動的に安全判定して本番導入する運用は危険です。スキルの目的、必要権限、依存先、
+        実行環境でアクセスできる秘密情報を、人間が最後に確認する必要があります。
+      </p>
+
+      <h2>結論</h2>
+      <p>
+        SkillSpectorは、AIエージェント時代の「スキル版SCA/SAST」に近い道具です。
+        スキルを単なるプロンプト部品ではなく、実行権限を持つソフトウェア部品として扱うための検査レイヤーを提供します。
+        今後、エージェント用スキルやMCP連携をチームで共有するなら、導入前チェックリストの中心に置く価値があります。
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://github.com/NVIDIA/skillspector">NVIDIA SkillSpector GitHub repository</a></li>
+          <li><a href="https://github.com/NVIDIA/skillspector/blob/main/README.md">NVIDIA SkillSpector README</a></li>
+          <li><a href="https://github.com/NVIDIA/skillspector/blob/main/docs/DEVELOPMENT.md">NVIDIA SkillSpector Development Guide</a></li>
+          <li><a href="https://osv.dev/">OSV.dev vulnerability database</a></li>
+          <li><a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">OASIS SARIF 2.1.0 specification</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" role="img" aria-labelledby="title desc">
+  <title id="title">SkillSpectorの解析フロー</title>
+  <desc id="desc">入力されたAIエージェントスキルを解決し、静的解析とLLM評価を経てリスク付きレポートを出す流れ。</desc>
+  <rect width="920" height="360" fill="#fff8ef"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a3412"/>
+    </marker>
+  </defs>
+  <g fill="#241f1a" font-family="Hiragino Sans, Yu Gothic, sans-serif">
+    <text x="46" y="58" font-size="28" font-weight="700">SkillSpectorの考え方</text>
+    <text x="46" y="90" font-size="15" fill="#6a5f55">インストール前に、AIエージェント用スキルの危険な指示・コード・権限を読む</text>
+  </g>
+  <g stroke="#d4c8b8" stroke-width="2" fill="#ffffff">
+    <rect x="48" y="142" width="150" height="92" rx="14"/>
+    <rect x="258" y="142" width="150" height="92" rx="14"/>
+    <rect x="468" y="118" width="172" height="140" rx="14"/>
+    <rect x="704" y="142" width="168" height="92" rx="14"/>
+  </g>
+  <g stroke="#9a3412" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M 198 188 H 250"/>
+    <path d="M 408 188 H 460"/>
+    <path d="M 640 188 H 696"/>
+  </g>
+  <g font-family="Hiragino Sans, Yu Gothic, sans-serif" fill="#241f1a">
+    <text x="74" y="178" font-size="18" font-weight="700">入力</text>
+    <text x="74" y="204" font-size="14" fill="#6a5f55">Git / URL / zip</text>
+    <text x="74" y="224" font-size="14" fill="#6a5f55">ディレクトリ / md</text>
+
+    <text x="286" y="178" font-size="18" font-weight="700">文脈化</text>
+    <text x="286" y="204" font-size="14" fill="#6a5f55">ファイル一覧</text>
+    <text x="286" y="224" font-size="14" fill="#6a5f55">メタデータ生成</text>
+
+    <text x="500" y="154" font-size="18" font-weight="700">解析</text>
+    <text x="500" y="183" font-size="14" fill="#6a5f55">静的パターン</text>
+    <text x="500" y="205" font-size="14" fill="#6a5f55">AST / YARA / OSV</text>
+    <text x="500" y="227" font-size="14" fill="#6a5f55">任意のLLM評価</text>
+
+    <text x="734" y="178" font-size="18" font-weight="700">判断材料</text>
+    <text x="734" y="204" font-size="14" fill="#6a5f55">リスクスコア</text>
+    <text x="734" y="224" font-size="14" fill="#6a5f55">SARIF / JSON等</text>
+  </g>
+  <g fill="#f6d7c6" stroke="#d4c8b8">
+    <rect x="88" y="278" width="744" height="36" rx="18"/>
+  </g>
+  <text x="118" y="301" font-size="15" font-family="Hiragino Sans, Yu Gothic, sans-serif" fill="#241f1a">結論: スキルを「便利なプロンプト集」ではなく、実行権限を持つサプライチェーン部品として扱うための検査ツール</text>
+</svg>
