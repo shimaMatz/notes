@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{TITLE}}</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note</p>
+      <h1>{{TITLE}}</h1>
+      <p class="meta">最終更新: {{YYYY-MM-DD}}</p>
+
+      <figure>
+        <img src="{{DIAGRAM_FILENAME}}" alt="{{DIAGRAM_ALT}}" />
+        <figcaption>{{ONE_SENTENCE_INSIGHT}}</figcaption>
+      </figure>
+
+      <h2>全体像</h2>
+      <p>
+        {{SOCIAL_PROBLEM_SUMMARY}}
+      </p>
+      <p>
+        課題は「{{SURFACE_PROBLEM}}」だけではなく、
+        <strong>{{DEEP_OPERATIONAL_GAP_1}}、{{DEEP_OPERATIONAL_GAP_2}}、{{DEEP_OPERATIONAL_GAP_3}}</strong>
+        が分断されていることです。
+      </p>
+
+      <h2>どの社会問題を切り出すか</h2>
+      <p>
+        大きな制度や全国サービスを個人で背負うのではなく、初年度は
+        <strong>{{NARROW_TARGET}}</strong>に絞ります。
+        この切り出しなら、面談、導入、運用支援を1人でも回しやすくなります。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>現場課題</th>
+            <th>何が起きるか</th>
+            <th>既存手段の限界</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{FIELD_ISSUE_1}}</td>
+            <td>{{FIELD_EFFECT_1}}</td>
+            <td>{{CURRENT_LIMIT_1}}</td>
+          </tr>
+          <tr>
+            <td>{{FIELD_ISSUE_2}}</td>
+            <td>{{FIELD_EFFECT_2}}</td>
+            <td>{{CURRENT_LIMIT_2}}</td>
+          </tr>
+          <tr>
+            <td>{{FIELD_ISSUE_3}}</td>
+            <td>{{FIELD_EFFECT_3}}</td>
+            <td>{{CURRENT_LIMIT_3}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>既存の仕組みで足りない点</h2>
+      <ul>
+        <li>{{GAP_IN_EXISTING_TOOL_1}}</li>
+        <li>{{GAP_IN_EXISTING_TOOL_2}}</li>
+        <li>{{GAP_IN_EXISTING_TOOL_3}}</li>
+      </ul>
+
+      <h2>サービス案</h2>
+      <p>
+        {{SERVICE_CONCEPT}}
+      </p>
+      <ul>
+        <li>{{FEATURE_OR_COMPONENT_1}}</li>
+        <li>{{FEATURE_OR_COMPONENT_2}}</li>
+        <li>{{FEATURE_OR_COMPONENT_3}}</li>
+        <li>{{FEATURE_OR_COMPONENT_4}}</li>
+        <li>{{FEATURE_OR_COMPONENT_5}}</li>
+      </ul>
+
+      <h2>100万円規模に抑えた市場設定</h2>
+      <p>
+        全国全体ではなく、初年度は
+        <strong>{{REACHABLE_MARKET_SCOPE}}</strong>を到達可能市場とします。
+        ここから{{FIRST_YEAR_SHARE}}を獲得する前提なら、個人でも営業とサポートを回せます。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>仮定</th>
+            <th>結果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>到達可能顧客数</td>
+            <td>{{REACHABLE_CUSTOMERS}}</td>
+            <td>{{REACHABLE_CUSTOMERS_REASON}}</td>
+          </tr>
+          <tr>
+            <td>初年度シェア</td>
+            <td>{{FIRST_YEAR_SHARE}}</td>
+            <td>{{FIRST_YEAR_CUSTOMERS}}</td>
+          </tr>
+          <tr>
+            <td>月額利用料</td>
+            <td>{{MONTHLY_PRICE}}</td>
+            <td>{{SUBSCRIPTION_REVENUE}}</td>
+          </tr>
+          <tr>
+            <td>導入支援</td>
+            <td>{{SETUP_PRICE_AND_COUNT}}</td>
+            <td>{{SETUP_REVENUE}}</td>
+          </tr>
+          <tr>
+            <td>初年度売上予想</td>
+            <td>合計</td>
+            <td><strong>{{TOTAL_REVENUE}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>収益モデル</h2>
+      <ul>
+        <li>基本: {{PRIMARY_REVENUE_MODEL}}</li>
+        <li>追加: {{SECONDARY_REVENUE_MODEL_1}}</li>
+        <li>追加: {{SECONDARY_REVENUE_MODEL_2}}</li>
+      </ul>
+      <p>
+        初期は<strong>{{REVENUE_MODEL_RATIONALE}}</strong>の方が読みやすいです。
+      </p>
+
+      <h2>必要なシステム要件と支出</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>領域</th>
+            <th>要件・使い道</th>
+            <th>年額の目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>フロント</td>
+            <td>{{FRONTEND_REQUIREMENT}}</td>
+            <td>{{FRONTEND_COST}}</td>
+          </tr>
+          <tr>
+            <td>バックエンド</td>
+            <td>{{BACKEND_REQUIREMENT}}</td>
+            <td>{{BACKEND_COST}}</td>
+          </tr>
+          <tr>
+            <td>通知</td>
+            <td>{{NOTIFICATION_REQUIREMENT}}</td>
+            <td>{{NOTIFICATION_COST}}</td>
+          </tr>
+          <tr>
+            <td>帳票・記録</td>
+            <td>{{REPORTING_REQUIREMENT}}</td>
+            <td>{{REPORTING_COST}}</td>
+          </tr>
+          <tr>
+            <td>運用</td>
+            <td>{{OPS_REQUIREMENT}}</td>
+            <td>{{OPS_COST}}</td>
+          </tr>
+          <tr>
+            <td>その他支出</td>
+            <td>{{OTHER_EXPENSE_REQUIREMENT}}</td>
+            <td>{{OTHER_EXPENSE_COST}}</td>
+          </tr>
+          <tr>
+            <td>年間支出</td>
+            <td>合計</td>
+            <td><strong>{{TOTAL_EXPENSE}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>AIを使った開発見積もり</h2>
+      <p>
+        AIを使う前提では、画面のたたき台、CRUD、帳票テンプレート、テストデータ作成を短縮できます。
+        ただし、現場ヒアリング、要件の取捨選択、個人情報や安全面の確認、受け入れ検証は人が責任を持つ必要があります。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>作業</th>
+            <th>AI活用</th>
+            <th>目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>要件整理</td>
+            <td>{{AI_REQUIREMENTS_HELP}}</td>
+            <td>{{REQUIREMENTS_TIME}}</td>
+          </tr>
+          <tr>
+            <td>プロトタイプ</td>
+            <td>{{AI_PROTOTYPE_HELP}}</td>
+            <td>{{PROTOTYPE_TIME}}</td>
+          </tr>
+          <tr>
+            <td>本実装</td>
+            <td>{{AI_IMPLEMENTATION_HELP}}</td>
+            <td>{{IMPLEMENTATION_TIME}}</td>
+          </tr>
+          <tr>
+            <td>検証・修正</td>
+            <td>{{AI_QA_HELP}}</td>
+            <td>{{QA_TIME}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>売上・支出・利益</h2>
+      <p>
+        <strong>売上 - 支出 = 利益</strong>
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>金額</th>
+            <th>補足</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>売上</td>
+            <td>{{TOTAL_REVENUE}}</td>
+            <td>{{REVENUE_NOTE}}</td>
+          </tr>
+          <tr>
+            <td>支出</td>
+            <td>{{TOTAL_EXPENSE}}</td>
+            <td>{{EXPENSE_NOTE}}</td>
+          </tr>
+          <tr>
+            <td>利益</td>
+            <td><strong>{{PROFIT}}</strong></td>
+            <td>{{PROFIT_NOTE}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>必要人数と人材要件</h2>
+      <p>
+        この規模では、<strong>{{CORE_HEADCOUNT}}</strong>を前提にします。
+      </p>
+      <ul>
+        <li>実行者: {{OPERATOR_REQUIREMENTS}}</li>
+        <li>補助外注: {{OUTSOURCE_REQUIREMENTS}}</li>
+        <li>望ましいスキル: {{DESIRABLE_SKILLS}}</li>
+      </ul>
+
+      <h2>リスクと最初の検証</h2>
+      <ul>
+        <li>{{RISK_1}}</li>
+        <li>{{RISK_2}}</li>
+        <li>{{RISK_3}}</li>
+      </ul>
+      <p>
+        最初は{{FIRST_VALIDATION_STEP}}で、支払い意思と運用負荷の両方を確認します。
+      </p>
+
+      <h2>結論</h2>
+      <p>
+        {{CONCLUSION}}
+      </p>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="{{SOURCE_URL_1}}">{{SOURCE_LABEL_1}}</a></li>
+          <li><a href="{{SOURCE_URL_2}}">{{SOURCE_LABEL_2}}</a></li>
+          <li><a href="{{SOURCE_URL_3}}">{{SOURCE_LABEL_3}}</a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

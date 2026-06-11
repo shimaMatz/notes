@@ -31,3 +31,16 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Open GitHub Issues titled with the prefix `質問:` are article requests.
 - The issue body should explain the topic, desired depth, and any required source links.
 - When processing an issue-based request, create or update the article with at least one image or diagram, commit, push, then comment on the issue with the published page URL and close the issue.
+
+## No-open-issue fallback article creation
+
+- If an automation checks GitHub Issues and finds no open article requests, create one business-plan note instead of doing nothing.
+- The fallback topic must be a non-IT social problem. Avoid topics whose core value is software, AI, SaaS, developer tools, or technical education.
+- Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
+- Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.
+- Use `templates/business-plan-note-template.html` as the article structure.
+- The plan must show the relation between problem, target users, existing gaps, service features, revenue, spending, profit, system requirements, AI-assisted development timeline, required people, and source links.
+- Include the formula `売上 - 支出 = 利益` and fill the numbers with realistic assumptions.
+- Include system spending by category, what each item is needed for, and how much AI-assisted development can reduce time or cost.
+- Include required headcount and human requirements, including what can be done by one operator and what should be outsourced.
+- After creating the fallback article, update `/index.html`, commit with a concise topic-based message, and push to `origin/main`.
