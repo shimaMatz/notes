@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">制服・学用品リユースの在庫偏りを埋める小規模サービス案の全体像</title>
+  <desc id="desc">現場、支援者、記録、報告をつなぐ小規模サービスの図</desc>
+  <rect width="960" height="540" fill="#fff8ef"/>
+  <rect x="48" y="42" width="864" height="456" rx="28" fill="#fcfaf6" stroke="#d4c8b8" stroke-width="3"/>
+  <text x="80" y="96" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="25" font-weight="700" fill="#241f1a">制服・学用品リユースの在庫偏りを埋める小規模サービス案</text>
+  <text x="80" y="132" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#6a5f55">大きな制度課題を、地域で回せる調整・記録・報告に切り出す。</text>
+  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif">
+    <rect x="86" y="194" width="184" height="118" rx="18" fill="#f6d7c6" stroke="#9a3412" stroke-width="2"/>
+    <text x="126" y="234" font-size="22" font-weight="700" fill="#241f1a">現場課題</text><text x="112" y="266" font-size="16" fill="#6a5f55">依頼・不足・予定</text>
+    <rect x="314" y="194" width="184" height="118" rx="18" fill="#ffffff" stroke="#d4c8b8" stroke-width="2"/>
+    <text x="358" y="234" font-size="22" font-weight="700" fill="#241f1a">調整枠</text><text x="342" y="266" font-size="16" fill="#6a5f55">担当・時間・状態</text>
+    <rect x="542" y="194" width="184" height="118" rx="18" fill="#ffffff" stroke="#d4c8b8" stroke-width="2"/>
+    <text x="586" y="234" font-size="22" font-weight="700" fill="#241f1a">記録</text><text x="574" y="266" font-size="16" fill="#6a5f55">写真・履歴・注意</text>
+    <rect x="390" y="370" width="184" height="82" rx="18" fill="#241f1a"/>
+    <text x="424" y="404" font-size="20" font-weight="700" fill="#fff8ef">月次報告</text><text x="420" y="432" font-size="15" fill="#f8ede3">CSV / PDF / 改善点</text>
+    <path d="M274 253 H310" stroke="#9a3412" stroke-width="4" stroke-linecap="round"/><path d="M502 253 H538" stroke="#9a3412" stroke-width="4" stroke-linecap="round"/><path d="M482 316 V364" stroke="#9a3412" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

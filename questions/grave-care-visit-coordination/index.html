@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>遠方家族の墓参り・墓地清掃の依頼ずれを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+  <body class="note"><article>
+      <p class="eyebrow">Question Note</p><h1>遠方家族の墓参り・墓地清掃の依頼ずれを埋める小規模サービス案</h1><p class="meta">最終更新: 2026-06-12</p>
+      <figure><img src="ops-diagram.svg" alt="遠方家族の墓参り・墓地清掃の依頼ずれを埋める小規模サービス案の全体像" /><figcaption>課題を大きく背負わず、現場のずれを記録と調整に切り出す。</figcaption></figure>
+      <h2>全体像</h2><p>高齢化や人口移動により、墓参りや墓地清掃を家族だけで続けにくい世帯が増えています。課題は代行作業の有無だけではなく、命日や彼岸前の依頼集中、作業写真、寺院への連絡がばらばらになることです。</p><p>狙いは、社会課題全体を解くことではなく、<strong>寺院・霊園周辺の小規模な墓地清掃、供花、写真報告の予約調整</strong>に絞ることです。</p>
+      <h2>どの社会問題を切り出すか</h2><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>依頼時期が集中する</td><td>彼岸や盆の前だけ作業者が足りなくなる。</td><td>電話予約では空き枠と作業内容が見えない。</td></tr><tr><td>作業範囲が曖昧</td><td>草取り、墓石拭き、供花、線香のどこまで含むかでトラブルになる。</td><td>メールでは写真報告と見積もりが散る。</td></tr><tr><td>寺院連絡が抜ける</td><td>立ち入り時間や供物ルールの確認漏れが起きる。</td><td>一般予約サイトは墓地ごとの注意事項に弱い。</td></tr></tbody></table>
+      <h2>サービス案</h2><p>墓地ごとの注意、作業メニュー、予約枠、写真報告、寺院連絡をまとめる小規模な作業台帳です。</p><ul><li>墓地位置、区画、作業メニュー、希望日を登録する。</li><li>作業前後写真と気づいた破損を報告する。</li><li>寺院・霊園ごとの立ち入り注意を持つ。</li><li>彼岸前の予約集中をカレンダーで平準化する。</li><li>月次で作業回数、売上、未報告を確認する。</li></ul>
+      <h2>100万円規模に抑えた市場設定</h2><p>初年度は<strong>1地域の寺院、霊園、石材店、清掃協力者50拠点</strong>を到達可能市場とし、その中から16拠点に導入する前提にします。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>到達可能市場</td><td>1地域の寺院、霊園、石材店、清掃協力者50拠点</td><td>面談と初期設定を1人で回せる範囲</td></tr><tr><td>初年度導入</td><td>16拠点</td><td>紹介、説明会、個別導入で獲得</td></tr><tr><td>月額利用料</td><td>5,000円</td><td>960,000円/年</td></tr><tr><td>導入支援</td><td>10,000円 x 6件</td><td>60,000円</td></tr><tr><td>初年度売上予想</td><td>合計</td><td><strong>1,020,000円</strong></td></tr></tbody></table>
+      <h2>収益モデル</h2><ul><li>基本: 運営団体または地域拠点ごとの月額利用料</li><li>追加: 初期設定代行、台帳移行、帳票テンプレート作成</li><li>追加: 地域ネットワーク向け導入説明会</li></ul><p>初期は成果報酬よりも、<strong>現場の調整時間を減らす固定課金</strong>の方が読みやすいです。</p>
+      <h2>必要なシステム要件と支出</h2><table><thead><tr><th>領域</th><th>要件・使い道</th><th>年額の目安</th></tr></thead><tbody><tr><td>フロント</td><td>スマホで登録、状態変更、一覧確認ができるWeb画面</td><td>0円〜</td></tr><tr><td>バックエンド</td><td>利用者、依頼、在庫、担当、履歴、権限を管理</td><td>36,000円</td></tr><tr><td>通知</td><td>メール中心、必要時だけSMSや電話確認に回す</td><td>18,000円</td></tr><tr><td>帳票・記録</td><td>CSV、PDF、月次報告、簡易監査ログ</td><td>18,000円</td></tr><tr><td>運用・専門確認</td><td>ドメイン、バックアップ、説明資料、規約・個人情報確認</td><td>63,000円</td></tr><tr><td>年間支出</td><td>合計</td><td><strong>135,000円</strong></td></tr></tbody></table>
+      <h2>AIを使った開発見積もり</h2><p>AIを使うと、画面案、CRUD、CSV/PDF出力、テストデータ、説明文の初稿を短縮できます。一方で、現場ヒアリング、個人情報や安全面の線引き、受け入れ検証は人が責任を持つ必要があります。</p><table><thead><tr><th>作業</th><th>AIで短縮できること</th><th>目安</th></tr></thead><tbody><tr><td>要件整理</td><td>ヒアリングメモから業務フローと画面項目を整理</td><td>3〜5日</td></tr><tr><td>プロトタイプ</td><td>一覧、登録、状態管理、権限のたたき台を作成</td><td>1〜2週間</td></tr><tr><td>本実装</td><td>CRUD、通知、帳票、テストデータを補助</td><td>2〜3週間</td></tr><tr><td>検証・修正</td><td>テスト観点と不具合原因の洗い出し</td><td>1週間</td></tr></tbody></table><p>1人開発でも、初期版は<strong>4〜7週間</strong>で作れる想定です。</p>
+      <h2>売上・支出・利益</h2><p><strong>売上 - 支出 = 利益</strong></p><table><thead><tr><th>項目</th><th>金額</th><th>補足</th></tr></thead><tbody><tr><td>売上</td><td>1,020,000円</td><td>月額5,000円 x 16拠点 x 12か月 + 導入支援60,000円</td></tr><tr><td>支出</td><td>135,000円</td><td>予約、写真保存、帳票、規約確認、チラシ制作</td></tr><tr><td>利益</td><td><strong>885,000円</strong></td><td>実行者の作業時間は別途。副業または小規模検証として成立する水準</td></tr></tbody></table>
+      <h2>必要人数と人材要件</h2><p>この規模では、<strong>実行者1名 + 単発外注</strong>を前提にします。</p><ul><li>実行者: Webアプリを実装でき、地域団体や現場担当者との面談ができる人</li><li>補助外注: 会計、法務、個人情報、安全確認、アクセシビリティ点検を単発依頼</li><li>望ましいスキル: CRUD実装、帳票設計、スマホUI、業務整理、地域連携の調整力</li></ul>
+      <h2>リスクと最初の検証</h2><ul><li>月額課金に見合うほど、現場の調整負荷が減るかを確認する。</li><li>入力項目が多すぎると紙や電話に戻るため、初期項目を絞る。</li><li>個人情報、安全、責任範囲を利用規約と運用説明で明確にする。</li></ul><p>最初は3拠点、1か月だけ試し、連絡漏れ、記録漏れ、担当者の作業時間が減るかを見ます。</p>
+      <h2>結論</h2><p>このテーマは、社会問題全体を解く巨大サービスではなく、<strong>寺院・霊園周辺の小規模な墓地清掃、供花、写真報告の予約調整</strong>を整える方向に切ると、100万円規模でも成立しやすいです。</p>
+      <section class="sources"><h2>Sources</h2><ul>
+          <li><a href="https://www8.cao.go.jp/kourei/whitepaper/w-2025/html/zenbun/s1_1_1.html">内閣府: 令和7年版高齢社会白書</a></li>
+          <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/chiiki-houkatsu/">厚生労働省: 地域包括ケアシステム</a></li>
+          <li><a href="https://www.stat.go.jp/data/jinsui/">総務省統計局: 人口推計</a></li>
+        </ul></section>
+    </article></body>
+</html>

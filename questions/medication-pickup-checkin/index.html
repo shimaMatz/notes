@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>高齢者の薬受け取り・声かけ記録を整える小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+  <body class="note"><article>
+      <p class="eyebrow">Question Note</p><h1>高齢者の薬受け取り・声かけ記録を整える小規模サービス案</h1><p class="meta">最終更新: 2026-06-12</p>
+      <figure><img src="ops-diagram.svg" alt="高齢者の薬受け取り・声かけ記録を整える小規模サービス案の全体像" /><figcaption>課題を大きく背負わず、現場のずれを記録と調整に切り出す。</figcaption></figure>
+      <h2>全体像</h2><p>高齢者の在宅生活では、通院、服薬、買い物、見守りが少しずつ重なります。課題は医療情報を深く扱うことではなく、薬の受け取り忘れや家族への軽い共有が地域支援の中で抜けることです。</p><p>狙いは、社会課題全体を解くことではなく、<strong>薬局外の受け取り同行・家族連絡・声かけメモに限定した地域支援</strong>に絞ることです。</p>
+      <h2>どの社会問題を切り出すか</h2><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>受け取り予定が家族に伝わらない</td><td>薬局に行く日を忘れたり、二重に取りに行ったりする。</td><td>電話連絡は早いが、誰に伝えたか残りにくい。</td></tr><tr><td>支援者が医療情報を持ちすぎる</td><td>必要以上の情報共有になり、責任範囲が曖昧になる。</td><td>医療系システムは重く、地域の声かけ用途には過剰。</td></tr><tr><td>声かけ履歴が散る</td><td>体調変化や不在が次回の訪問に引き継がれない。</td><td>チャットでは高齢者ごとの時系列が追いにくい。</td></tr></tbody></table>
+      <h2>サービス案</h2><p>薬の内容ではなく、受け取り予定、同行・代行の担当、家族連絡、声かけメモだけを扱う軽量台帳です。</p><ul><li>薬局名、受け取り予定日、同行要否だけを登録する。</li><li>担当者と家族連絡済み状態を管理する。</li><li>不在、体調メモ、次回注意を短文で残す。</li><li>医療内容は入力しない設計で責任範囲を狭める。</li><li>月次で支援回数と未完了予定を確認する。</li></ul>
+      <h2>100万円規模に抑えた市場設定</h2><p>初年度は<strong>地域包括支援センター、生活支援団体、薬局連携先70拠点</strong>を到達可能市場とし、その中から18拠点に導入する前提にします。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>到達可能市場</td><td>地域包括支援センター、生活支援団体、薬局連携先70拠点</td><td>面談と初期設定を1人で回せる範囲</td></tr><tr><td>初年度導入</td><td>18拠点</td><td>紹介、説明会、個別導入で獲得</td></tr><tr><td>月額利用料</td><td>4,500円</td><td>972,000円/年</td></tr><tr><td>導入支援</td><td>8,000円 x 7件</td><td>56,000円</td></tr><tr><td>初年度売上予想</td><td>合計</td><td><strong>1,028,000円</strong></td></tr></tbody></table>
+      <h2>収益モデル</h2><ul><li>基本: 運営団体または地域拠点ごとの月額利用料</li><li>追加: 初期設定代行、台帳移行、帳票テンプレート作成</li><li>追加: 地域ネットワーク向け導入説明会</li></ul><p>初期は成果報酬よりも、<strong>現場の調整時間を減らす固定課金</strong>の方が読みやすいです。</p>
+      <h2>必要なシステム要件と支出</h2><table><thead><tr><th>領域</th><th>要件・使い道</th><th>年額の目安</th></tr></thead><tbody><tr><td>フロント</td><td>スマホで登録、状態変更、一覧確認ができるWeb画面</td><td>0円〜</td></tr><tr><td>バックエンド</td><td>利用者、依頼、在庫、担当、履歴、権限を管理</td><td>36,000円</td></tr><tr><td>通知</td><td>メール中心、必要時だけSMSや電話確認に回す</td><td>18,000円</td></tr><tr><td>帳票・記録</td><td>CSV、PDF、月次報告、簡易監査ログ</td><td>18,000円</td></tr><tr><td>運用・専門確認</td><td>ドメイン、バックアップ、説明資料、規約・個人情報確認</td><td>88,000円</td></tr><tr><td>年間支出</td><td>合計</td><td><strong>160,000円</strong></td></tr></tbody></table>
+      <h2>AIを使った開発見積もり</h2><p>AIを使うと、画面案、CRUD、CSV/PDF出力、テストデータ、説明文の初稿を短縮できます。一方で、現場ヒアリング、個人情報や安全面の線引き、受け入れ検証は人が責任を持つ必要があります。</p><table><thead><tr><th>作業</th><th>AIで短縮できること</th><th>目安</th></tr></thead><tbody><tr><td>要件整理</td><td>ヒアリングメモから業務フローと画面項目を整理</td><td>3〜5日</td></tr><tr><td>プロトタイプ</td><td>一覧、登録、状態管理、権限のたたき台を作成</td><td>1〜2週間</td></tr><tr><td>本実装</td><td>CRUD、通知、帳票、テストデータを補助</td><td>2〜3週間</td></tr><tr><td>検証・修正</td><td>テスト観点と不具合原因の洗い出し</td><td>1週間</td></tr></tbody></table><p>1人開発でも、初期版は<strong>4〜7週間</strong>で作れる想定です。</p>
+      <h2>売上・支出・利益</h2><p><strong>売上 - 支出 = 利益</strong></p><table><thead><tr><th>項目</th><th>金額</th><th>補足</th></tr></thead><tbody><tr><td>売上</td><td>1,028,000円</td><td>月額4,500円 x 18拠点 x 12か月 + 導入支援56,000円</td></tr><tr><td>支出</td><td>160,000円</td><td>権限管理、通知、監査ログ、個人情報確認、研修資料</td></tr><tr><td>利益</td><td><strong>868,000円</strong></td><td>実行者の作業時間は別途。副業または小規模検証として成立する水準</td></tr></tbody></table>
+      <h2>必要人数と人材要件</h2><p>この規模では、<strong>実行者1名 + 単発外注</strong>を前提にします。</p><ul><li>実行者: Webアプリを実装でき、地域団体や現場担当者との面談ができる人</li><li>補助外注: 会計、法務、個人情報、安全確認、アクセシビリティ点検を単発依頼</li><li>望ましいスキル: CRUD実装、帳票設計、スマホUI、業務整理、地域連携の調整力</li></ul>
+      <h2>リスクと最初の検証</h2><ul><li>月額課金に見合うほど、現場の調整負荷が減るかを確認する。</li><li>入力項目が多すぎると紙や電話に戻るため、初期項目を絞る。</li><li>個人情報、安全、責任範囲を利用規約と運用説明で明確にする。</li></ul><p>最初は3拠点、1か月だけ試し、連絡漏れ、記録漏れ、担当者の作業時間が減るかを見ます。</p>
+      <h2>結論</h2><p>このテーマは、社会問題全体を解く巨大サービスではなく、<strong>薬局外の受け取り同行・家族連絡・声かけメモに限定した地域支援</strong>を整える方向に切ると、100万円規模でも成立しやすいです。</p>
+      <section class="sources"><h2>Sources</h2><ul>
+          <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/chiiki-houkatsu/">厚生労働省: 地域包括ケアシステム</a></li>
+          <li><a href="https://www8.cao.go.jp/kourei/whitepaper/w-2025/html/zenbun/s1_1_1.html">内閣府: 令和7年版高齢社会白書</a></li>
+          <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/">厚生労働省: 高齢者介護</a></li>
+        </ul></section>
+    </article></body>
+</html>
