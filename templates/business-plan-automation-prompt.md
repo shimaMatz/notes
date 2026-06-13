@@ -16,6 +16,11 @@ Check open GitHub Issues in `shimaMatz/notes`.
 - Choose a narrow operational gap that one person can realistically serve.
 - Prefer problems where timing, coordination, reporting, local labor, inventory, transport, communication, or administrative burden creates pain.
 - Avoid giant-platform ideas. Define a reachable first-year market instead of a national TAM.
+- Before choosing a topic, scan existing notes in `/index.html` and `/questions/*/index.html`.
+- Do not create a duplicate note. Reject a candidate if an existing note already covers the same social problem, target users, and operational gap.
+- If a candidate is adjacent to an existing note, make the distinction explicit in the new angle before writing; otherwise choose a different topic.
+- Prefer topics that help a technically skilled reader discover non-IT social issues adjacent to everyday life, family, housing, caregiving, parenting, pets, local administration, regional mobility, and community operations.
+- Private user context may be injected by the automation scheduler. Use it only to guide topic selection. Never reveal or paraphrase private profile details in the article, diagram, sources, commit message, GitHub Issue comments, or public pages.
 
 ## Required Research
 

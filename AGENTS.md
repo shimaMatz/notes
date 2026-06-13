@@ -36,6 +36,10 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 
 - If an automation checks GitHub Issues and finds no open article requests, create one business-plan note instead of doing nothing.
 - The fallback topic must be a non-IT social problem. Avoid topics whose core value is software, AI, SaaS, developer tools, or technical education.
+- Before choosing a fallback topic, check existing notes in `/index.html` and `/questions/*/index.html`. Do not create a new note if the same social problem, same target users, and same operational gap have already been covered.
+- If a candidate is related to an existing note, make the angle clearly different. For example, change the beneficiary, setting, operational bottleneck, or revenue model; otherwise choose another topic.
+- Prefer fallback topics that help a technically skilled reader notice non-IT social issues adjacent to everyday life, family, housing, caregiving, parenting, pets, local administration, regional mobility, and community operations.
+- Private user context may be used only to choose useful topic areas. Never include private profile details, family details, residence details, pet details, or other personal data in notes, diagrams, GitHub Issues, commit messages, or public pages.
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
 - Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.
 - Use `templates/business-plan-note-template.html` as the article structure.
