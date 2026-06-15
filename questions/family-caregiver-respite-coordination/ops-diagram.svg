@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">家族介護レスパイト調整の運用図</title>
+  <desc id="desc">家族介護者、地域支援拠点、レスパイト提供者、共有台帳の関係を示す図。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fffaf2" />
+      <stop offset="100%" stop-color="#f3e7d7" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#6b4a2d" flood-opacity="0.18" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a3412" />
+    </marker>
+  </defs>
+
+  <rect width="960" height="640" rx="28" fill="url(#bg)" />
+  <text x="64" y="76" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="34" font-weight="700" fill="#241f1a">
+    家族介護レスパイト枠の小さな調整
+  </text>
+  <text x="64" y="112" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#6a5f55">
+    介護全体ではなく、休息枠・注意点・不成立理由の共有に限定する
+  </text>
+
+  <g filter="url(#shadow)">
+    <rect x="64" y="162" width="238" height="168" rx="24" fill="#fffdf9" stroke="#d7c5ae" stroke-width="2" />
+    <rect x="360" y="162" width="240" height="168" rx="24" fill="#fffdf9" stroke="#d7c5ae" stroke-width="2" />
+    <rect x="658" y="162" width="238" height="168" rx="24" fill="#fffdf9" stroke="#d7c5ae" stroke-width="2" />
+    <rect x="180" y="404" width="600" height="164" rx="28" fill="#fff7ee" stroke="#d9b48f" stroke-width="2.5" />
+  </g>
+
+  <text x="92" y="208" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="26" font-weight="700" fill="#9a3412">家族介護者</text>
+  <text x="92" y="246" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・休みたい曜日と時間</text>
+  <text x="92" y="276" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・必要な介助内容</text>
+  <text x="92" y="306" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・就業中の連絡可否</text>
+
+  <text x="392" y="208" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="26" font-weight="700" fill="#9a3412">支援拠点</text>
+  <text x="392" y="246" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・地域包括支援センター</text>
+  <text x="392" y="276" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・居宅介護支援事業所</text>
+  <text x="392" y="306" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・空き枠の候補提示</text>
+
+  <text x="686" y="208" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="26" font-weight="700" fill="#9a3412">提供側</text>
+  <text x="686" y="246" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・短時間の見守り</text>
+  <text x="686" y="276" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・送迎や付き添い補助</text>
+  <text x="686" y="306" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#241f1a">・実施可否の返答</text>
+
+  <path d="M 302 246 C 330 246, 334 246, 360 246" fill="none" stroke="#9a3412" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M 600 246 C 626 246, 630 246, 658 246" fill="none" stroke="#9a3412" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M 658 286 C 624 300, 612 312, 590 344" fill="none" stroke="#9a3412" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M 360 286 C 332 298, 320 312, 292 344" fill="none" stroke="#9a3412" stroke-width="4" marker-end="url(#arrow)" />
+
+  <text x="228" y="452" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="28" font-weight="700" fill="#241f1a">
+    共通台帳で残すもの
+  </text>
+  <text x="228" y="494" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#241f1a">
+    1. 候補枠の一覧
+  </text>
+  <text x="228" y="526" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#241f1a">
+    2. 食事・移乗・服薬などの注意点
+  </text>
+  <text x="228" y="558" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#241f1a">
+    3. 不成立理由と不足時間帯
+  </text>
+  <text x="566" y="494" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#241f1a">
+    4. 実施履歴と月次集計
+  </text>
+  <text x="566" y="526" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#241f1a">
+    5. 引き継ぎ漏れの有無
+  </text>
+  <text x="566" y="558" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#241f1a">
+    6. 次回提案に使うメモ
+  </text>
+</svg>
