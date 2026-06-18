@@ -50,10 +50,11 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 
 ## No-open-issue fallback article creation
 
-- If an automation checks GitHub Issues and finds no open article requests, create one business-plan note instead of doing nothing.
+- If an automation checks GitHub Issues and finds no open article requests, create exactly four business-plan notes in that run instead of doing nothing.
 - The fallback topic must be a non-IT, non-caregiving social problem. Avoid software-industry, AI-industry, developer-tool, technical-education, or caregiving problems; using IT to solve the selected social problem is required.
-- Before choosing a fallback topic, check existing notes in `/index.html` and `/questions/*/index.html`. Do not create a new note if the same social problem, same target users, and same operational gap have already been covered.
-- If a candidate is related to an existing note, make the angle clearly different. For example, change the beneficiary, setting, operational bottleneck, or revenue model; otherwise choose another topic.
+- Before choosing fallback topics, inspect every existing note in `/index.html` and `/questions/*/index.html`, plus the other three candidates in the current batch.
+- Reusing a past article's core social problem, primary target users, or operational bottleneck is prohibited. Reject a candidate if any of those substantially overlaps an existing note or another candidate in the same batch; changing only the title, region, price, or revenue model is not enough.
+- Record the duplicate check for all four selected topics in `EDITORIAL_POLICY.md`.
 - Prefer fallback topics that help a technically skilled reader notice non-IT social issues adjacent to public safety, housing, parenting, education, pets, local administration, regional mobility, traditional industries, craftsmanship, and community operations.
 - Private user context may be used only to choose useful topic areas. Never include private profile details, family details, residence details, pet details, or other personal data in notes, diagrams, GitHub Issues, commit messages, or public pages.
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
@@ -64,4 +65,4 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Include the formula `売上 - 支出 = 利益` and fill the numbers with realistic assumptions.
 - Include system spending by category, what each item is needed for, and how much AI-assisted development can reduce time or cost.
 - Include required headcount and human requirements, including what can be done by one operator and what should be outsourced.
-- After creating the fallback article, update `/index.html`, commit with a concise topic-based message, and push to `origin/main`.
+- After creating all four fallback articles, update `/index.html`, commit the batch with a concise message, and push to `origin/main`.

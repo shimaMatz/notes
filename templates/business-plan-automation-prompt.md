@@ -1,13 +1,14 @@
 # Business Plan Fallback Automation Prompt
 
-Use this prompt for a scheduled automation that creates a note when there are no open GitHub Issue article requests.
+Use this prompt for a scheduled automation that creates four notes when there are no open GitHub Issue article requests.
 
 ## Task
 
 Check open GitHub Issues in `shimaMatz/notes`.
 
 1. If there is an open Issue whose title starts with `質問:` or has the `article-request` label, process that Issue as the article request.
-2. If there are no open article request Issues, research one current non-IT, non-caregiving social problem and create an IT-based business-plan note for a small service that can plausibly reach about 1,000,000 yen in first-year revenue.
+2. If one or more matching Issues exist, process those Issues only; do not add fallback articles merely to reach four.
+3. If there are no open article request Issues, research four distinct current non-IT, non-caregiving social problems and create exactly four IT-based business-plan notes. Each plan must plausibly reach about 1,000,000 yen in first-year revenue.
 
 ## Topic Rules
 
@@ -17,9 +18,11 @@ Check open GitHub Issues in `shimaMatz/notes`.
 - Choose a narrow operational gap that one person can realistically serve.
 - Prefer problems where timing, coordination, reporting, local labor, inventory, transport, communication, or administrative burden creates pain.
 - Avoid giant-platform ideas. Define a reachable first-year market instead of a national TAM.
-- Before choosing a topic, scan existing notes in `/index.html` and `/questions/*/index.html`.
-- Do not create a duplicate note. Reject a candidate if an existing note already covers the same social problem, target users, and operational gap.
-- If a candidate is adjacent to an existing note, make the distinction explicit in the new angle before writing; otherwise choose a different topic.
+- Before choosing topics, scan every existing note in `/index.html` and `/questions/*/index.html`, then compare all four candidates with one another.
+- Past-article overlap is prohibited. Reject a candidate when its core social problem, primary target users, or operational bottleneck substantially overlaps any existing note.
+- The four articles in one run must also be mutually distinct on core social problem, primary target users, and operational bottleneck.
+- A different title, region, price, feature list, or revenue model does not make an overlapping topic unique.
+- Write the duplicate-check result for all four selected topics to the selection log in `EDITORIAL_POLICY.md`.
 - Prefer topics that help a technically skilled reader discover non-IT social issues adjacent to public safety, housing, parenting, education, pets, local administration, regional mobility, traditional industries, craftsmanship, and community operations.
 - Private user context may be injected by the automation scheduler. Use it only to guide topic selection. Never reveal or paraphrase private profile details in the article, diagram, sources, commit message, GitHub Issue comments, or public pages.
 
@@ -32,9 +35,9 @@ Check open GitHub Issues in `shimaMatz/notes`.
 
 ## Required Article Output
 
-Create `/questions/<ascii-slug>/index.html` using plain HTML and `/styles/site.css`.
+For each of the four topics, create `/questions/<ascii-slug>/index.html` using plain HTML and `/styles/site.css`.
 
-Also create at least one relevant diagram, figure, or image under the same note directory. A simple SVG system or operation diagram is acceptable.
+Also create at least one relevant diagram, figure, or image under each note directory. A simple SVG system or operation diagram is acceptable.
 
 Update `/index.html` so the note is discoverable.
 
@@ -57,7 +60,7 @@ Use `templates/business-plan-note-template.html` as the structure. The article m
 
 ## Completion
 
-Commit the changes with a concise topic-based message.
+Commit all four fallback articles as one batch with a concise message.
 
 Push to `origin/main`.
 
