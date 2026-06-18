@@ -1,39 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
-  <title id="title">伝統技術が途切れる連鎖</title>
-  <desc id="desc">需要減少から仕事減少、担い手と周辺産業の撤退、技術断絶へ進む流れと、仕事・研修・供給網支援で連鎖を止める方法</desc>
+  <title id="title">伝統工芸の継承リスク共有サービス</title>
+  <desc id="desc">職人、道具と原材料、指導可能工程の情報を共有台帳に集め、リスク判定、支援、研修につなぐ流れ</desc>
   <rect width="960" height="540" fill="#fff7ef"/>
-  <rect x="38" y="38" width="884" height="464" rx="28" fill="#fffdf9" stroke="#d4c8b8" stroke-width="2"/>
-  <text x="72" y="90" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="28" font-weight="700" fill="#241f1a">完成品だけを見ていると、継承危機の全体像を見落とす</text>
+  <rect x="40" y="38" width="880" height="464" rx="28" fill="#fffdf9" stroke="#d4c8b8" stroke-width="2"/>
+  <text x="70" y="88" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="28" font-weight="700" fill="#241f1a">点在する継承情報を、支援判断につながる台帳へ</text>
+  <text x="70" y="121" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#6a5f55">売上管理ではなく「何が・誰に依存し・いつ途切れそうか」を年2回更新する</text>
 
-  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif" text-anchor="middle">
-    <rect x="70" y="142" width="180" height="108" rx="18" fill="#f6d7c6" stroke="#9a3412"/>
-    <text x="160" y="188" font-size="22" font-weight="700" fill="#241f1a">需要が減る</text>
-    <text x="160" y="220" font-size="16" fill="#6a5f55">生活・祭礼の変化</text>
+  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif">
+    <rect x="70" y="158" width="210" height="76" rx="16" fill="#f6d7c6" stroke="#9a3412"/>
+    <text x="94" y="190" font-size="20" font-weight="700" fill="#241f1a">職人・指導者</text>
+    <text x="94" y="216" font-size="15" fill="#6a5f55">工程 / 指導可否 / 後継候補</text>
+    <rect x="70" y="252" width="210" height="76" rx="16" fill="#f6d7c6" stroke="#9a3412"/>
+    <text x="94" y="284" font-size="20" font-weight="700" fill="#241f1a">道具・原材料</text>
+    <text x="94" y="310" font-size="15" fill="#6a5f55">供給者 / 備蓄 / 代替可否</text>
+    <rect x="70" y="346" width="210" height="76" rx="16" fill="#f6d7c6" stroke="#9a3412"/>
+    <text x="94" y="378" font-size="20" font-weight="700" fill="#241f1a">組合・施設</text>
+    <text x="94" y="404" font-size="15" fill="#6a5f55">更新担当 / 支援実績 / 課題</text>
 
-    <rect x="285" y="142" width="180" height="108" rx="18" fill="#f4c9b5" stroke="#9a3412"/>
-    <text x="375" y="188" font-size="22" font-weight="700" fill="#241f1a">仕事が減る</text>
-    <text x="375" y="220" font-size="16" fill="#6a5f55">教える余力も減少</text>
+    <rect x="354" y="188" width="252" height="204" rx="26" fill="#241f1a"/>
+    <text x="480" y="235" text-anchor="middle" font-size="24" font-weight="700" fill="#fff8ef">継承リスク共有台帳</text>
+    <text x="480" y="276" text-anchor="middle" font-size="17" fill="#fff8ef">関係情報を共同更新</text>
+    <text x="480" y="310" text-anchor="middle" font-size="17" fill="#fff8ef">供給者1人・代替なしを警告</text>
+    <text x="480" y="344" text-anchor="middle" font-size="17" fill="#fff8ef">変更履歴と支援候補を出力</text>
 
-    <rect x="500" y="142" width="180" height="108" rx="18" fill="#efb79d" stroke="#9a3412"/>
-    <text x="590" y="180" font-size="21" font-weight="700" fill="#241f1a">人・道具・材料が</text>
-    <text x="590" y="211" font-size="21" font-weight="700" fill="#241f1a">撤退する</text>
-
-    <rect x="715" y="142" width="175" height="108" rx="18" fill="#9a3412" stroke="#75260d"/>
-    <text x="802" y="188" font-size="22" font-weight="700" fill="#fffaf4">技術が途切れる</text>
-    <text x="802" y="220" font-size="16" fill="#fff0e7">再開が極めて困難</text>
+    <rect x="680" y="158" width="210" height="76" rx="16" fill="#efb79d" stroke="#9a3412"/>
+    <text x="704" y="190" font-size="20" font-weight="700" fill="#241f1a">優先支援</text>
+    <text x="704" y="216" font-size="15" fill="#6a5f55">補助・備蓄・発注</text>
+    <rect x="680" y="252" width="210" height="76" rx="16" fill="#efb79d" stroke="#9a3412"/>
+    <text x="704" y="284" font-size="20" font-weight="700" fill="#241f1a">研修接続</text>
+    <text x="704" y="310" font-size="15" fill="#6a5f55">指導者と希望者の面談</text>
+    <rect x="680" y="346" width="210" height="76" rx="16" fill="#efb79d" stroke="#9a3412"/>
+    <text x="704" y="378" font-size="20" font-weight="700" fill="#241f1a">定期確認</text>
+    <text x="704" y="404" font-size="15" fill="#6a5f55">半年ごとの更新会議</text>
   </g>
 
   <g stroke="#9a3412" stroke-width="4" fill="none">
-    <path d="M250 196 H285"/><path d="M465 196 H500"/><path d="M680 196 H715"/>
+    <path d="M280 196 H354"/><path d="M280 290 H354"/><path d="M280 384 H354"/>
+    <path d="M606 196 H680"/><path d="M606 290 H680"/><path d="M606 384 H680"/>
   </g>
-  <g fill="#9a3412"><path d="M285 196 l-12 -8 v16z"/><path d="M500 196 l-12 -8 v16z"/><path d="M715 196 l-12 -8 v16z"/></g>
-
-  <rect x="92" y="324" width="776" height="124" rx="24" fill="#241f1a"/>
-  <text x="480" y="365" text-anchor="middle" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="23" font-weight="700" fill="#fff8ef">連鎖を止める三つの土台</text>
-  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="18" fill="#fff8ef" text-anchor="middle">
-    <text x="225" y="407">複数年の仕事をつくる</text>
-    <text x="480" y="407">教える時間と生活費を支える</text>
-    <text x="735" y="407">道具・原材料まで守る</text>
+  <g fill="#9a3412">
+    <path d="M354 196 l-12 -8 v16z"/><path d="M354 290 l-12 -8 v16z"/><path d="M354 384 l-12 -8 v16z"/>
+    <path d="M680 196 l-12 -8 v16z"/><path d="M680 290 l-12 -8 v16z"/><path d="M680 384 l-12 -8 v16z"/>
   </g>
-  <g fill="#efb79d"><circle cx="225" cy="431" r="5"/><circle cx="480" cy="431" r="5"/><circle cx="735" cy="431" r="5"/></g>
 </svg>

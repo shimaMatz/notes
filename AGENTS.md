@@ -17,7 +17,8 @@ This repository stores personal technical notes as static HTML pages.
 ## Editorial scope
 
 - When the user does not specify a topic, research current social issues and select a topic autonomously.
-- Do not select caregiving or IT as article themes unless the user explicitly requests them.
+- Do not select caregiving or problems inside the IT industry as article themes unless the user explicitly requests them.
+- For non-IT social problems, propose a concrete IT-based solution such as a small Web service, shared registry, workflow tool, or notification system.
 - Treat social issues broadly. Eligible themes include incidents, accidents, public safety, regional decline, disappearing industries, and the loss of valuable Japanese techniques or craftsmanship.
 - Prefer primary sources from governments, public institutions, standards bodies, or the organizations directly responsible for the subject.
 - Avoid repeating a recently covered field when another well-supported theme is available.
@@ -50,13 +51,14 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 ## No-open-issue fallback article creation
 
 - If an automation checks GitHub Issues and finds no open article requests, create one business-plan note instead of doing nothing.
-- The fallback topic must be a non-IT, non-caregiving social problem. Avoid topics whose core value is software, AI, SaaS, developer tools, technical education, or caregiving operations.
+- The fallback topic must be a non-IT, non-caregiving social problem. Avoid software-industry, AI-industry, developer-tool, technical-education, or caregiving problems; using IT to solve the selected social problem is required.
 - Before choosing a fallback topic, check existing notes in `/index.html` and `/questions/*/index.html`. Do not create a new note if the same social problem, same target users, and same operational gap have already been covered.
 - If a candidate is related to an existing note, make the angle clearly different. For example, change the beneficiary, setting, operational bottleneck, or revenue model; otherwise choose another topic.
 - Prefer fallback topics that help a technically skilled reader notice non-IT social issues adjacent to public safety, housing, parenting, education, pets, local administration, regional mobility, traditional industries, craftsmanship, and community operations.
 - Private user context may be used only to choose useful topic areas. Never include private profile details, family details, residence details, pet details, or other personal data in notes, diagrams, GitHub Issues, commit messages, or public pages.
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
 - Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.
+- Every fallback proposal must define the IT service, its users, core workflow, system requirements, and why paper, phone, chat, or spreadsheets are insufficient.
 - Use `templates/business-plan-note-template.html` as the article structure.
 - The plan must show the relation between problem, target users, existing gaps, service features, revenue, spending, profit, system requirements, AI-assisted development timeline, required people, and source links.
 - Include the formula `売上 - 支出 = 利益` and fill the numbers with realistic assumptions.

@@ -7,19 +7,20 @@ Use this prompt for a scheduled automation that creates a note when there are no
 Check open GitHub Issues in `shimaMatz/notes`.
 
 1. If there is an open Issue whose title starts with `質問:` or has the `article-request` label, process that Issue as the article request.
-2. If there are no open article request Issues, research one current non-IT social problem and create a business-plan note for a small service that can plausibly reach about 1,000,000 yen in first-year revenue.
+2. If there are no open article request Issues, research one current non-IT, non-caregiving social problem and create an IT-based business-plan note for a small service that can plausibly reach about 1,000,000 yen in first-year revenue.
 
 ## Topic Rules
 
 - The fallback topic must be a social problem outside the IT industry.
-- The proposed business may use a small web system, but the social issue itself must not be an IT or software problem.
+- The proposed business must use a concrete IT solution such as a small Web service, shared registry, workflow tool, notification system, or reporting system, while the social issue itself must not be an IT or software problem.
+- Do not select caregiving as the problem domain unless the user explicitly requests it.
 - Choose a narrow operational gap that one person can realistically serve.
 - Prefer problems where timing, coordination, reporting, local labor, inventory, transport, communication, or administrative burden creates pain.
 - Avoid giant-platform ideas. Define a reachable first-year market instead of a national TAM.
 - Before choosing a topic, scan existing notes in `/index.html` and `/questions/*/index.html`.
 - Do not create a duplicate note. Reject a candidate if an existing note already covers the same social problem, target users, and operational gap.
 - If a candidate is adjacent to an existing note, make the distinction explicit in the new angle before writing; otherwise choose a different topic.
-- Prefer topics that help a technically skilled reader discover non-IT social issues adjacent to everyday life, family, housing, caregiving, parenting, pets, local administration, regional mobility, and community operations.
+- Prefer topics that help a technically skilled reader discover non-IT social issues adjacent to public safety, housing, parenting, education, pets, local administration, regional mobility, traditional industries, craftsmanship, and community operations.
 - Private user context may be injected by the automation scheduler. Use it only to guide topic selection. Never reveal or paraphrase private profile details in the article, diagram, sources, commit message, GitHub Issue comments, or public pages.
 
 ## Required Research
@@ -44,6 +45,7 @@ Use `templates/business-plan-note-template.html` as the structure. The article m
 - Current field issues and existing means
 - Service concept
 - Useful functions or service components
+- Why paper, phone, chat, spreadsheets, or generic tools are insufficient
 - 1,000,000 yen-scale market setting
 - Revenue model
 - Spending and system requirements
