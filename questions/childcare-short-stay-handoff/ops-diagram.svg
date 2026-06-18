@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">子育て短期支援とファミサポの夜間休日ハンドオフ図</title>
+  <desc id="desc">相談受付から制度分岐、支援確定、記録共有までの流れを示す図</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f3c88" />
+    </marker>
+    <style>
+      .bg { fill: #f7f4ea; }
+      .card { fill: #fffdf8; stroke: #1f3c88; stroke-width: 2; rx: 18; ry: 18; }
+      .accent { fill: #d8e7ff; stroke: #1f3c88; stroke-width: 2; rx: 18; ry: 18; }
+      .warn { fill: #ffe7cf; stroke: #9a4f00; stroke-width: 2; rx: 18; ry: 18; }
+      .line { stroke: #1f3c88; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .soft { stroke: #9a4f00; stroke-width: 3; fill: none; stroke-dasharray: 8 8; marker-end: url(#arrow); }
+      .h1 { font: 700 28px sans-serif; fill: #13264d; }
+      .h2 { font: 700 22px sans-serif; fill: #13264d; }
+      .body { font: 400 18px sans-serif; fill: #21304f; }
+      .small { font: 400 16px sans-serif; fill: #5a4a32; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="540" />
+  <text class="h1" x="48" y="58">夜間休日の子育て支援ハンドオフ</text>
+  <text class="small" x="48" y="88">受付を一本化し、制度分岐と確定連絡を同じ台帳で回す</text>
+
+  <rect class="accent" x="48" y="132" width="240" height="110" />
+  <text class="h2" x="72" y="172">1. 一次受付</text>
+  <text class="body" x="72" y="205">保護者事情</text>
+  <text class="body" x="72" y="230">年齢・送迎・当日性</text>
+
+  <rect class="card" x="360" y="110" width="250" height="150" />
+  <text class="h2" x="388" y="150">2. 分岐判定</text>
+  <text class="body" x="388" y="185">ファミサポ優先</text>
+  <text class="body" x="388" y="212">短期支援優先</text>
+  <text class="body" x="388" y="239">翌朝判断</text>
+
+  <rect class="card" x="690" y="72" width="220" height="110" />
+  <text class="h2" x="716" y="114">3A. ファミサポ</text>
+  <text class="body" x="716" y="147">協力会員照会</text>
+  <text class="body" x="716" y="172">送迎条件確認</text>
+
+  <rect class="card" x="690" y="214" width="220" height="110" />
+  <text class="h2" x="716" y="256">3B. 短期支援</text>
+  <text class="body" x="716" y="289">受入先照会</text>
+  <text class="body" x="716" y="314">宿泊可否確認</text>
+
+  <rect class="warn" x="360" y="324" width="250" height="120" />
+  <text class="h2" x="388" y="364">4. 空白を防ぐ要点</text>
+  <text class="body" x="388" y="397">持ち物テンプレート</text>
+  <text class="body" x="388" y="423">確定責任者を明記</text>
+
+  <rect class="accent" x="690" y="378" width="220" height="110" />
+  <text class="h2" x="716" y="420">5. 確定連絡</text>
+  <text class="body" x="716" y="453">時刻・場所・記録共有</text>
+
+  <path class="line" d="M288 187 H340" />
+  <path class="line" d="M610 170 H670" />
+  <path class="line" d="M610 215 H670" />
+  <path class="line" d="M800 324 V358" />
+  <path class="line" d="M610 384 H670" />
+  <path class="soft" d="M170 242 C170 320, 290 380, 340 384" />
+</svg>
