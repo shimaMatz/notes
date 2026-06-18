@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">マンション管理組合の理事引き継ぎと修繕記録を整理する運用図</title>
+  <desc id="desc">理事会、管理会社、修繕案件、次年度理事をつなぐ小規模サービスの図</desc>
+  <rect width="1200" height="760" fill="#f6f1e8" />
+  <rect x="56" y="48" width="1088" height="664" rx="28" fill="#fffaf2" stroke="#d8cbb5" stroke-width="2" />
+  <text x="88" y="106" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="30" font-weight="700" fill="#2d241d">理事交代のたびに散る修繕メモを、次年度へ渡せる台帳にまとめる</text>
+  <text x="88" y="144" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#6f6254">設備ごとの相談経緯、見積比較、総会宿題、次回確認日だけを残し、再説明と資料探索を減らす。</text>
+
+  <rect x="96" y="196" width="280" height="170" rx="24" fill="#f4dfc7" stroke="#c99562" stroke-width="2" />
+  <text x="236" y="242" text-anchor="middle" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="24" font-weight="700" fill="#2d241d">現年度理事会</text>
+  <text x="128" y="286" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">1. 設備不具合を登録</text>
+  <text x="128" y="318" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">2. 見積と保留理由を記録</text>
+  <text x="128" y="350" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">3. 総会宿題に期限を付ける</text>
+
+  <rect x="458" y="180" width="286" height="204" rx="24" fill="#f0eadb" stroke="#a69579" stroke-width="2" />
+  <text x="601" y="230" text-anchor="middle" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="24" font-weight="700" fill="#2d241d">理事引き継ぎ台帳</text>
+  <text x="490" y="272" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">設備別メモ</text>
+  <text x="490" y="304" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">見積比較と判断理由</text>
+  <text x="490" y="336" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">総会宿題と期限</text>
+  <text x="490" y="368" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#4d4035">次年度用PDFとCSV</text>
+
+  <rect x="826" y="196" width="280" height="170" rx="24" fill="#dcead9" stroke="#7da070" stroke-width="2" />
+  <text x="966" y="242" text-anchor="middle" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="24" font-weight="700" fill="#2d241d">管理会社・業者</text>
+  <text x="858" y="286" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#40523a">見積再取得</text>
+  <text x="858" y="318" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#40523a">現地確認</text>
+  <text x="858" y="350" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#40523a">次回相談日を反映</text>
+
+  <rect x="142" y="472" width="326" height="148" rx="24" fill="#fff1d8" stroke="#cfab5d" stroke-width="2" />
+  <text x="305" y="520" text-anchor="middle" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="24" font-weight="700" fill="#2d241d">住民説明</text>
+  <text x="174" y="560" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#5a4833">総会前の説明資料を抽出</text>
+  <text x="174" y="592" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#5a4833">未完了案件だけを一覧化</text>
+
+  <rect x="712" y="472" width="346" height="148" rx="24" fill="#e3eef7" stroke="#7ea0bc" stroke-width="2" />
+  <text x="885" y="520" text-anchor="middle" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="24" font-weight="700" fill="#2d241d">次年度理事</text>
+  <text x="744" y="560" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#394c5f">引き継ぎPDFから未完了案件を確認</text>
+  <text x="744" y="592" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="17" fill="#394c5f">前年度の判断理由を読み直せる</text>
+
+  <path d="M376 280 H458" fill="none" stroke="#8b745d" stroke-width="4" />
+  <polygon points="458,280 442,272 442,288" fill="#8b745d" />
+  <path d="M744 280 H826" fill="none" stroke="#8b745d" stroke-width="4" />
+  <polygon points="826,280 810,272 810,288" fill="#8b745d" />
+  <path d="M601 384 V472" fill="none" stroke="#8b745d" stroke-width="4" />
+  <polygon points="601,472 593,456 609,456" fill="#8b745d" />
+  <path d="M468 546 H712" fill="none" stroke="#8b745d" stroke-width="4" />
+  <polygon points="712,546 696,538 696,554" fill="#8b745d" />
+
+  <text x="88" y="680" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="16" fill="#6f6254">成果物: 設備別メモ / 総会宿題一覧 / 次年度理事向け引き継ぎPDF / 管理会社共有用CSV</text>
+</svg>
