@@ -24,6 +24,9 @@
 - Webサービス、共有台帳、通知、帳票など、具体的なITによる解決策を示す。
 - 初年度に直接営業できる到達可能市場を置き、売上約100万円の計算を示す。
 - システム費、AIを使った開発期間、必要人数、利益、リスク、最初の実証方法を示す。
+- システム要件と支出はAWS構成を前提にし、S3/CloudFront、Cognito、API Gateway、Lambda、DynamoDB、SES、CloudWatch、Backup、Budgets、Route 53をリソース別に記載する。地図を使う場合はAmazon Location Serviceも含める。
+- 各AWSリソースについて、用途、想定使用量、月額概算、年額概算を示す。特にDynamoDBは「案件・状態・担当・期限・履歴」など、その記事で何を保存するかを明記する。
+- AWS費用は東京リージョン、無料枠を除外、為替前提を明記した概算とし、公開前にAWS Pricing Calculatorで再計算する注意書きを付ける。
 - アプリの主要一覧画面と詳細・操作画面を、それぞれ独立したローカルSVGワイヤーフレームとして2枚掲載する。概念図だけでは代替しない。
 - 記述構成は `questions/disaster-pet-evacuation-registry/index.html` と `templates/business-plan-note-template.html` を基準にする。
 

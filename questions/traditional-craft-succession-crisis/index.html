@@ -97,17 +97,22 @@
         成果報酬では技術継承の成否を短期判定できません。<strong>名簿更新と支援判断の作業時間を減らす固定課金</strong>にします。
       </p>
 
-      <h2>必要なシステム要件と支出</h2>
+      <h2>AWSシステム要件と支出</h2>
+      <p>東京リージョン、無料枠を除外、1 USD = 150円、20組織・200利用者・月2万APIリクエストを前提にした予算上限です。実装前にAWS Pricing Calculatorで再計算します。</p>
       <table>
-        <thead><tr><th>領域</th><th>要件・使い道</th><th>年額の目安</th></tr></thead>
+        <thead><tr><th>AWSリソース</th><th>用途</th><th>想定使用量</th><th>月額</th><th>年額</th></tr></thead>
         <tbody>
-          <tr><td>フロント</td><td>スマホ・PCで工程、担い手、道具、材料を更新できるWeb画面</td><td>0円〜</td></tr>
-          <tr><td>バックエンド</td><td>組織、工程、担い手、供給者、更新履歴、権限を管理</td><td>36,000円</td></tr>
-          <tr><td>通知</td><td>半年ごとの更新依頼と高リスク項目のメール通知</td><td>12,000円</td></tr>
-          <tr><td>帳票・記録</td><td>CSV入出力、支援優先度PDF、変更履歴</td><td>18,000円</td></tr>
-          <tr><td>運用</td><td>ドメイン、監視、バックアップ、問い合わせ管理</td><td>36,000円</td></tr>
-          <tr><td>専門確認</td><td>利用規約、情報公開範囲、組合向け説明資料の確認</td><td>60,000円</td></tr>
-          <tr><td>年間支出</td><td>合計</td><td><strong>162,000円</strong></td></tr>
+          <tr><td>S3 + CloudFront</td><td>Web画面、工程写真、PDFの保存と配信</td><td>10GB、月10GB配信</td><td>800円</td><td>9,600円</td></tr>
+          <tr><td>Cognito</td><td>職人、組合、自治体担当の認証と組織別権限</td><td>200 MAU</td><td>300円</td><td>3,600円</td></tr>
+          <tr><td>API Gateway</td><td>台帳の登録・検索API</td><td>月2万リクエスト</td><td>300円</td><td>3,600円</td></tr>
+          <tr><td>Lambda</td><td>リスク判定、CSV取込、PDF生成</td><td>月2万実行</td><td>300円</td><td>3,600円</td></tr>
+          <tr><td>DynamoDB</td><td>組織、工程、担い手、道具、原材料、供給者、危険度、担当、期限、変更履歴を保存</td><td>オンデマンド、1GB、月5万読書き</td><td>500円</td><td>6,000円</td></tr>
+          <tr><td>SES</td><td>更新依頼と高リスク項目のメール通知</td><td>月2,000通</td><td>100円</td><td>1,200円</td></tr>
+          <tr><td>CloudWatch + Backup + Budgets</td><td>ログ監視、日次バックアップ、月額予算アラート</td><td>ログ1GB、日次バックアップ</td><td>500円</td><td>6,000円</td></tr>
+          <tr><td>Route 53</td><td>独自ドメインのDNS</td><td>1ホストゾーン</td><td>100円</td><td>1,200円</td></tr>
+          <tr><td>AWS利用料</td><td colspan="2">合計</td><td><strong>2,900円</strong></td><td><strong>34,800円</strong></td></tr>
+          <tr><td>専門確認</td><td>利用規約、情報公開範囲、工芸用語の確認</td><td>単発</td><td>-</td><td>60,000円</td></tr>
+          <tr><td>年間支出</td><td colspan="3">AWS利用料 + 専門確認</td><td><strong>94,800円</strong></td></tr>
         </tbody>
       </table>
 
@@ -133,8 +138,8 @@
         <thead><tr><th>項目</th><th>金額</th><th>補足</th></tr></thead>
         <tbody>
           <tr><td>売上</td><td>1,020,000円</td><td>月額4,000円 x 20組織 x 12か月 + 導入支援60,000円</td></tr>
-          <tr><td>支出</td><td>162,000円</td><td>基盤、通知、帳票、運用、専門確認</td></tr>
-          <tr><td>利益</td><td><strong>858,000円</strong></td><td>実行者の人件費と税金は別途。副業または小規模検証の事業利益</td></tr>
+          <tr><td>支出</td><td>94,800円</td><td>AWS利用料34,800円 + 専門確認60,000円</td></tr>
+          <tr><td>利益</td><td><strong>925,200円</strong></td><td>実行者の人件費と税金は別途。副業または小規模検証の事業利益</td></tr>
         </tbody>
       </table>
 
@@ -170,6 +175,8 @@
           <li><a href="https://www.bunka.go.jp/seisaku/bunkazai/joseishien/bunkageijutsu_sinkohi_hojokin/r7/index.html">文化庁: 美術工芸品修理のための用具・原材料と生産技術の保護・育成等促進事業</a></li>
           <li><a href="https://www.meti.go.jp/policy/mono_info_service/mono/nichiyo-densan/index.html">経済産業省: 伝統的工芸品</a></li>
           <li><a href="https://www.chubu.meti.go.jp/c52kanko/info_2025/20260224/report02-20260224.pdf">中部経済産業局: 地域ブランド化推進セミナー資料（2026年2月）</a></li>
+          <li><a href="https://aws.amazon.com/jp/dynamodb/pricing/on-demand/">AWS: DynamoDBオンデマンド料金</a></li>
+          <li><a href="https://aws.amazon.com/jp/pricing/">AWS: AWS料金の考え方と料金計算ツール</a></li>
         </ul>
       </section>
     </article>

@@ -137,50 +137,90 @@
         初期は<strong>{{REVENUE_MODEL_RATIONALE}}</strong>の方が読みやすいです。
       </p>
 
-      <h2>必要なシステム要件と支出</h2>
+      <h2>AWSシステム要件と支出</h2>
+      <p>
+        概算条件は<strong>東京リージョン、無料枠を除外、1 USD = {{JPY_PER_USD}}円</strong>です。
+        初年度の小規模利用を前提に予算上限を丸めています。実装前にAWS Pricing Calculatorで再計算します。
+      </p>
       <table>
         <thead>
           <tr>
-            <th>領域</th>
-            <th>要件・使い道</th>
-            <th>年額の目安</th>
+            <th>AWSリソース</th>
+            <th>用途</th>
+            <th>想定使用量</th>
+            <th>月額概算</th>
+            <th>年額概算</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>フロント</td>
-            <td>{{FRONTEND_REQUIREMENT}}</td>
-            <td>{{FRONTEND_COST}}</td>
+            <td>Amazon S3 + CloudFront</td>
+            <td>{{S3_CLOUDFRONT_PURPOSE}}</td>
+            <td>{{S3_CLOUDFRONT_USAGE}}</td>
+            <td>{{S3_CLOUDFRONT_MONTHLY_COST}}</td>
+            <td>{{S3_CLOUDFRONT_ANNUAL_COST}}</td>
           </tr>
           <tr>
-            <td>バックエンド</td>
-            <td>{{BACKEND_REQUIREMENT}}</td>
-            <td>{{BACKEND_COST}}</td>
+            <td>Amazon Cognito</td>
+            <td>利用者認証と組織別権限</td>
+            <td>{{COGNITO_USAGE}}</td>
+            <td>{{COGNITO_MONTHLY_COST}}</td>
+            <td>{{COGNITO_ANNUAL_COST}}</td>
           </tr>
           <tr>
-            <td>通知</td>
-            <td>{{NOTIFICATION_REQUIREMENT}}</td>
-            <td>{{NOTIFICATION_COST}}</td>
+            <td>Amazon API Gateway</td>
+            <td>Web画面からのAPIリクエスト受付</td>
+            <td>{{API_GATEWAY_USAGE}}</td>
+            <td>{{API_GATEWAY_MONTHLY_COST}}</td>
+            <td>{{API_GATEWAY_ANNUAL_COST}}</td>
           </tr>
           <tr>
-            <td>帳票・記録</td>
-            <td>{{REPORTING_REQUIREMENT}}</td>
-            <td>{{REPORTING_COST}}</td>
+            <td>AWS Lambda</td>
+            <td>{{LAMBDA_PURPOSE}}</td>
+            <td>{{LAMBDA_USAGE}}</td>
+            <td>{{LAMBDA_MONTHLY_COST}}</td>
+            <td>{{LAMBDA_ANNUAL_COST}}</td>
           </tr>
           <tr>
-            <td>運用</td>
-            <td>{{OPS_REQUIREMENT}}</td>
-            <td>{{OPS_COST}}</td>
+            <td>Amazon DynamoDB</td>
+            <td>{{DYNAMODB_RECORDS_STORED}}</td>
+            <td>{{DYNAMODB_USAGE}}</td>
+            <td>{{DYNAMODB_MONTHLY_COST}}</td>
+            <td>{{DYNAMODB_ANNUAL_COST}}</td>
           </tr>
           <tr>
-            <td>その他支出</td>
-            <td>{{OTHER_EXPENSE_REQUIREMENT}}</td>
-            <td>{{OTHER_EXPENSE_COST}}</td>
+            <td>Amazon SES</td>
+            <td>{{SES_PURPOSE}}</td>
+            <td>{{SES_USAGE}}</td>
+            <td>{{SES_MONTHLY_COST}}</td>
+            <td>{{SES_ANNUAL_COST}}</td>
           </tr>
           <tr>
-            <td>年間支出</td>
-            <td>合計</td>
-            <td><strong>{{TOTAL_EXPENSE}}</strong></td>
+            <td>CloudWatch + AWS Backup + AWS Budgets</td>
+            <td>ログ監視、復旧用バックアップ、予算超過通知</td>
+            <td>{{OPS_AWS_USAGE}}</td>
+            <td>{{OPS_AWS_MONTHLY_COST}}</td>
+            <td>{{OPS_AWS_ANNUAL_COST}}</td>
+          </tr>
+          <tr>
+            <td>Amazon Route 53</td>
+            <td>独自ドメインのDNS</td>
+            <td>1ホストゾーン</td>
+            <td>{{ROUTE53_MONTHLY_COST}}</td>
+            <td>{{ROUTE53_ANNUAL_COST}}</td>
+          </tr>
+          <tr>
+            <td>{{OPTIONAL_AWS_RESOURCE}}</td>
+            <td>{{OPTIONAL_AWS_PURPOSE}}</td>
+            <td>{{OPTIONAL_AWS_USAGE}}</td>
+            <td>{{OPTIONAL_AWS_MONTHLY_COST}}</td>
+            <td>{{OPTIONAL_AWS_ANNUAL_COST}}</td>
+          </tr>
+          <tr>
+            <td>AWS利用料</td>
+            <td colspan="2">合計</td>
+            <td><strong>{{AWS_TOTAL_MONTHLY_COST}}</strong></td>
+            <td><strong>{{AWS_TOTAL_ANNUAL_COST}}</strong></td>
           </tr>
         </tbody>
       </table>

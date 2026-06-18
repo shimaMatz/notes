@@ -63,6 +63,8 @@ Use `templates/business-plan-note-template.html` as the structure. The article m
 - Risks and first validation steps
 - Sources
 
+The system-cost section must use an AWS serverless architecture. Do not use generic cost categories such as frontend, backend, or notification. List AWS resources separately with purpose, usage assumption, estimated monthly cost, and estimated annual cost. Include S3/CloudFront, Cognito, API Gateway, Lambda, DynamoDB, SES, CloudWatch, Backup, Budgets, and Route 53; include Amazon Location Service for map features. Explain the product-specific records stored in DynamoDB. State region, JPY/USD exchange rate, Free Tier treatment, and that AWS Pricing Calculator must be used again before launch.
+
 ## Completion
 
 Commit all four fallback articles as one batch with a concise message.

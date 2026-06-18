@@ -61,6 +61,10 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
 - Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.
 - Every fallback proposal must define the IT service, its users, core workflow, system requirements, and why paper, phone, chat, or spreadsheets are insufficient.
+- Base the system architecture and infrastructure spending on AWS. List each AWS resource separately, including its purpose, usage assumption, estimated monthly cost, and estimated annual cost.
+- At minimum, consider Amazon S3/CloudFront, Amazon Cognito, Amazon API Gateway, AWS Lambda, Amazon DynamoDB, Amazon SES, Amazon CloudWatch, AWS Backup, AWS Budgets, and Amazon Route 53. Add Amazon Location Service when the product uses maps.
+- Explain exactly what DynamoDB stores for that product, such as organizations, cases, statuses, assignments, deadlines, and audit history. Do not use generic rows such as "backend: 36,000 yen".
+- State the AWS region, exchange-rate assumption, whether Free Tier credits are excluded, and that the estimate must be recalculated with AWS Pricing Calculator before launch.
 - Every fallback article must show two local SVG app wireframes: an overview/list screen and a detail/action screen. A conceptual flow diagram does not satisfy this requirement.
 - Use `templates/business-plan-note-template.html` as the article structure.
 - The plan must show the relation between problem, target users, existing gaps, service features, revenue, spending, profit, system requirements, AI-assisted development timeline, required people, and source links.
