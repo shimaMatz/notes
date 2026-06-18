@@ -17,10 +17,11 @@ This repository stores personal technical notes as static HTML pages.
 
 ## Editorial scope
 
-- When the user does not specify a topic, research current social issues and select a topic autonomously.
-- Do not select caregiving or problems inside the IT industry as article themes unless the user explicitly requests them.
-- For non-IT social problems, propose a concrete IT-based solution such as a small Web service, shared registry, workflow tool, or notification system.
-- Treat social issues broadly. Eligible themes include incidents, accidents, public safety, regional decline, disappearing industries, and the loss of valuable Japanese techniques or craftsmanship.
+- When the user does not specify a topic, research both current social issues and appealing small consumer-app experiences, then select a commercially plausible topic autonomously.
+- A topic does not need to solve a social problem. Ambient, playful, visual, creative, widget-based, and everyday-delight apps are eligible when their value is clear without inventing a serious problem.
+- Do not select caregiving as an article theme unless the user explicitly requests it.
+- For social problems, propose a concrete IT-based solution such as a small Web service, shared registry, workflow tool, or notification system.
+- For experience-led apps, explain the core delight, context trigger, repeat-use loop, device surface, and why a user would keep or pay for it.
 - Prefer primary sources from governments, public institutions, standards bodies, or the organizations directly responsible for the subject.
 - Avoid repeating a recently covered field when another well-supported theme is available.
 
@@ -52,11 +53,11 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 ## No-open-issue fallback article creation
 
 - If an automation checks GitHub Issues and finds no open article requests, create exactly four business-plan notes in that run instead of doing nothing.
-- The fallback topic must be a non-IT, non-caregiving social problem. Avoid software-industry, AI-industry, developer-tool, technical-education, or caregiving problems; using IT to solve the selected social problem is required.
+- Fallback topics may be either non-caregiving social-problem solutions or small experience-led consumer apps. Do not force every idea into a social-problem narrative.
 - Before choosing fallback topics, inspect every existing note in `/index.html` and `/questions/*/index.html`, plus the other three candidates in the current batch.
-- Reusing a past article's core social problem, primary target users, or operational bottleneck is prohibited. Reject a candidate if any of those substantially overlaps an existing note or another candidate in the same batch; changing only the title, region, price, or revenue model is not enough.
+- Reusing a past article's core problem or experience, primary audience, or central usage loop is prohibited. Reject a candidate if any of those substantially overlaps an existing note or another candidate in the same batch; changing only the visual theme, title, region, price, or revenue model is not enough.
 - Record the duplicate check for all four selected topics in `EDITORIAL_POLICY.md`.
-- Prefer fallback topics that help a technically skilled reader notice non-IT social issues adjacent to public safety, housing, parenting, education, pets, local administration, regional mobility, traditional industries, craftsmanship, and community operations.
+- Keep a mix of useful social-problem services and delightful consumer apps. Eligible consumer directions include time/weather-linked worlds, widgets, calm ambient displays, collections, lightweight creativity, and small daily rituals.
 - Private user context may be used only to choose useful topic areas. Never include private profile details, family details, residence details, pet details, or other personal data in notes, diagrams, GitHub Issues, commit messages, or public pages.
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
 - Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.
