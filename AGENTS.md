@@ -8,7 +8,8 @@ This repository stores personal technical notes as static HTML pages.
 
 - Create one page per question or topic.
 - Use plain HTML and reference shared styles from `/styles/site.css`.
-- Include at least one relevant image, diagram, or figure in every note page.
+- Include exactly two relevant app wireframe images in every business-plan note page: one primary overview/list screen and one detail/action screen.
+- Store both wireframes as local SVG files in the article directory and render each in its own `<figure>` with a descriptive `<figcaption>`.
 - End every note with source links to primary references when possible.
 - Do not include secrets, tokens, passwords, private keys, or personal data.
 - Do not commit JSON, YAML, `.env`, or credential-like files unless I explicitly ask for them.
@@ -38,7 +39,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 
 - Treat any user message starting with `質問` as a request to add or update an article in this repository.
 - After creating the article, also update the top page so the note is discoverable.
-- Ensure the note includes at least one relevant image or diagram.
+- Ensure a business-plan note includes two app wireframes: an overview/list screen and a detail/action screen.
 - Use a concise commit message based on the article topic.
 - Push to `origin/main` after the commit succeeds.
 
@@ -46,7 +47,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 
 - Open GitHub Issues titled with the prefix `質問:` are article requests.
 - The issue body should explain the topic, desired depth, and any required source links.
-- When processing an issue-based request, create or update the article with at least one image or diagram, commit, push, then comment on the issue with the published page URL and close the issue.
+- When processing an issue-based business-plan request, create or update the article with two app wireframes, commit, push, then comment on the issue with the published page URL and close the issue.
 
 ## No-open-issue fallback article creation
 
@@ -60,6 +61,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
 - Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.
 - Every fallback proposal must define the IT service, its users, core workflow, system requirements, and why paper, phone, chat, or spreadsheets are insufficient.
+- Every fallback article must show two local SVG app wireframes: an overview/list screen and a detail/action screen. A conceptual flow diagram does not satisfy this requirement.
 - Use `templates/business-plan-note-template.html` as the article structure.
 - The plan must show the relation between problem, target users, existing gaps, service features, revenue, spending, profit, system requirements, AI-assisted development timeline, required people, and source links.
 - Include the formula `売上 - 支出 = 利益` and fill the numbers with realistic assumptions.

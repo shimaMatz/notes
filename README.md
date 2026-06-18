@@ -54,7 +54,7 @@ python3 -m http.server 8000
 1. 毎日3時、9時、14時（Asia/Tokyo）に `shimaMatz/notes` の open issue を確認する
 2. タイトルが `質問:` で始まるもの、または `article-request` ラベルが付いたものを処理する
 3. 対象Issueが0件の場合だけ、過去記事とも相互にも重複しない社会問題を4件選び、ITによる小規模事業計画を4記事作成する
-4. 各記事に画像または図版を追加し、`index.html` と `EDITORIAL_POLICY.md` の選定ログを更新する
+4. 各記事にアプリの「主要一覧画面」と「詳細・操作画面」のSVGワイヤーフレームを2枚追加し、`index.html` と `EDITORIAL_POLICY.md` の選定ログを更新する
 5. commit して `main` に push する
 6. Issue起点の場合は、公開 URL をコメントして処理済み Issue を close する
 

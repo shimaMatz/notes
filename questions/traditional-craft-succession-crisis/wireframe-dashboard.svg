@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">継承リスク共有台帳の一覧画面</title>
+  <desc id="desc">工芸工程、道具、原材料のリスク、担当、更新日を一覧表示するデスクトップアプリのワイヤーフレーム</desc>
+  <rect width="960" height="640" fill="#f3efe7"/>
+  <rect x="34" y="28" width="892" height="584" rx="24" fill="#fffdf9" stroke="#c8bbab" stroke-width="2"/>
+  <rect x="34" y="28" width="892" height="64" rx="24" fill="#241f1a"/>
+  <rect x="34" y="68" width="892" height="24" fill="#241f1a"/>
+  <text x="68" y="69" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="22" font-weight="700" fill="#fff8ef">継承リスク台帳</text>
+  <circle cx="850" cy="60" r="16" fill="#f6d7c6"/><text x="850" y="66" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#241f1a">組</text>
+
+  <rect x="34" y="92" width="180" height="520" fill="#f7eee5"/>
+  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="16" fill="#6a5f55">
+    <rect x="50" y="118" width="148" height="44" rx="10" fill="#f6d7c6"/>
+    <text x="70" y="146" font-weight="700" fill="#9a3412">ダッシュボード</text>
+    <text x="70" y="198">工程・技法</text><text x="70" y="244">道具・材料</text>
+    <text x="70" y="290">担い手・指導者</text><text x="70" y="336">支援アクション</text>
+    <text x="70" y="382">更新履歴</text>
+  </g>
+
+  <text x="246" y="134" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="25" font-weight="700" fill="#241f1a">リスク状況</text>
+  <text x="246" y="160" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="14" fill="#6a5f55">最終集計 2026年6月19日</text>
+  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif">
+    <rect x="246" y="184" width="192" height="92" rx="16" fill="#fff1ea" stroke="#d36b3d"/>
+    <text x="266" y="212" font-size="14" fill="#6a5f55">要緊急対応</text><text x="266" y="255" font-size="34" font-weight="700" fill="#9a3412">6</text>
+    <rect x="456" y="184" width="192" height="92" rx="16" fill="#fff8e5" stroke="#c59a35"/>
+    <text x="476" y="212" font-size="14" fill="#6a5f55">要確認</text><text x="476" y="255" font-size="34" font-weight="700" fill="#8a6518">14</text>
+    <rect x="666" y="184" width="226" height="92" rx="16" fill="#eef5ec" stroke="#6f8d68"/>
+    <text x="686" y="212" font-size="14" fill="#6a5f55">更新期限内</text><text x="686" y="255" font-size="34" font-weight="700" fill="#456140">38</text>
+  </g>
+
+  <rect x="246" y="304" width="646" height="50" rx="12" fill="#f7eee5"/>
+  <text x="268" y="335" font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="15" fill="#6a5f55">検索: 工程・道具・材料</text>
+  <rect x="742" y="314" width="130" height="30" rx="8" fill="#fffdf9" stroke="#c8bbab"/><text x="807" y="334" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#6a5f55">危険度で絞る</text>
+
+  <g font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="13">
+    <rect x="246" y="370" width="646" height="42" fill="#241f1a"/>
+    <text x="266" y="396" fill="#fff8ef">対象</text><text x="474" y="396" fill="#fff8ef">区分</text><text x="592" y="396" fill="#fff8ef">状態</text><text x="686" y="396" fill="#fff8ef">担当</text><text x="790" y="396" fill="#fff8ef">更新</text>
+    <rect x="246" y="412" width="646" height="54" fill="#fff6f1" stroke="#e2d7ca"/>
+    <text x="266" y="444" fill="#241f1a">漆刷毛・仕上げ用</text><text x="474" y="444" fill="#6a5f55">道具</text><rect x="582" y="426" width="72" height="24" rx="12" fill="#f6d7c6"/><text x="618" y="443" text-anchor="middle" fill="#9a3412">緊急</text><text x="686" y="444" fill="#241f1a">山田</text><text x="790" y="444" fill="#6a5f55">42日前</text>
+    <rect x="246" y="466" width="646" height="54" fill="#fffdf9" stroke="#e2d7ca"/>
+    <text x="266" y="498" fill="#241f1a">ノリウツギ</text><text x="474" y="498" fill="#6a5f55">原材料</text><rect x="582" y="480" width="72" height="24" rx="12" fill="#fff0c9"/><text x="618" y="497" text-anchor="middle" fill="#8a6518">確認</text><text x="686" y="498" fill="#241f1a">佐藤</text><text x="790" y="498" fill="#6a5f55">12日前</text>
+    <rect x="246" y="520" width="646" height="54" fill="#fffdf9" stroke="#e2d7ca"/>
+    <text x="266" y="552" fill="#241f1a">金箔押し工程</text><text x="474" y="552" fill="#6a5f55">工程</text><rect x="582" y="534" width="72" height="24" rx="12" fill="#e5efe2"/><text x="618" y="551" text-anchor="middle" fill="#456140">正常</text><text x="686" y="552" fill="#241f1a">鈴木</text><text x="790" y="552" fill="#6a5f55">3日前</text>
+  </g>
+</svg>

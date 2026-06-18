@@ -37,7 +37,12 @@ Check open GitHub Issues in `shimaMatz/notes`.
 
 For each of the four topics, create `/questions/<ascii-slug>/index.html` using plain HTML and `/styles/site.css`.
 
-Also create at least one relevant diagram, figure, or image under each note directory. A simple SVG system or operation diagram is acceptable.
+For every article, create exactly two local SVG app wireframes under its note directory:
+
+1. A primary overview/list screen showing the main records, statuses, filters, or alerts.
+2. A detail/action screen showing one selected record, its history, responsible party, and the next action.
+
+Render both wireframes as separate `<figure>` elements with descriptive alt text and captions. Conceptual flow diagrams do not satisfy this requirement.
 
 Update `/index.html` so the note is discoverable.
 

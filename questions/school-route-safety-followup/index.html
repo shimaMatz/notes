@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>通学路の危険箇所と対策完了を追跡する小規模サービス案</title><meta name="description" content="通学路合同点検後の対策状況を学校・道路管理者・警察で追跡する小規模IT事業案です。" /><link rel="stylesheet" href="../../styles/site.css" /></head>
 <body class="note"><article><p class="eyebrow">Question Note</p><h1>通学路の危険箇所と対策完了を追跡する小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
-<figure><img src="school-route-flow.svg" alt="危険箇所の発見から合同確認、対策、再確認までの流れ" /><figcaption>合同点検を一度きりで終わらせず、担当機関別の対策と再確認まで同じ案件として追う。</figcaption></figure>
+<figure><img src="wireframe-dashboard.svg" alt="通学路危険箇所の一覧画面ワイヤーフレーム" /><figcaption>地図と案件一覧で、危険度、担当機関、期限、対策状況を確認する。</figcaption></figure>
+<figure><img src="wireframe-detail.svg" alt="通学路危険箇所の詳細・再確認画面ワイヤーフレーム" /><figcaption>一地点の写真、対策履歴、担当者、再確認結果を同じ画面で更新する。</figcaption></figure>
 <h2>全体像</h2><p>文部科学省は2025年6月、通学路合同点検後も暫定対策だった4,244か所の実施状況を確認し、関係機関の連携継続を求めました。社会問題は危険箇所の発見だけでなく、<strong>学校、教育委員会、道路管理者、警察の対策案・期限・完了証拠が分断されること</strong>です。</p>
 <h2>どの社会問題を切り出すか</h2><p>初年度は<strong>近隣自治体の小中学校とPTAが扱う通学路危険箇所の受付から再確認</strong>に絞ります。</p><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>同じ箇所が別名で届く</td><td>重複集計や見落としが起きる。</td><td>紙地図と表計算では位置を統合しにくい。</td></tr><tr><td>担当機関が複数</td><td>誰の回答待ちか分からない。</td><td>メールは案件全体の状態を示さない。</td></tr><tr><td>暫定対策後の確認が弱い</td><td>現場で危険が残っても完了扱いになる。</td><td>写真と報告書が別々に保存される。</td></tr></tbody></table>
 <h2>既存の仕組みで足りない点</h2><ul><li>紙は位置、写真、更新履歴を一体で扱えない。</li><li>電話やチャットは担当交代後に判断根拠が残りにくい。</li><li>表計算は複数機関の権限、期限通知、地図上の重複判定に弱い。</li></ul>
