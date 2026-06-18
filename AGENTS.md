@@ -14,6 +14,21 @@ This repository stores personal technical notes as static HTML pages.
 - Do not commit JSON, YAML, `.env`, or credential-like files unless I explicitly ask for them.
 - Prefer ASCII-only filenames and URL paths.
 
+## Editorial scope
+
+- When the user does not specify a topic, research current social issues and select a topic autonomously.
+- Do not select caregiving or IT as article themes unless the user explicitly requests them.
+- Treat social issues broadly. Eligible themes include incidents, accidents, public safety, regional decline, disappearing industries, and the loss of valuable Japanese techniques or craftsmanship.
+- Prefer primary sources from governments, public institutions, standards bodies, or the organizations directly responsible for the subject.
+- Avoid repeating a recently covered field when another well-supported theme is available.
+
+## Reproducible research record
+
+- Follow `EDITORIAL_POLICY.md` when selecting a topic for chat requests, GitHub Issue requests, and scheduled runs.
+- For every autonomously selected topic, append a short entry to the selection log in `EDITORIAL_POLICY.md` with the date, selected theme, reason, exclusions checked, and primary sources.
+- Preserve the request and its outcome in GitHub through the committed article, selection log, and commit history. For Issue-driven work, also retain the published URL in the Issue comment before closing it.
+- A scheduled run with no publishable topic or no matching Issue must still leave a clear run result in the mechanism used to invoke it; do not invent an article merely to create a commit.
+
 ## Suggested note flow
 
 When I start a request with `質問`, create a new HTML note under `/questions/<slug>/index.html`, update `/index.html`, commit the changes, and push them to `main`.
@@ -35,10 +50,10 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 ## No-open-issue fallback article creation
 
 - If an automation checks GitHub Issues and finds no open article requests, create one business-plan note instead of doing nothing.
-- The fallback topic must be a non-IT social problem. Avoid topics whose core value is software, AI, SaaS, developer tools, or technical education.
+- The fallback topic must be a non-IT, non-caregiving social problem. Avoid topics whose core value is software, AI, SaaS, developer tools, technical education, or caregiving operations.
 - Before choosing a fallback topic, check existing notes in `/index.html` and `/questions/*/index.html`. Do not create a new note if the same social problem, same target users, and same operational gap have already been covered.
 - If a candidate is related to an existing note, make the angle clearly different. For example, change the beneficiary, setting, operational bottleneck, or revenue model; otherwise choose another topic.
-- Prefer fallback topics that help a technically skilled reader notice non-IT social issues adjacent to everyday life, family, housing, caregiving, parenting, pets, local administration, regional mobility, and community operations.
+- Prefer fallback topics that help a technically skilled reader notice non-IT social issues adjacent to public safety, housing, parenting, education, pets, local administration, regional mobility, traditional industries, craftsmanship, and community operations.
 - Private user context may be used only to choose useful topic areas. Never include private profile details, family details, residence details, pet details, or other personal data in notes, diagrams, GitHub Issues, commit messages, or public pages.
 - Research current primary or high-trust sources before choosing the topic. Prefer government, municipality, official statistics, public agencies, universities, and established nonprofit sources.
 - Keep the business deliberately small: assume an initial reachable market that can produce about 1,000,000 yen in annual revenue, not a national TAM.

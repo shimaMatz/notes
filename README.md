@@ -15,6 +15,7 @@ https://shimamatz.github.io/notes/
 - `styles/site.css`: 共通スタイル
 - `.github/workflows/static.yml`: GitHub Pages デプロイ設定
 - `AGENTS.md`: 記事作成ルールと安全上の注意
+- `EDITORIAL_POLICY.md`: テーマ選定基準、調査手順、AI選定テーマの記録
 
 ## ローカル確認
 
@@ -56,3 +57,9 @@ python3 -m http.server 8000
 4. commit して `main` に push する
 5. 公開 URL を Issue にコメントする
 6. 処理済み Issue を close する
+
+## AIによるテーマ選定
+
+テーマ指定がない場合は、`EDITORIAL_POLICY.md` に従って一次情報を調査し、社会問題から記事テーマを選びます。
+介護とITは、明示的な依頼がない限り候補から除外します。事件・事故だけでなく、日本の優れた技術や産業が縮小し、
+継承が難しくなっている問題も対象です。選定理由と参照した一次情報は、同ファイルの選定ログに残します。
