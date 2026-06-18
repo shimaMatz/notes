@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">退院後の住まい準備チェックの連携図</title>
+  <desc id="desc">病院、家族、ケアマネジャー、地域事業者が退院前後2週間の準備を共有する流れを示す。</desc>
+  <style>
+    .bg { fill: #f7f4ea; }
+    .card { fill: #fffdf8; stroke: #2f4858; stroke-width: 3; rx: 18; ry: 18; }
+    .accent { fill: #d8e8c8; stroke: #5c7c3f; stroke-width: 3; rx: 18; ry: 18; }
+    .line { stroke: #2f4858; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    .text { font-family: "Yu Gothic", "Hiragino Sans", sans-serif; fill: #1d2a33; }
+    .title { font-size: 26px; font-weight: 700; }
+    .body { font-size: 20px; }
+    .small { font-size: 18px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2f4858" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="960" height="540" />
+
+  <rect class="card" x="60" y="70" width="210" height="110" />
+  <text class="text title" x="165" y="116" text-anchor="middle">病院</text>
+  <text class="text body" x="165" y="150" text-anchor="middle">退院日</text>
+  <text class="text small" x="165" y="176" text-anchor="middle">注意点を共有</text>
+
+  <rect class="card" x="60" y="360" width="210" height="110" />
+  <text class="text title" x="165" y="406" text-anchor="middle">家族</text>
+  <text class="text body" x="165" y="440" text-anchor="middle">住まい確認</text>
+  <text class="text small" x="165" y="466" text-anchor="middle">初週の不安を整理</text>
+
+  <rect class="accent" x="335" y="165" width="290" height="210" />
+  <text class="text title" x="480" y="220" text-anchor="middle">住まい準備チェック台帳</text>
+  <text class="text body" x="480" y="265" text-anchor="middle">手すり・ベッド・動線</text>
+  <text class="text body" x="480" y="302" text-anchor="middle">福祉用具・住宅改修</text>
+  <text class="text body" x="480" y="339" text-anchor="middle">退院日・初週予定・未完了項目</text>
+
+  <rect class="card" x="690" y="70" width="210" height="110" />
+  <text class="text title" x="795" y="116" text-anchor="middle">ケアマネジャー</text>
+  <text class="text body" x="795" y="150" text-anchor="middle">優先順位づけ</text>
+  <text class="text small" x="795" y="176" text-anchor="middle">予定を調整</text>
+
+  <rect class="card" x="690" y="360" width="210" height="110" />
+  <text class="text title" x="795" y="406" text-anchor="middle">地域事業者</text>
+  <text class="text body" x="795" y="440" text-anchor="middle">福祉用具・改修</text>
+  <text class="text small" x="795" y="466" text-anchor="middle">訪問予定を確定</text>
+
+  <path class="line" d="M270 125 H325" />
+  <path class="line" d="M270 415 H325" />
+  <path class="line" d="M635 125 H680" />
+  <path class="line" d="M635 415 H680" />
+  <path class="line" d="M165 180 V330" />
+  <path class="line" d="M795 180 V330" />
+</svg>
