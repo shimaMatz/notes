@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">高齢世帯の粗大ごみ搬出依頼の流れ</title>
+  <desc id="desc">受付から安全確認、搬出、完了報告までを整理する運用図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f6f1e8; }
+      .panel { fill: #fffdf8; stroke: #a88f6f; stroke-width: 2; rx: 18; ry: 18; }
+      .arrow { stroke: #7a5c3e; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .title { font: 700 28px "Yu Gothic", sans-serif; fill: #43301e; }
+      .label { font: 700 22px "Yu Gothic", sans-serif; fill: #43301e; }
+      .body { font: 18px "Yu Gothic", sans-serif; fill: #5a4732; }
+      .chip { fill: #e7d7c3; stroke: #b99a77; stroke-width: 1.5; rx: 10; ry: 10; }
+      .chipText { font: 16px "Yu Gothic", sans-serif; fill: #43301e; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7a5c3e" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="540" />
+  <text class="title" x="60" y="64">高齢世帯の粗大ごみ搬出依頼を整える小規模サービス案</text>
+
+  <rect class="panel" x="60" y="120" width="190" height="190" />
+  <text class="label" x="92" y="162">1. 受付</text>
+  <text class="body" x="92" y="202">品目、寸法、収集日、</text>
+  <text class="body" x="92" y="230">搬出場所、連絡先を登録</text>
+  <rect class="chip" x="92" y="254" width="118" height="32" />
+  <text class="chipText" x="109" y="276">電話メモ整理</text>
+
+  <rect class="panel" x="290" y="120" width="190" height="190" />
+  <text class="label" x="323" y="162">2. 安全確認</text>
+  <text class="body" x="323" y="202">階段、養生、必要人数、</text>
+  <text class="body" x="323" y="230">専門業者判断を分ける</text>
+  <rect class="chip" x="323" y="254" width="118" height="32" />
+  <text class="chipText" x="354" y="276">事前確認</text>
+
+  <rect class="panel" x="520" y="120" width="190" height="190" />
+  <text class="label" x="553" y="162">3. 搬出作業</text>
+  <text class="body" x="553" y="202">担当者、収集場所、</text>
+  <text class="body" x="553" y="230">完了時刻を記録</text>
+  <rect class="chip" x="553" y="254" width="118" height="32" />
+  <text class="chipText" x="584" y="276">当日対応</text>
+
+  <rect class="panel" x="750" y="120" width="150" height="190" />
+  <text class="label" x="778" y="162">4. 報告</text>
+  <text class="body" x="778" y="202">写真、傷確認、</text>
+  <text class="body" x="778" y="230">家族共有を残す</text>
+  <rect class="chip" x="778" y="254" width="92" height="32" />
+  <text class="chipText" x="803" y="276">完了確認</text>
+
+  <path class="arrow" d="M250 215 H290" />
+  <path class="arrow" d="M480 215 H520" />
+  <path class="arrow" d="M710 215 H750" />
+
+  <rect class="panel" x="120" y="360" width="720" height="110" />
+  <text class="label" x="150" y="402">狙うボトルネック</text>
+  <text class="body" x="150" y="436">自治体の収集制度ではなく、部屋から収集場所までの搬出段取り、安全確認、完了報告を軽くそろえる。</text>
+</svg>
