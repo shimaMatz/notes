@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Crownで巻く「腕時計からくり」アプリ事業案</title><meta name="description" content="Apple WatchのDigital Crownと触覚で小さな機械玩具を巻いて眺める体験型アプリの事業計画" />
+<link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article>
+<p class="eyebrow">Question Note</p><h1>Digital Crownで巻く「腕時計からくり」アプリ事業案</h1><p class="meta">最終更新: 2026-06-20</p>
+<figure><img src="automata-overview.svg" alt="からくり玩具棚の一覧画面" /><figcaption>今日の機械玩具、巻き残量、収集した歯車を眺めるApple Watchの棚画面。</figcaption></figure>
+<figure><img src="automata-detail.svg" alt="Digital Crownでぜんまいを巻く操作画面" /><figcaption>Digital Crownの回転と触覚でぜんまいを巻き、動きを解放する操作画面。</figcaption></figure>
+<h2>中心となる楽しさ</h2><p>困りごとを解くのではなく、腕時計の物理的な竜頭を回す指先と、画面内の歯車・ぜんまい・触覚がつながる「小さな機械を所有する感覚」を商品にします。AppleはDigital Crownの回転値、速度、停止をアプリで取得でき、対応機種では回転に触覚フィードバックを返せます。</p>
+<p>利用トリガーは電車待ちや休憩前の30秒。<strong>玩具を選ぶ → Crownを数回巻く → 10秒のからくりを見る → 歯車を一つ棚へ戻す</strong>が中心ループです。Watch本体が主画面、iPhoneは棚の編集と追加パック購入だけに絞ります。</p>
+<h2>既存体験との差</h2><table><thead><tr><th>比較</th><th>本案の価値</th><th>継続理由</th></tr></thead><tbody>
+<tr><td>腕時計ゲーム</td><td>勝敗・育成ではなく物理入力との一体感</td><td>30秒で完結し、疲れない</td></tr>
+<tr><td>動画・壁紙</td><td>自分の回転量と速度で動きが変わる</td><td>同じ玩具にも小さな個体差が出る</td></tr>
+<tr><td>フィジェット玩具</td><td>持ち物を増やさず常に腕にある</td><td>触覚と収集棚が残る</td></tr></tbody></table>
+<p>紙は動かず、動画は手応えがなく、チャットや表計算はこの体験を提供できません。利用者は広告なし、精密な触覚調整、季節ではなく機構別の追加玩具に支払います。</p>
+<h2>サービス機能</h2><ul><li>Digital Crownの回転量・速度・停止に同期するぜんまい操作</li><li>歯車、カム、振り子、羽根など週替わりの機構</li><li>1日3回までの静かな触覚と短いアニメーション</li><li>iPhoneの収集棚、色覚・触覚強度・左手装着設定</li><li>クラウド同期、購入復元、端末内のオフライン動作</li></ul>
+<h2>100万円規模の収益</h2><p>Apple Watch利用者の小さな有料層へ、<strong>850人 × 年額960円 + 680機構パック × 300円 = 売上1,020,000円</strong>。無料版3玩具から年額版24玩具へ移行し、追加パックは所有感を壊さない買い切りにします。</p>
+<h2>システム要件</h2><ul><li>watchOS SwiftUI、Digital Crown、標準触覚、60fpsを目標にした軽量描画</li><li>iPhone companion、WidgetKit、StoreKit、Cloud同期</li><li>触覚を切れる設定、タッチ操作の代替、Reduce Motion対応</li><li>回転履歴は端末内集計し、生の操作時系列を送信しない</li></ul>
+<h2>AWSシステム要件と支出</h2><p>東京リージョン、無料枠・クレジット除外、1 USD = 155円。公開前にAWS Pricing Calculatorで再計算します。</p>
+<table><thead><tr><th>AWS</th><th>用途</th><th>想定</th><th>月額</th><th>年額</th></tr></thead><tbody>
+<tr><td>S3 + CloudFront</td><td>玩具定義・軽量素材配信</td><td>15GB、月10万配信</td><td>1,300円</td><td>15,600円</td></tr>
+<tr><td>Cognito</td><td>任意同期アカウント</td><td>1,500 MAU</td><td>1,500円</td><td>18,000円</td></tr>
+<tr><td>API Gateway</td><td>棚・購入復元API</td><td>月20万req</td><td>700円</td><td>8,400円</td></tr>
+<tr><td>Lambda</td><td>同期、配信判定、匿名集計</td><td>月20万実行</td><td>900円</td><td>10,800円</td></tr>
+<tr><td>DynamoDB</td><td>匿名ユーザーID、所有玩具、棚順、同期版、購入権利、設定、クラッシュ影響バージョン</td><td>4万件、on-demand</td><td>1,300円</td><td>15,600円</td></tr>
+<tr><td>SES</td><td>サポート・購入復元案内</td><td>月1,000通</td><td>300円</td><td>3,600円</td></tr>
+<tr><td>CloudWatch</td><td>APIエラー・配信監視</td><td>月3GB</td><td>800円</td><td>9,600円</td></tr>
+<tr><td>AWS Backup</td><td>設定・権利データ保全</td><td>月10GB</td><td>500円</td><td>6,000円</td></tr>
+<tr><td>AWS Budgets</td><td>予算超過通知</td><td>2予算</td><td>200円</td><td>2,400円</td></tr>
+<tr><td>Route 53</td><td>サポートサイトDNS</td><td>1 zone</td><td>100円</td><td>1,200円</td></tr>
+<tr><td>合計</td><td colspan="2">AWS利用料</td><td><strong>7,600円</strong></td><td><strong>91,200円</strong></td></tr></tbody></table>
+<h2>開発、人員、利益</h2><p>AIでSwiftUI画面、状態機械、素材変換、テストのたたき台を作り、体験設計2週、試作3週、本実装5週、実機触覚調整3週の13週。1人が企画・実装・運営を担当し、機構アニメーション18万円、サウンド4万円、アクセシビリティ・実機QA10万円を外注します。</p>
+<p>支出はAWS 91,200円、Apple Developer Program等2万円、外注320,000円、マーケティング180,000円、予備費80,000円で691,200円。<strong>売上 - 支出 = 利益</strong>より1,020,000円 - 691,200円 = <strong>328,800円</strong>です。</p>
+<h2>最初の実証とリスク</h2><p>3種類の機構を20人に7日間試してもらい、再訪率、1回の利用秒数、触覚OFF率、バッテリー影響を測ります。触覚乱用、Crownの標準ナビゲーションとの競合、電池消費が主リスクです。短時間・前景時だけ動作させ、同等のタッチ操作を必ず提供します。</p>
+<h2>参照情報</h2><ul><li><a href="https://developer.apple.com/jp/design/human-interface-guidelines/digital-crown">Apple HIG「Digital Crown」</a></li><li><a href="https://developer.apple.com/documentation/swiftui/view/digitalcrownrotation%28detent%3Afrom%3Athrough%3Aby%3Asensitivity%3Aiscontinuous%3Aishapticfeedbackenabled%3Aonchange%3Aonidle%3A%29">Apple Developer「digitalCrownRotation」</a></li><li><a href="https://developer.apple.com/documentation/widgetkit/creating-a-widget-extension">Apple Developer「Creating a widget extension」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul>
+<p><a href="../../index.html">一覧へ戻る</a></p></article></body></html>

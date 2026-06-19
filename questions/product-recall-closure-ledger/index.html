@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>小規模販売店の製品リコール対応を完了まで追うサービス案</title><meta name="description" content="対象在庫、購入者連絡、返金・交換、未回収理由を一件ずつ閉じる小規模サービスの事業計画" />
+<link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article>
+<p class="eyebrow">Question Note</p><h1>小規模販売店の製品リコール対応を完了まで追うサービス案</h1><p class="meta">最終更新: 2026-06-20</p>
+<figure><img src="recall-overview.svg" alt="店舗別リコール案件一覧画面" /><figcaption>対象SKU、販売数、連絡済み、回収済み、未完了を店舗別に見る一覧画面。</figcaption></figure>
+<figure><img src="recall-detail.svg" alt="購入者ごとのリコール対応詳細画面" /><figcaption>購入者連絡から返金・交換・廃棄証明までを閉じる詳細画面。</figcaption></figure>
+<h2>全体像</h2><p>経済産業省は、製品事故の危害拡大を防ぐ措置として回収等を求め、リコール開始・進捗・終了時の報告様式を公開しています。小規模販売店ではメーカー通知、POS抽出、購入者連絡、店頭返金、未回収理由がメールと表計算に分かれ、対象者が残っても追跡が止まりがちです。</p>
+<p>メーカーの責任を代替せず、販売店が担う<strong>対象在庫の隔離 → 購入者への連絡 → 返金・交換 → 未回収の再通知 → 完了集計</strong>を一案件で閉じます。</p>
+<h2>対象と既存手段の限界</h2><table><thead><tr><th>利用者</th><th>課題</th><th>既存手段の限界</th></tr></thead><tbody>
+<tr><td>地域家電店・雑貨店</td><td>型式と販売履歴の照合</td><td>メーカーPDFとPOS抽出結果が別管理</td></tr>
+<tr><td>本部・店長</td><td>店舗ごとの進捗把握</td><td>電話・メールでは分母と未完了理由が残らない</td></tr>
+<tr><td>購入者対応担当</td><td>再通知と証跡</td><td>個人メモでは担当交代と監査に耐えない</td></tr></tbody></table>
+<p>紙は同時更新できず、電話は検索できず、チャットは対象製品と購入者の状態を集計できず、表計算は権限・履歴・添付証跡・自動再通知が弱い点が不足です。</p>
+<h2>サービス案と中心ワークフロー</h2><ol><li>メーカー通知から対象型式、ロット、対応方法を登録する。</li><li>店舗が在庫と販売履歴CSVを照合し、対象を確定する。</li><li>同意済み連絡先へ通知し、電話対応も結果だけ記録する。</li><li>返金・交換・回収・廃棄証明を残し、未完了を期限順に再通知する。</li><li>店舗別の対象数、完了数、未回収理由を報告用CSVへ出す。</li></ol>
+<h2>100万円規模の収益</h2><p>地域チェーン、共同仕入れ組織、中小販売店へ直接営業し、<strong>16組織 × 月額5,000円 × 12か月 + 初期設定60,000円 = 売上1,020,000円</strong>。全国TAMではなく、初年度に紹介で届く40組織中16組織を想定します。</p>
+<h2>システム要件</h2><ul><li>組織・店舗・役割別認証、操作監査、個人情報の最小保持</li><li>型式・JAN・ロット・購入日の照合、重複排除、CSV入出力</li><li>連絡同意、通知履歴、返金・交換証跡、期限超過アラート</li><li>メーカー別・店舗別の進捗率と未完了理由集計</li></ul>
+<h2>AWSシステム要件と支出</h2><p>東京リージョン、無料枠・クレジット除外、1 USD = 155円の予算概算です。公開前にAWS Pricing Calculatorで再計算します。</p>
+<table><thead><tr><th>AWS</th><th>用途</th><th>想定</th><th>月額</th><th>年額</th></tr></thead><tbody>
+<tr><td>S3 + CloudFront</td><td>Web配信・証跡添付</td><td>20GB、月5万配信</td><td>1,200円</td><td>14,400円</td></tr>
+<tr><td>Cognito</td><td>組織・店舗・担当者認証</td><td>300 MAU</td><td>800円</td><td>9,600円</td></tr>
+<tr><td>API Gateway</td><td>案件・購入者・進捗API</td><td>月20万req</td><td>700円</td><td>8,400円</td></tr>
+<tr><td>Lambda</td><td>CSV照合、期限判定、集計</td><td>月20万実行</td><td>1,000円</td><td>12,000円</td></tr>
+<tr><td>DynamoDB</td><td>組織、店舗、リコール案件、対象SKU、購入者連絡キー、対応状態、期限、返金・交換証跡、監査履歴</td><td>5万件、on-demand</td><td>1,800円</td><td>21,600円</td></tr>
+<tr><td>SES</td><td>初回・再通知</td><td>月5,000通</td><td>900円</td><td>10,800円</td></tr>
+<tr><td>CloudWatch</td><td>エラー・監査ログ</td><td>月5GB</td><td>1,200円</td><td>14,400円</td></tr>
+<tr><td>AWS Backup</td><td>設定・エクスポート保全</td><td>月20GB</td><td>700円</td><td>8,400円</td></tr>
+<tr><td>AWS Budgets</td><td>予算超過通知</td><td>2予算</td><td>200円</td><td>2,400円</td></tr>
+<tr><td>Route 53</td><td>独自ドメインDNS</td><td>1 zone</td><td>100円</td><td>1,200円</td></tr>
+<tr><td>合計</td><td colspan="2">AWS利用料</td><td><strong>8,600円</strong></td><td><strong>103,200円</strong></td></tr></tbody></table>
+<h2>開発、人員、利益</h2><p>AIでCRUD、CSVマッピング、通知テンプレート、E2Eテストの初稿を作り、要件2週、試作2週、本実装4週、実証・修正3週の計11週。1人の運営者が営業、導入、一次サポートを担当し、製品安全・個人情報レビューを各10万円、デザインと脆弱性診断を各8万円で外注します。</p>
+<p>初年度支出はAWS 103,200円、ドメイン3,000円、外注360,000円、営業・運営180,000円、予備費80,000円の計726,200円。<strong>売上 - 支出 = 利益</strong>より、1,020,000円 - 726,200円 = <strong>293,800円</strong>です。</p>
+<h2>最初の実証とリスク</h2><p>2店舗で過去の1案件を匿名データで再現し、対象確定時間、連絡漏れ、完了率集計時間を比較します。メーカー責任との誤認、過剰な個人情報保持、誤照合を避けるため、責任範囲表示、連絡キーの暗号化・削除期限、二者確認を必須にします。</p>
+<h2>参照情報</h2><ul><li><a href="https://www.meti.go.jp/product_safety/producer/system/09-2.html">経済産業省「リコールについて」</a></li><li><a href="https://www.meti.go.jp/product_safety/producer/ryutsuguide.html">経済産業省「製品安全に関する流通事業者向けガイド」</a></li><li><a href="https://www.recall.caa.go.jp/">消費者庁 リコール情報サイト</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul>
+<p><a href="../../index.html">一覧へ戻る</a></p></article></body></html>

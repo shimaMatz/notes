@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>一息でガラス玉を作る「息吹き硝子」ウィジェット事業案</title><meta name="description" content="3秒の息の強弱から透明なガラス玉を生成し、ホーム画面の棚で眺める体験型アプリの事業計画" />
+<link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article>
+<p class="eyebrow">Question Note</p><h1>一息でガラス玉を作る「息吹き硝子」ウィジェット事業案</h1><p class="meta">最終更新: 2026-06-20</p>
+<figure><img src="glass-overview.svg" alt="息で作ったガラス玉の棚一覧" /><figcaption>日付ごとの透明なガラス玉を光の棚で眺めるホーム画面。</figcaption></figure>
+<figure><img src="glass-detail.svg" alt="3秒間息を吹いてガラス玉を作る操作画面" /><figcaption>息の強弱だけを形へ変換し、指で冷まして保存する操作画面。</figcaption></figure>
+<h2>中心となる楽しさ</h2><p>マイクへ3秒だけ息を吹くと、音声を保存せず音量包絡だけから、その日固有の透明なガラス玉が膨らみます。強弱は輪郭、揺れは気泡、指で触れる時間は冷却色へ変わります。健康管理ではなく、身体の一回性が光る小物になる玩具体験です。</p>
+<p>利用トリガーは朝の身支度後や就寝前。<strong>吹く → 指で冷ます → 名前を一語付ける → ウィジェットの棚で光を見る</strong>が中心ループです。iPhoneのマイク・触覚・画面が制作面、WidgetKitが鑑賞面になります。</p>
+<h2>既存体験との差</h2><table><thead><tr><th>比較</th><th>本案の価値</th><th>継続・支払い理由</th></tr></thead><tbody>
+<tr><td>呼吸アプリ</td><td>数値や健康目標を持たない</td><td>失敗なく3秒で作品が残る</td></tr>
+<tr><td>写真日記</td><td>撮影対象や文章が不要</td><td>透明感のある棚が育つ</td></tr>
+<tr><td>生成画像</td><td>プロンプトでなく身体入力が形を決める</td><td>素材・棚・光源パックに所有価値がある</td></tr></tbody></table>
+<p>紙・電話・チャット・表計算では息と形の即時対応や触覚を作れません。広告を入れず、録音を保存しない設計、精密な光表現、追加の硝子素材と棚を有料価値にします。</p>
+<h2>サービス機能</h2><ul><li>AVAudioEngineで音量包絡だけを端末内解析し、録音バッファを即時破棄</li><li>息の強弱から形、気泡、厚みを決める再現可能な生成ルール</li><li>Core Hapticsによる膨張・冷却の弱い触覚</li><li>WidgetKitの棚、月ごとの光景、任意クラウド同期</li><li>マイクを使えない場面向けの長押し代替入力</li></ul>
+<h2>100万円規模の収益</h2><p>小さな創作・ウィジェット好きへ、<strong>900人 × 年額900円 + 700素材パック × 300円 = 売上1,020,000円</strong>。無料版は7個まで、年額版は無制限棚と高品質描画、素材パックは乳白・泡・金箔風などを買い切りにします。</p>
+<h2>システム要件</h2><ul><li>iOS SwiftUI、AVFAudio、Core Haptics、Metalまたは軽量シェーダー、WidgetKit</li><li>マイク権限の目的表示、端末内解析、音声ファイル非保存</li><li>長押し代替、触覚OFF、Reduce Motion、色だけに依存しない識別</li><li>作品パラメータ、棚順、購入権利だけを同期</li></ul>
+<h2>AWSシステム要件と支出</h2><p>東京リージョン、無料枠・クレジット除外、1 USD = 155円。公開前にAWS Pricing Calculatorで再計算します。</p>
+<table><thead><tr><th>AWS</th><th>用途</th><th>想定</th><th>月額</th><th>年額</th></tr></thead><tbody>
+<tr><td>S3 + CloudFront</td><td>素材・サポートWeb配信</td><td>20GB、月12万配信</td><td>1,500円</td><td>18,000円</td></tr>
+<tr><td>Cognito</td><td>任意同期アカウント</td><td>1,500 MAU</td><td>1,500円</td><td>18,000円</td></tr>
+<tr><td>API Gateway</td><td>作品パラメータ同期API</td><td>月25万req</td><td>900円</td><td>10,800円</td></tr>
+<tr><td>Lambda</td><td>同期、購入復元、匿名集計</td><td>月25万実行</td><td>1,000円</td><td>12,000円</td></tr>
+<tr><td>DynamoDB</td><td>匿名ユーザーID、作品シード、形状・色・気泡パラメータ、作成日、棚順、素材権利、同期版</td><td>10万件、on-demand</td><td>2,000円</td><td>24,000円</td></tr>
+<tr><td>SES</td><td>サポート・購入復元案内</td><td>月1,000通</td><td>300円</td><td>3,600円</td></tr>
+<tr><td>CloudWatch</td><td>APIエラー・配信監視</td><td>月3GB</td><td>800円</td><td>9,600円</td></tr>
+<tr><td>AWS Backup</td><td>同期データ保全</td><td>月15GB</td><td>600円</td><td>7,200円</td></tr>
+<tr><td>AWS Budgets</td><td>予算超過通知</td><td>2予算</td><td>200円</td><td>2,400円</td></tr>
+<tr><td>Route 53</td><td>サポートサイトDNS</td><td>1 zone</td><td>100円</td><td>1,200円</td></tr>
+<tr><td>合計</td><td colspan="2">AWS利用料</td><td><strong>8,900円</strong></td><td><strong>106,800円</strong></td></tr></tbody></table>
+<h2>開発、人員、利益</h2><p>AIで音量解析、作品データ構造、同期API、テストの初稿を作り、体験設計2週、試作3週、本実装5週、描画・プライバシー検証3週の13週。1人が企画・実装・運営し、3D/シェーダーデザイン16万円、サウンド・触覚4万円、プライバシー・実機QA12万円を外注します。</p>
+<p>支出はAWS 106,800円、Apple Developer Program等2万円、外注320,000円、マーケティング180,000円、予備費80,000円で706,800円。<strong>売上 - 支出 = 利益</strong>より1,020,000円 - 706,800円 = <strong>313,200円</strong>です。</p>
+<h2>最初の実証とリスク</h2><p>20人が7日間使い、作成完了率、翌日再訪、マイク拒否率、長押し代替率を測ります。録音への不安、周囲で吹きにくい場面、衛生面の誤解、類似作品の単調化がリスクです。音声非保存を画面で明示し、端末から距離を取る案内と代替入力、形状多様性の上限管理を行います。</p>
+<h2>参照情報</h2><ul><li><a href="https://developer.apple.com/documentation/avfaudio/avaudioengine/inputnode">Apple Developer「AVAudioEngine inputNode」</a></li><li><a href="https://developer.apple.com/documentation/corehaptics/chhapticengine">Apple Developer「CHHapticEngine」</a></li><li><a href="https://developer.apple.com/documentation/widgetkit/creating-a-widget-extension">Apple Developer「Creating a widget extension」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul>
+<p><a href="../../index.html">一覧へ戻る</a></p></article></body></html>

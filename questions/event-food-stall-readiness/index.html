@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>地域イベントの食品出店準備をそろえる小規模サービス案</title><meta name="description" content="主催者と出店者の許可・届出、提供品目、設備、衛生計画、当日確認をつなぐ事業計画" />
+<link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article>
+<p class="eyebrow">Question Note</p><h1>地域イベントの食品出店準備をそろえる小規模サービス案</h1><p class="meta">最終更新: 2026-06-20</p>
+<figure><img src="stall-overview.svg" alt="イベント出店者の準備状況一覧" /><figcaption>出店者ごとの申請、品目、設備、衛生計画、当日確認を並べる一覧画面。</figcaption></figure>
+<figure><img src="stall-detail.svg" alt="食品出店者の準備詳細と差し戻し画面" /><figcaption>不足書類を根拠付きで差し戻し、当日確認まで引き継ぐ詳細画面。</figcaption></figure>
+<h2>全体像</h2><p>自治体は祭礼等の食品提供について、営業形態、提供可能な食品、施設基準、行事開催届や臨時出店届を案内しています。小さな主催者は出店者ごとに異なる許可・届出、メニュー、仕込み場所、給排水、手洗い、温度管理をメール添付で集め、保健所確認と当日担当へ転記しています。</p>
+<p><strong>募集 → 書類回収 → 不足差し戻し → 保健所相談 → 配置確定 → 当日衛生確認</strong>を出店者単位で閉じる運営サービスにします。行政判断や営業許可を代替しません。</p>
+<h2>対象と既存手段の限界</h2><table><thead><tr><th>利用者</th><th>課題</th><th>既存手段の限界</th></tr></thead><tbody>
+<tr><td>商店街・自治会・学校外イベント</td><td>出店要件の回収</td><td>メール添付では最新版と不足理由が混在</td></tr>
+<tr><td>食品出店者</td><td>品目別条件の理解</td><td>紙の手引きから自分の条件を拾いにくい</td></tr>
+<tr><td>当日衛生担当</td><td>設備・温度・手洗い確認</td><td>申請情報が現場チェック表へつながらない</td></tr></tbody></table>
+<p>紙は更新共有に弱く、電話は証跡が残らず、チャットは出店者別の完了条件を集計できず、表計算は添付、差し戻し履歴、権限、当日モバイル確認が分断されます。</p>
+<h2>サービス案と中心ワークフロー</h2><ol><li>主催者が自治体・保健所の案内URLと締切を登録する。</li><li>出店者が営業形態、品目、仕込み場所、設備、許可番号を入力する。</li><li>ルール表で不足候補を示し、主催者が根拠付きで差し戻す。</li><li>配置図と給排水条件を確定し、当日チェック担当へ割り当てる。</li><li>設営写真、温度、手洗い設備、是正完了を記録し、開催後に削除期限を迎える。</li></ol>
+<h2>100万円規模の収益</h2><p>年間複数イベントを運営する商店街・制作会社・地域団体へ、<strong>20組織 × 月額4,000円 × 12か月 + 導入研修60,000円 = 売上1,020,000円</strong>。直接営業可能な50組織中20組織を初年度の範囲とします。</p>
+<h2>システム要件</h2><ul><li>イベント、出店者、営業形態、品目、許可・届出、締切の管理</li><li>条件分岐フォーム、添付版管理、根拠URL付き差し戻し</li><li>配置、電源・給排水、当日チェック、是正、完了署名</li><li>個人情報・許可証画像の閲覧制限と開催後削除</li></ul>
+<h2>AWSシステム要件と支出</h2><p>東京リージョン、無料枠・クレジット除外、1 USD = 155円。公開前にAWS Pricing Calculatorで再計算します。</p>
+<table><thead><tr><th>AWS</th><th>用途</th><th>想定</th><th>月額</th><th>年額</th></tr></thead><tbody>
+<tr><td>S3 + CloudFront</td><td>Web・許可証・配置図配信</td><td>30GB、月5万配信</td><td>1,500円</td><td>18,000円</td></tr>
+<tr><td>Cognito</td><td>主催者・出店者・確認者認証</td><td>500 MAU</td><td>1,000円</td><td>12,000円</td></tr>
+<tr><td>API Gateway</td><td>申請・差し戻し・当日確認API</td><td>月25万req</td><td>900円</td><td>10,800円</td></tr>
+<tr><td>Lambda</td><td>条件分岐、締切通知、帳票</td><td>月25万実行</td><td>1,100円</td><td>13,200円</td></tr>
+<tr><td>DynamoDB</td><td>組織、イベント、出店者、品目、許可種別、申請状態、不足項目、配置、当日確認、是正、監査履歴</td><td>8万件、on-demand</td><td>2,000円</td><td>24,000円</td></tr>
+<tr><td>SES</td><td>締切・差し戻し・確定通知</td><td>月6,000通</td><td>1,000円</td><td>12,000円</td></tr>
+<tr><td>CloudWatch</td><td>エラー・監査ログ</td><td>月5GB</td><td>1,200円</td><td>14,400円</td></tr>
+<tr><td>AWS Backup</td><td>設定・記録の復旧</td><td>月30GB</td><td>900円</td><td>10,800円</td></tr>
+<tr><td>AWS Budgets</td><td>予算超過通知</td><td>2予算</td><td>200円</td><td>2,400円</td></tr>
+<tr><td>Route 53</td><td>独自ドメインDNS</td><td>1 zone</td><td>100円</td><td>1,200円</td></tr>
+<tr><td>合計</td><td colspan="2">AWS利用料</td><td><strong>9,900円</strong></td><td><strong>118,800円</strong></td></tr></tbody></table>
+<h2>開発、人員、利益</h2><p>AIで条件分岐フォーム、CRUD、通知文、チェック表、テストケースを短縮し、要件2週、試作2週、本実装4週、実証3週の11週。1人が営業、設定、一次サポートを担当し、食品衛生監修12万円、法務・個人情報8万円、UIと脆弱性診断各8万円を外注します。</p>
+<p>支出はAWS 118,800円、ドメイン3,000円、外注360,000円、営業・運営180,000円、予備費80,000円で741,800円。<strong>売上 - 支出 = 利益</strong>より1,020,000円 - 741,800円 = <strong>278,200円</strong>です。</p>
+<h2>最初の実証とリスク</h2><p>10出店者の模擬イベントで、不足発見までの時間、差し戻し往復、当日確認時間を測ります。自治体ごとの差、無許可営業を許容する誤判定、許可証画像の過剰保持が主リスクです。判定は「確認候補」に限定し、公式窓口への確認導線と開催後90日の自動削除を設けます。</p>
+<h2>参照情報</h2><ul><li><a href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/shoku/yokohamaWEB/gyomu/tetuduki/rinzieigyo.files/0016_20250325.pdf">横浜市「行事で食品を取り扱う際に」</a></li><li><a href="https://www.hokeniryo1.metro.tokyo.lg.jp/shokuhin/files/rinji_haccp.pdf">東京都「HACCP取組支援資料（臨時営業）」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul>
+<p><a href="../../index.html">一覧へ戻る</a></p></article></body></html>
