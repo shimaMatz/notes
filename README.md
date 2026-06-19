@@ -1,6 +1,6 @@
 # notes
 
-個人用の技術ノートを、静的 HTML ページとして蓄積していくためのリポジトリです。
+個人用の技術ノートを蓄積し、Astroで静的サイトとして公開するリポジトリです。
 
 ## 公開ページ
 
@@ -9,23 +9,27 @@ https://shimamatz.github.io/notes/
 
 ## 構成
 
-- `index.html`: ノート一覧のトップページ
+- `src/pages/index.astro`: ノート一覧のトップページ
+- `src/components/NoteArchive.astro`: TypeScriptで動く検索・カテゴリ絞り込み
+- `src/lib/notes.ts`: 既存記事から一覧データを生成
 - `questions/<slug>/index.html`: 1トピックごとの個別ノート
 - `questions/<slug>/...`: 記事ごとの画像や図版
 - `styles/site.css`: 共通スタイル
 - `.github/workflows/static.yml`: GitHub Pages デプロイ設定
+- `scripts/copy-legacy-content.mjs`: 既存記事とアセットをビルド成果物へ統合
 - `AGENTS.md`: 記事作成ルールと安全上の注意
 - `EDITORIAL_POLICY.md`: テーマ選定基準、調査手順、AI選定テーマの記録
 
 ## ローカル確認
 
-`index.html` をブラウザで直接開くか、次を実行します。
+Node.js 24以降を用意し、次を実行します。
 
 ```sh
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-その後、`http://localhost:8000` を開きます。
+その後、ターミナルに表示される `/notes/` のURLを開きます。公開用ビルドは `npm run build`、ビルド結果の確認は `npm run preview` です。
 
 ## GitHub Pages 運用
 
@@ -41,7 +45,7 @@ python3 -m http.server 8000
 
 1. `questions/<slug>/index.html` にノートを作成または更新する
 2. 記事に関連する画像や図版を少なくとも1つ入れる
-3. `index.html` にリンクを追加する
+3. Astroが記事ディレクトリを読み取り、トップページへ自動掲載する
 4. 変更を commit する
 5. `origin/main` に push する
 
@@ -54,7 +58,7 @@ python3 -m http.server 8000
 1. 毎日3時、9時、14時（Asia/Tokyo）に `shimaMatz/notes` の open issue を確認する
 2. タイトルが `質問:` で始まるもの、または `article-request` ラベルが付いたものを処理する
 3. 対象Issueが0件の場合だけ、過去記事とも相互にも重複しないアプリ機会を4件選ぶ。社会問題解決型と日常を楽しくする体験型の両方を候補にできる
-4. 各記事にアプリの「主要一覧画面」と「詳細・操作画面」のSVGワイヤーフレームを2枚追加し、`index.html` と `EDITORIAL_POLICY.md` の選定ログを更新する
+4. 各記事にアプリの「主要一覧画面」と「詳細・操作画面」のSVGワイヤーフレームを2枚追加し、`EDITORIAL_POLICY.md` の選定ログを更新する。トップページの一覧はビルド時に自動生成される
 5. commit して `main` に push する
 6. Issue起点の場合は、公開 URL をコメントして処理済み Issue を close する
 

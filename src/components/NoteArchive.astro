@@ -1,0 +1,102 @@
+---
+import type { NoteSummary } from "../lib/notes";
+
+interface Props {
+  notes: NoteSummary[];
+}
+
+const { notes } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const categoryLabel = {
+  tech: "技術",
+  service: "サービス",
+  experience: "体験アプリ",
+};
+---
+
+<section class="notes-panel">
+  <div class="section-heading">
+    <h2>新着ノート</h2>
+    <p class="result-status" id="result-status" aria-live="polite">{notes.length}件を表示</p>
+  </div>
+
+  <div class="note-tools">
+    <div class="filters" aria-label="カテゴリで絞り込み">
+      <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">すべて</button>
+      <button class="filter-button" type="button" data-filter="tech" aria-pressed="false">技術</button>
+      <button class="filter-button" type="button" data-filter="service" aria-pressed="false">サービス</button>
+      <button class="filter-button" type="button" data-filter="experience" aria-pressed="false">体験アプリ</button>
+    </div>
+    <span class="sort-label">更新日順</span>
+  </div>
+
+  <ul class="note-list">
+    {notes.map((note) => (
+      <li data-note data-category={note.category}>
+        <div class="note-meta">
+          <time datetime={note.date}>{note.date}</time>
+          <span>{categoryLabel[note.category]}</span>
+        </div>
+        <div class="note-copy">
+          <a href={`${base}questions/${note.slug}/`}>{note.title}</a>
+          <p>{note.description}</p>
+        </div>
+        <svg class="note-arrow" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M4 12h15M14 7l5 5-5 5"></path>
+        </svg>
+      </li>
+    ))}
+  </ul>
+
+  <p class="empty-state" id="empty-state" hidden>条件に一致するノートがありません。</p>
+</section>
+
+<script>
+  const items = [...document.querySelectorAll<HTMLElement>("[data-note]")];
+  const search = document.querySelector<HTMLInputElement>("#note-search");
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>(".filter-button")];
+  const navFilters = [...document.querySelectorAll<HTMLAnchorElement>("[data-nav-filter]")];
+  const status = document.querySelector<HTMLElement>("#result-status");
+  const emptyState = document.querySelector<HTMLElement>("#empty-state");
+  let activeFilter = "all";
+
+  const update = () => {
+    const query = search?.value.trim().toLocaleLowerCase("ja") ?? "";
+    let visible = 0;
+
+    for (const item of items) {
+      const matchesText = !query || item.textContent?.toLocaleLowerCase("ja").includes(query);
+      const matchesCategory = activeFilter === "all" || item.dataset.category === activeFilter;
+      item.hidden = !(matchesText && matchesCategory);
+      if (!item.hidden) visible += 1;
+    }
+
+    if (status) status.textContent = `${visible}件を表示`;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  };
+
+  search?.addEventListener("input", update);
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.filter ?? "all";
+      for (const item of buttons) {
+        const selected = item === button;
+        item.classList.toggle("is-active", selected);
+        item.setAttribute("aria-pressed", String(selected));
+      }
+      update();
+    });
+  }
+
+  for (const link of navFilters) {
+    link.addEventListener("click", () => {
+      activeFilter = link.dataset.navFilter ?? "all";
+      for (const button of buttons) {
+        const selected = button.dataset.filter === activeFilter;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+      }
+      update();
+    });
+  }
+</script>

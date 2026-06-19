@@ -1,0 +1,46 @@
+---
+import type { NoteSummary } from "../lib/notes";
+
+interface Props {
+  notes: NoteSummary[];
+}
+
+const { notes } = Astro.props;
+const categoryCounts = {
+  tech: notes.filter((note) => note.category === "tech").length,
+  service: notes.filter((note) => note.category === "service").length,
+  experience: notes.filter((note) => note.category === "experience").length,
+};
+const monthCounts = notes.reduce((result, note) => {
+  const month = note.date.slice(0, 7);
+  result.set(month, (result.get(month) ?? 0) + 1);
+  return result;
+}, new Map<string, number>());
+---
+
+<aside class="site-sidebar" aria-label="ノート情報">
+  <section class="sidebar-section">
+    <h2>カテゴリ</h2>
+    <dl class="sidebar-counts">
+      <div><dt>すべて</dt><dd>{notes.length}</dd></div>
+      <div><dt>技術</dt><dd>{categoryCounts.tech}</dd></div>
+      <div><dt>サービス</dt><dd>{categoryCounts.service}</dd></div>
+      <div><dt>体験アプリ</dt><dd>{categoryCounts.experience}</dd></div>
+    </dl>
+  </section>
+
+  <section class="sidebar-section">
+    <h2>アーカイブ</h2>
+    <dl class="sidebar-counts">
+      {[...monthCounts].map(([month, count]) => (
+        <div><dt>{month.replace("-", "年")}月</dt><dd>{count}</dd></div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="sidebar-section sidebar-about">
+    <h2>このサイトについて</h2>
+    <p>調べたことや、考えたことを技術ノートとして残しています。小さなプロダクトの事業案や、実験的なアプリの記録も含みます。</p>
+    <p>更新は不定期です。</p>
+  </section>
+</aside>

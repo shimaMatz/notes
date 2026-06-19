@@ -19,7 +19,7 @@ Check open GitHub Issues in `shimaMatz/notes`.
 - Choose a narrow operational gap that one person can realistically serve.
 - Prefer problems where timing, coordination, reporting, local labor, inventory, transport, communication, or administrative burden creates pain.
 - Avoid giant-platform ideas. Define a reachable first-year market instead of a national TAM.
-- Before choosing topics, scan every existing note in `/index.html` and `/questions/*/index.html`, then compare all four candidates with one another.
+- Before choosing topics, scan every existing note in `/questions/*/index.html`, then compare all four candidates with one another.
 - Past-article overlap is prohibited. Reject a candidate when its core problem or experience, primary audience, or central operational or usage loop substantially overlaps any existing note.
 - The four articles in one run must also be mutually distinct on core problem or experience, primary audience, and central operational or usage loop.
 - A different title, region, price, feature list, or revenue model does not make an overlapping topic unique.
@@ -45,7 +45,7 @@ For every article, create exactly two local SVG app wireframes under its note di
 
 Render both wireframes as separate `<figure>` elements with descriptive alt text and captions. Conceptual flow diagrams do not satisfy this requirement.
 
-Update `/index.html` so the note is discoverable.
+Run the Astro build and verify that the generated catalog includes every new note.
 
 Use `templates/business-plan-note-template.html` as the structure. The article must include:
 

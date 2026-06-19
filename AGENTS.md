@@ -2,12 +2,12 @@
 
 ## Purpose
 
-This repository stores personal technical notes as static HTML pages.
+This repository stores personal technical notes and publishes them as a static Astro site.
 
 ## Content rules
 
 - Create one page per question or topic.
-- Use plain HTML and reference shared styles from `/styles/site.css`.
+- Keep note bodies as plain HTML under `/questions/` and reference shared styles from `/styles/site.css`; Astro builds the catalog and site shell.
 - Include exactly two relevant app wireframe images in every business-plan note page: one primary overview/list screen and one detail/action screen.
 - Store both wireframes as local SVG files in the article directory and render each in its own `<figure>` with a descriptive `<figcaption>`.
 - End every note with source links to primary references when possible.
@@ -34,12 +34,12 @@ This repository stores personal technical notes as static HTML pages.
 
 ## Suggested note flow
 
-When I start a request with `質問`, create a new HTML note under `/questions/<slug>/index.html`, update `/index.html`, commit the changes, and push them to `main`.
+When I start a request with `質問`, create a new HTML note under `/questions/<slug>/index.html`, verify that the Astro catalog discovers it, commit the changes, and push them to `main`.
 
 ## Chat-driven article creation
 
 - Treat any user message starting with `質問` as a request to add or update an article in this repository.
-- After creating the article, also update the top page so the note is discoverable.
+- After creating the article, run the Astro build and verify that the generated top page includes it.
 - Ensure a business-plan note includes two app wireframes: an overview/list screen and a detail/action screen.
 - Use a concise commit message based on the article topic.
 - Push to `origin/main` after the commit succeeds.
@@ -54,7 +54,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 
 - If an automation checks GitHub Issues and finds no open article requests, create exactly four business-plan notes in that run instead of doing nothing.
 - Fallback topics may be either non-caregiving social-problem solutions or small experience-led consumer apps. Do not force every idea into a social-problem narrative.
-- Before choosing fallback topics, inspect every existing note in `/index.html` and `/questions/*/index.html`, plus the other three candidates in the current batch.
+- Before choosing fallback topics, inspect every existing note in `/questions/*/index.html`, plus the other three candidates in the current batch.
 - Reusing a past article's core problem or experience, primary audience, or central usage loop is prohibited. Reject a candidate if any of those substantially overlaps an existing note or another candidate in the same batch; changing only the visual theme, title, region, price, or revenue model is not enough.
 - Record the duplicate check for all four selected topics in `EDITORIAL_POLICY.md`.
 - Keep a mix of useful social-problem services and delightful consumer apps. Eligible consumer directions include time/weather-linked worlds, widgets, calm ambient displays, collections, lightweight creativity, and small daily rituals.
@@ -72,4 +72,4 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Include the formula `売上 - 支出 = 利益` and fill the numbers with realistic assumptions.
 - Include system spending by category, what each item is needed for, and how much AI-assisted development can reduce time or cost.
 - Include required headcount and human requirements, including what can be done by one operator and what should be outsourced.
-- After creating all four fallback articles, update `/index.html`, commit the batch with a concise message, and push to `origin/main`.
+- After creating all four fallback articles, verify the generated Astro catalog, commit the batch with a concise message, and push to `origin/main`.

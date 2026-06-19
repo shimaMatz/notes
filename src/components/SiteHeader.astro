@@ -1,0 +1,23 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href={base}>技術ノート</a>
+    <label class="header-search">
+      <span class="sr-only">記事を検索</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.8"></circle>
+        <path d="m16 16 4.2 4.2"></path>
+      </svg>
+      <input id="note-search" type="search" placeholder="記事を検索" autocomplete="off" />
+    </label>
+    <nav class="header-nav" aria-label="記事カテゴリ">
+      <a href="#notes">新着</a>
+      <a href="#notes" data-nav-filter="tech">技術</a>
+      <a href="#notes" data-nav-filter="service">サービス</a>
+      <a href="#notes" data-nav-filter="experience">体験アプリ</a>
+    </nav>
+  </div>
+</header>
