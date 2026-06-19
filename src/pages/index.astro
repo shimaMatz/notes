@@ -1,4 +1,8 @@
 ---
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import NoteArchive from "../components/NoteArchive.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteSidebar from "../components/SiteSidebar.astro";
@@ -6,6 +10,8 @@ import { loadNotes } from "../lib/notes";
 
 const notes = await loadNotes();
 const base = import.meta.env.BASE_URL;
+const stylesheet = readFileSync(join(process.cwd(), "styles/site.css"));
+const styleVersion = createHash("sha256").update(stylesheet).digest("hex").slice(0, 12);
 ---
 
 <!doctype html>
@@ -16,7 +22,7 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content="技術の検証と小さなサービスの構想を残す個人用ノート" />
     <meta name="generator" content={Astro.generator} />
     <title>技術ノート</title>
-    <link rel="stylesheet" href={`${base}styles/site.css`} />
+    <link rel="stylesheet" href={`${base}styles/site.css?v=${styleVersion}`} />
   </head>
   <body id="top">
     <a class="skip-link" href="#notes">ノート一覧へ移動</a>
