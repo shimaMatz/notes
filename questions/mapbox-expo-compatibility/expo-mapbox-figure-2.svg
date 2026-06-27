@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Expoが向く範囲・重くなる範囲</title><desc id="desc">軽い地図体験ならExpo、深いナビ体験ならネイティブ寄りに判断する。</desc>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#c9d5e7" flood-opacity="0.45"/></filter></defs>
+<rect width="1600" height="900" fill="#fbfcfe"/><rect x="8" y="8" width="1584" height="884" fill="none" stroke="#0f1b2d" stroke-width="2"/>
+<text x="800" y="70" text-anchor="middle" font-size="24" letter-spacing="10" font-family="Arial, sans-serif" font-weight="700" fill="#667996">DECISION</text>
+<text x="800" y="132" text-anchor="middle" font-size="50" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">Expoが向く範囲・重くなる範囲</text>
+<text x="800" y="184" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#566981">地図表示ならExpo、深いナビならネイティブ寄りに判断する</text>
+
+<rect x="100" y="275" width="470" height="400" rx="24" fill="#fff" stroke="#c5d1df" filter="url(#shadow)"/>
+<rect x="1030" y="275" width="470" height="400" rx="24" fill="#fff" stroke="#c5d1df" filter="url(#shadow)"/>
+<circle cx="800" cy="475" r="145" fill="#edf4ff" stroke="#2f6fcb" stroke-width="3"/>
+<text x="800" y="465" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">判断軸</text>
+<text x="800" y="512" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">地図の深さ</text>
+<path d="M570 475h85M945 475h85" stroke="#2f6fcb" stroke-width="5" stroke-linecap="round"/>
+<text x="335" y="340" text-anchor="middle" font-size="32" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">Expoで十分</text>
+<g transform="translate(155,420)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">地図表示が中心</text></g>
+<g transform="translate(155,470)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">ピン・簡易ルート</text></g>
+<g transform="translate(155,520)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">React Nativeに慣れている</text></g>
+<text x="1265" y="340" text-anchor="middle" font-size="32" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">重くなる</text>
+<g transform="translate(1085,420)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">turn-by-turnナビ</text></g>
+<g transform="translate(1085,470)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">音声案内・再ルート</text></g>
+<g transform="translate(1085,520)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">native側の調査が必要</text></g>
+<rect x="430" y="700" width="740" height="64" rx="12" fill="#f5f8fc" stroke="#c5d1df"/>
+<text x="800" y="742" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#10213b">実装コストは、Mapboxをどこまで深く触るかで決まる</text>
+
+<text x="800" y="850" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#566981">軽い地図体験ならExpo、深いナビ体験ならネイティブ寄りに判断する。</text>
+</svg>

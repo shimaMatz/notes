@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Codexに任せる作業範囲</title><desc id="desc">質問を投げるだけで終わらせず、公開確認できる成果物まで閉じる。</desc>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#c9d5e7" flood-opacity="0.45"/></filter></defs>
+<rect width="1600" height="900" fill="#fbfcfe"/><rect x="8" y="8" width="1584" height="884" fill="none" stroke="#0f1b2d" stroke-width="2"/>
+<text x="800" y="70" text-anchor="middle" font-size="24" letter-spacing="10" font-family="Arial, sans-serif" font-weight="700" fill="#667996">AUTHORING</text>
+<text x="800" y="132" text-anchor="middle" font-size="50" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">Codexに任せる作業範囲</text>
+<text x="800" y="184" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#566981">本文・図解・参照・公開リンクを、同じ記事単位でそろえる</text>
+
+<rect x="150" y="275" width="520" height="430" rx="22" fill="#fff" stroke="#c5d1df" filter="url(#shadow)"/>
+<rect x="930" y="255" width="430" height="470" rx="22" fill="#fff" stroke="#c5d1df" filter="url(#shadow)"/>
+<circle cx="765" cy="492" r="120" fill="#edf4ff" stroke="#2f6fcb" stroke-width="3"/>
+<text x="765" y="480" text-anchor="middle" font-size="33" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">Codex</text>
+<text x="765" y="523" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" fill="#566981">整理・実装・確認</text>
+<path d="M670 492H560M885 492h95" stroke="#2f6fcb" stroke-width="5" stroke-linecap="round"/>
+<text x="205" y="335" font-size="30" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">入力</text>
+<g transform="translate(205,395)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">質問文</text></g>
+<g transform="translate(205,445)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">期待する粒度</text></g>
+<g transform="translate(205,495)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">必要ならURL</text></g>
+<text x="990" y="325" font-size="30" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">成果物</text>
+<g transform="translate(990,385)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">ノートHTML</text></g>
+<g transform="translate(990,435)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">記事内の図解</text></g>
+<g transform="translate(990,485)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">一次情報リンク</text></g>
+<g transform="translate(990,535)"><circle cx="0" cy="-7" r="5" fill="#0f3f89"/><text x="20" y="0" font-size="22" font-family="Arial, sans-serif" fill="#10213b">公開URL</text></g>
+<rect x="350" y="590" width="690" height="70" rx="10" fill="#f5f8fc" stroke="#c5d1df"/>
+<text x="695" y="635" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" fill="#10213b">記事本文・画像・リンクを同じコミットで扱う</text>
+
+<text x="800" y="850" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#566981">質問を投げるだけで終わらせず、公開確認できる成果物まで閉じる。</text>
+</svg>

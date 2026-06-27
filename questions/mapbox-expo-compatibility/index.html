@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:image" content="editorial-diagram-1.svg" />
+    <meta property="og:image" content="expo-mapbox-figure-1.svg" />
     <title>MapboxとExpoの親和性</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -12,17 +12,6 @@
       <p class="eyebrow">Question Note</p>
       <h1>MapboxとExpoの親和性</h1>
       <p class="meta">最終更新: 2026-06-07</p>
-      <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="MapboxとExpoの親和性の全体像を示す図解" />
-        <figcaption>結論から言うと、 MapboxとExpoの相性は悪くはないが、Expo Go のまま楽に使える種類の組み合わせではない です。MapboxはネイティブSDKを土台にしているため、Expoで使うなら development build や prebuild 前提で考えるのが現実的です。</figcaption>
-      </figure>
-
-      <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="MapboxとExpoの親和性の構成要素を示す図解" />
-        <figcaption>ただし、車載ナビ品質や業務車両向けナビまで踏み込むなら、Swift/Kotlinネイティブのほうが判断も保守もまっすぐです</figcaption>
-      </figure>
-
-
       <figure>
         <img src="expo-compatibility.svg" alt="MapboxとExpoやネイティブ開発の向き不向きを比較した図" />
         <figcaption>Expoでも組めるが、Mapboxを深く使うほど native build 前提の設計になる。</figcaption>
@@ -34,12 +23,22 @@
         <strong>development build</strong> や <strong>prebuild</strong> 前提で考えるのが現実的です。
       </p>
 
+      <figure class="editorial-diagram">
+        <img src="expo-mapbox-figure-1.svg" alt="Expo GoではなくDevelopment Build前提でMapboxを組み込む判断を示す図解" />
+        <figcaption>MapboxとExpoは併用できるが、実装の前提はExpo GoではなくDevelopment Buildになる。</figcaption>
+      </figure>
+
       <h2>まず押さえるべき点</h2>
       <ul>
         <li>Expo Go ではカスタム native code を含むライブラリはそのまま使えない</li>
         <li>Expo でも development build を使えば native ライブラリを組み込める</li>
         <li>MapboxのReact Native向け利用は、公式FAQ上では iOS/Android公式SDKを包む React Native wrapper という位置付け</li>
       </ul>
+
+      <figure class="editorial-diagram">
+        <img src="expo-mapbox-figure-2.svg" alt="Expoが向く範囲と重くなる範囲を比較する図解" />
+        <figcaption>軽い地図体験ならExpo、深いナビ体験ならネイティブ寄りに判断する。</figcaption>
+      </figure>
 
       <h2>Expoが向くケース</h2>
       <ul>
@@ -105,12 +104,12 @@
         という見方が現実に近いです。
       </p>
 
-      
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="MapboxとExpoの親和性の確認点を示す図解" />
-        <figcaption>軽い地図体験ならExpo、深いナビ体験ならSwift/Kotlin、クロスプラットフォームで機能を取りたいならFlutter、 という見方が現実に近いです</figcaption>
+        <img src="expo-mapbox-figure-3.svg" alt="Swift、Flutter、Expoの使い分けを示す図解" />
+        <figcaption>軽い地図はExpo、深いナビはSwift/Kotlin、中間解としてFlutterを検討する。</figcaption>
       </figure>
-<section class="sources">
+
+      <section class="sources">
         <h2>Sources</h2>
         <ul>
           <li><a href="https://docs.expo.dev/workflow/customizing/">Add custom native code</a></li>

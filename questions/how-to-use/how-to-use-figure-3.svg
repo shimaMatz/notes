@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">公開前に見るべき3点</title><desc id="desc">公開前に、根拠・秘密情報・差分の3点だけは必ず見る。</desc>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#c9d5e7" flood-opacity="0.45"/></filter></defs>
+<rect width="1600" height="900" fill="#fbfcfe"/><rect x="8" y="8" width="1584" height="884" fill="none" stroke="#0f1b2d" stroke-width="2"/>
+<text x="800" y="70" text-anchor="middle" font-size="24" letter-spacing="10" font-family="Arial, sans-serif" font-weight="700" fill="#667996">REVIEW</text>
+<text x="800" y="132" text-anchor="middle" font-size="50" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">公開前に見るべき3点</text>
+<text x="800" y="184" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#566981">ノートは公開物なので、内容・秘密情報・差分を最低限確認する</text>
+
+<circle cx="375" cy="425" r="150" fill="#edf4ff" stroke="#c5d1df"/>
+<circle cx="800" cy="425" r="150" fill="#f7f9fc" stroke="#c5d1df"/>
+<circle cx="1225" cy="425" r="150" fill="#edf4ff" stroke="#c5d1df"/>
+<text x="375" y="385" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">一次情報</text>
+<text x="375" y="435" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">AI生成内容を</text>
+<text x="375" y="470" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">根拠で確認</text>
+<text x="800" y="385" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">秘匿情報</text>
+<text x="800" y="435" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">公開してよい</text>
+<text x="800" y="470" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">内容だけ残す</text>
+<text x="1225" y="385" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="#0f1b2d">差分</text>
+<text x="1225" y="435" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">意図しない変更を</text>
+<text x="1225" y="470" text-anchor="middle" font-size="23" font-family="Arial, sans-serif" fill="#566981">目視で止める</text>
+<path d="M525 425h120M950 425h120" stroke="#2f6fcb" stroke-width="5" stroke-linecap="round"/>
+<rect x="430" y="640" width="740" height="64" rx="12" fill="#fff" stroke="#c5d1df"/>
+<text x="800" y="682" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#10213b">公開前の確認が、あとで使えるノートの品質を決める</text>
+
+<text x="800" y="850" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#566981">公開前に、根拠・秘密情報・差分の3点だけは必ず見る。</text>
+</svg>
