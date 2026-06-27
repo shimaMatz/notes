@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Grabの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
-    <meta property="og:image" content="thumbnail.svg" />
+    <meta property="og:image" content="editorial-diagram-1.svg" />
     <title>Grab: 東南アジアの地図・ETA・Dispatch基盤</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -13,17 +13,20 @@
       <p class="eyebrow">Question Note / Geospatial Architecture</p>
       <h1>Grab: 東南アジアの地図・ETA・Dispatch基盤</h1>
       <p class="meta">最終更新: 2026-06-28</p>
-      <figure><img src="thumbnail.svg" alt="Grabの地理空間技術の要点を示すサムネイル" /><figcaption>GrabをPostGIS、空間インデックス、ETA、マッチングへ分解して読む。</figcaption></figure>
-
-      <h2>何をしている企業か</h2>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の全体像を示す図解" />
+        <figcaption>東南アジアを中心に、配車、配送、決済などを展開するスーパーアプリ企業。地域ごとに地図品質、住所体系、交通事情が大きく異なる。</figcaption>
+      </figure>
+<h2>何をしている企業か</h2>
       <p>東南アジアを中心に、配車、配送、決済などを展開するスーパーアプリ企業。地域ごとに地図品質、住所体系、交通事情が大きく異なる。</p>
 
       <h2>位置情報で解いている課題</h2>
       <p>地域差のある道路、住所、POI、交通状況の中で、配車・配送のETAとDispatchを成立させる必要がある。欧米の地図前提をそのまま使えない地域適応が重要になる。</p>
-
-      <figure><img src="diagram.svg" alt="Grabの地理空間基盤を構成要素へ分けた図解" /><figcaption>地図DBではなく、検索、予測、キャッシュ、業務判断を接続する層として見る。</figcaption></figure>
-
-      <h2>公開されている技術情報</h2>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の構成要素を示す図解" />
+        <figcaption>PostGISは自社DBの空間演算に使えるが、Grab型では地域の地図品質を補うデータ収集、道路補正、ETA、Dispatchまで必要になる</figcaption>
+      </figure>
+<h2>公開されている技術情報</h2>
       <ul><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li>
 <li><a href="https://www.grab.com/sg/merchant/transport/grabmaps/">GrabMaps product information</a></li>
 <li><a href="https://engineering.grab.com/tags/maps">Grab Tech Blog: maps and data articles</a></li></ul>
@@ -57,13 +60,15 @@ Map / Navigation API</code></pre>
 
       <h2>将来スケールしたときに参考になる点</h2>
       <p>ドライバー投稿、走行ログ、施設入口情報が貯まったら、Mapbox等の上に自社補正データを重ねる。</p>
-
-      <figure><img src="summary.svg" alt="GrabからトラックナビMVPへ持ち帰る判断をまとめた図解" /><figcaption>MVPはPostGIS + Mapboxで始め、負荷と用途が見えた段階で空間インデックスを足す。</figcaption></figure>
-
-      <h2>結論</h2>
+<h2>結論</h2>
       <p>Grabの事例は、独自GISを「巨大な地図DB」ではなく、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュ、分析基盤の組み合わせとして読むと理解しやすいです。トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です。</p>
 
-      <section class="sources"><h2>Sources</h2><ul><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li>
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の確認点を示す図解" />
+        <figcaption>トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li>
 <li><a href="https://www.grab.com/sg/merchant/transport/grabmaps/">GrabMaps product information</a></li>
 <li><a href="https://engineering.grab.com/tags/maps">Grab Tech Blog: maps and data articles</a></li></ul></section>
     </article>

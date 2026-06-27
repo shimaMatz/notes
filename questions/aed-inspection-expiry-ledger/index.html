@@ -1,7 +1,18 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>AEDの日常点検と消耗品交換を閉じる小規模サービス案</title><meta name="description" content="小規模施設のAED点検、交換期限、異常対応を一台ごとに閉じる事業計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>AEDの日常点検と消耗品交換を閉じる小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>AEDの日常点検と消耗品交換を閉じる小規模サービス案</title><meta name="description" content="小規模施設のAED点検、交換期限、異常対応を一台ごとに閉じる事業計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>AEDの日常点検と消耗品交換を閉じる小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="AEDの日常点検と消耗品交換を閉じる小規模サービス案の全体像を示す図解" />
+        <figcaption>厚生労働省は、AED設置者に点検担当者の配置、インジケータの日常確認、電極パッドとバッテリの交換時期確認を求めています。課題は設置台数ではなく、 担当交代、期限通知、異常時の停止表示、交換完了の証跡 が一台単位で閉じないことです。</figcaption>
+      </figure>
+
 <figure><img src="aed-overview.svg" alt="AEDごとの点検状態と交換期限を一覧する画面" /><figcaption>概要画面: 施設内の全AEDを、正常、要確認、交換期限接近で並べます。</figcaption></figure><figure><img src="aed-detail.svg" alt="一台のAEDの担当者、点検履歴、次の交換操作を示す画面" /><figcaption>詳細画面: 一台の表示確認、消耗品期限、担当、履歴、次の交換確認をまとめます。</figcaption></figure>
 <h2>全体像</h2><p>厚生労働省は、AED設置者に点検担当者の配置、インジケータの日常確認、電極パッドとバッテリの交換時期確認を求めています。課題は設置台数ではなく、<strong>担当交代、期限通知、異常時の停止表示、交換完了の証跡</strong>が一台単位で閉じないことです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="AEDの日常点検と消耗品交換を閉じる小規模サービス案の構成要素を示す図解" />
+        <figcaption>東京リージョン、1 USD = 150円、無料枠・クレジット除外 、20拠点、200 MAU、AED 200台の概算です</figcaption>
+      </figure>
+
 <h2>どの社会問題を切り出すか</h2><p>初年度は<strong>AEDを2〜20台保有する体育館、事業所、地域施設</strong>に絞ります。</p><table><thead><tr><th>現場課題</th><th>結果</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>担当が曖昧</td><td>表示確認が抜ける</td><td>紙の点検表は未実施を通知しない</td></tr><tr><td>期限が別管理</td><td>パッドや電池の交換が遅れる</td><td>カレンダーは機器・ロット・発注を結べない</td></tr><tr><td>異常後の復旧が不明</td><td>使用不能状態が残る</td><td>電話やチャットは再開確認の証跡になりにくい</td></tr></tbody></table>
 <h2>サービス案と中核ワークフロー</h2><p>QRコードで一台を開き、表示、封印、パッド、バッテリを30秒で確認する限定台帳です。</p><ol><li>担当者がQRを読み、インジケータ状態を記録する。</li><li>異常または期限接近なら管理者へ割り当てる。</li><li>発注、交換、旧品処理、再点検を履歴化する。</li><li>未確認と使用停止中だけを一覧で追う。</li></ol><p>紙、表計算、チャットでは、未実施の自動抽出、機器固有の期限、担当交代、復旧証跡を同時に扱いにくいため、専用の状態遷移に価値があります。医療判断や救命講習は代替しません。</p>
 <h2>100万円規模に抑えた市場設定</h2><table><tbody><tr><th>到達可能市場</th><td>地域の施設・事業所60拠点へ直接提案</td><td>一人で訪問支援できる範囲</td></tr><tr><th>月額</th><td>20拠点 x 4,000円 x 12か月</td><td>960,000円</td></tr><tr><th>導入支援</th><td>6拠点 x 10,000円</td><td>60,000円</td></tr><tr><th>初年度売上</th><td>合計</td><td><strong>1,020,000円</strong></td></tr></tbody></table>
@@ -10,4 +21,9 @@
 <h2>売上・支出・利益</h2><p><strong>売上 - 支出 = 利益</strong></p><table><tbody><tr><th>売上</th><td>1,020,000円</td><td>月額 + 導入支援</td></tr><tr><th>支出</th><td>128,400円</td><td>AWS 38,400円、医療機器・規約確認60,000円、QR資材・営業30,000円</td></tr><tr><th>利益</th><td><strong>891,600円</strong></td><td>事業主の人件費・税引前</td></tr></tbody></table>
 <h2>必要人数と人材要件</h2><p><strong>開発・導入1名 + 単発専門確認</strong>です。実行者はWeb実装と現場設定を担い、医療機器の表現、利用規約、アクセシビリティを専門家へ確認します。</p>
 <h2>リスクと最初の検証</h2><ul><li>アプリ確認が実物確認の代替だと誤認されない表示にする。</li><li>QRだけを読んで点検済みにする不正を、項目順と短い写真で抑える。</li><li>メーカーごとの期限・表示差を導入時に確認する。</li></ul><p>3施設・20台・8週間で、点検実施率、期限超過、異常から復旧までの日数、月額支払い意思を測ります。</p>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="AEDの日常点検と消耗品交換を閉じる小規模サービス案の確認点を示す図解" />
+        <figcaption>3施設・20台・8週間で、点検実施率、期限超過、異常から復旧までの日数、月額支払い意思を測ります</figcaption>
+      </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/aed/index.html">厚生労働省「AEDを点検しましょう！」</a></li><li><a href="https://www.fdma.go.jp/publication/portal/post2.html">総務省消防庁「応急手当WEB講習」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul></section></article></body></html>

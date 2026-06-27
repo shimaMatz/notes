@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" />
     <title>NVIDIA SkillSpectorとは何か</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -11,6 +12,11 @@
       <p class="eyebrow">Question Note</p>
       <h1>NVIDIA SkillSpectorとは何か</h1>
       <p class="meta">最終更新: 2026-06-11</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="NVIDIA SkillSpectorとは何かの全体像を示す図解" />
+        <figcaption>SkillSpector は、NVIDIAが公開しているAIエージェント用スキルのセキュリティ検査ツールです。 Claude Code、Codex CLI、Gemini CLIのようなエージェント環境では、スキルがファイル操作、コマンド実行、 外部通信などに関わることがあります。便利な一方で、悪意ある指示や危険なコードが混ざると、 秘密情報の漏えい、権限の乱用、サプライチェーン攻撃につながります。</figcaption>
+      </figure>
+
 
       <figure>
         <img src="skillspector-flow.svg" alt="SkillSpectorがAIエージェントスキルを解析してレポート化する流れ" />
@@ -23,6 +29,11 @@
         外部通信などに関わることがあります。便利な一方で、悪意ある指示や危険なコードが混ざると、
         秘密情報の漏えい、権限の乱用、サプライチェーン攻撃につながります。
       </p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="NVIDIA SkillSpectorとは何かの構成要素を示す図解" />
+        <figcaption>速く静的解析だけを試したい場合は --no-llm を使います</figcaption>
+      </figure>
+
       <p>
         このツールの狙いは「そのスキルを入れてよいか」を判断する材料を作ることです。Gitリポジトリ、URL、
         zip、ローカルディレクトリ、単一の<code>SKILL.md</code>などを入力にして、危険パターンを検出し、
@@ -122,7 +133,12 @@ skillspector scan ./SKILL.md --no-llm</code></pre>
         今後、エージェント用スキルやMCP連携をチームで共有するなら、導入前チェックリストの中心に置く価値があります。
       </p>
 
-      <section class="sources">
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="NVIDIA SkillSpectorとは何かの確認点を示す図解" />
+        <figcaption>今後、エージェント用スキルやMCP連携をチームで共有するなら、導入前チェックリストの中心に置く価値があります</figcaption>
+      </figure>
+<section class="sources">
         <h2>Sources</h2>
         <ul>
           <li><a href="https://github.com/NVIDIA/skillspector">NVIDIA SkillSpector GitHub repository</a></li>

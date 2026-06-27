@@ -1,9 +1,20 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>海洋ごみの回収から保管・処理までをつなぐ小規模サービス案</title><meta name="description" content="漁業者、自治体、処理業者の海洋ごみ回収・保管・処理をつなぐIT事業案です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>海洋ごみの回収から保管・処理までをつなぐ小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>海洋ごみの回収から保管・処理までをつなぐ小規模サービス案</title><meta name="description" content="漁業者、自治体、処理業者の海洋ごみ回収・保管・処理をつなぐIT事業案です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>海洋ごみの回収から保管・処理までをつなぐ小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="海洋ごみの回収から保管・処理までをつなぐ小規模サービス案の全体像を示す図解" />
+        <figcaption>環境省は、漁業者と自治体の協力による海洋ごみ回収で、回収後の搬入、分別、保管、処理の地域ルールが必要だとしています。課題は回収意欲だけでなく、 船、港、自治体、処理業者の受入条件と処理完了の引き継ぎが紙・電話に散ること です。</figcaption>
+      </figure>
+
 <figure><img src="wireframe-dashboard.svg" alt="海洋ごみ回収・保管状況の一覧画面ワイヤーフレーム" /><figcaption>港ごとの受入枠、保管容量、未処理量、引取予定を一覧で確認する。</figcaption></figure>
 <figure><img src="wireframe-detail.svg" alt="海洋ごみ回収案件の搬入・処理詳細画面ワイヤーフレーム" /><figcaption>一回収案件の写真、重量、搬入先、危険物確認、処理伝票を更新する。</figcaption></figure>
 <h2>全体像</h2><p>環境省は、漁業者と自治体の協力による海洋ごみ回収で、回収後の搬入、分別、保管、処理の地域ルールが必要だとしています。課題は回収意欲だけでなく、<strong>船、港、自治体、処理業者の受入条件と処理完了の引き継ぎが紙・電話に散ること</strong>です。</p>
-<h2>どの社会問題を切り出すか</h2><p>初年度は<strong>一つの沿岸圏の小規模漁協、港、自治体、処理業者による操業時回収</strong>に限定します。</p><table><thead><tr><th>現場課題</th><th>結果</th><th>限界</th></tr></thead><tbody><tr><td>搬入条件が伝わらない</td><td>港へ持ち帰れない。</td><td>電話は船上で確認しにくい。</td></tr><tr><td>保管容量が見えない</td><td>置き場があふれる。</td><td>チャットは総量を集計しにくい。</td></tr><tr><td>処理完了が戻らない</td><td>活動量や費用を報告できない。</td><td>紙伝票と写真が分離する。</td></tr></tbody></table>
+<h2>どの社会問題を切り出すか</h2><p>初年度は<strong>一つの沿岸圏の小規模漁協、港、自治体、処理業者による操業時回収</strong>に限定します。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="海洋ごみの回収から保管・処理までをつなぐ小規模サービス案の構成要素を示す図解" />
+        <figcaption>実装前にAWS Pricing Calculatorで再計算します</figcaption>
+      </figure>
+<table><thead><tr><th>現場課題</th><th>結果</th><th>限界</th></tr></thead><tbody><tr><td>搬入条件が伝わらない</td><td>港へ持ち帰れない。</td><td>電話は船上で確認しにくい。</td></tr><tr><td>保管容量が見えない</td><td>置き場があふれる。</td><td>チャットは総量を集計しにくい。</td></tr><tr><td>処理完了が戻らない</td><td>活動量や費用を報告できない。</td><td>紙伝票と写真が分離する。</td></tr></tbody></table>
 <h2>既存の仕組みで足りない点</h2><ul><li>紙は船上写真、重量、搬入先、処理伝票を一体で追えない。</li><li>電話・チャットでは港ごとの受入可能日と容量を一覧化できない。</li><li>表計算は現場入力、危険物フラグ、担当別権限、処理完了通知に弱い。</li></ul>
 <h2>サービス案</h2><p>漁業者が回収予定・写真・概算量を登録し、自治体が搬入先を割り当て、保管・処理完了まで追うWeb台帳です。</p><ul><li>港別の受入日、分別ルール、保管容量を表示する。</li><li>回収場所、品目、概算重量、危険物疑いを記録する。</li><li>搬入枠と一時保管場所を割り当てる。</li><li>処理業者の引取日、伝票、処理量を残す。</li><li>月次の回収量、費用、未処理量をPDF化する。</li></ul>
 <h2>100万円規模に抑えた市場設定</h2><p>近隣沿岸の漁協、自治体、港管理者40組織へ接触し16組織を獲得します。</p><table><tbody><tr><th>月額</th><td>5,000円 x 16 x 12</td><td>960,000円</td></tr><tr><th>導入支援</th><td>15,000円 x 4</td><td>60,000円</td></tr><tr><th>初年度売上</th><td>合計</td><td><strong>1,020,000円</strong></td></tr></tbody></table><p class="meta">顧客数は1人で導入できる範囲の事業仮説です。</p>
@@ -14,4 +25,9 @@
 <h2>必要人数と人材要件</h2><p><strong>実行者1名 + 単発外注</strong>。実行者は開発と港での導入を担い、廃棄物処理、安全、利用規約を専門家へ外注します。</p>
 <h2>リスクと最初の検証</h2><ul><li>記録が漁業者の追加負担になる。</li><li>危険物を通常ごみとして搬入する。</li><li>重量推計が補助事業の正式値と混同される。</li></ul><p>2港・10隻・3か月で、持帰り率、保管超過、処理日数、入力時間、支払い意思を検証します。</p>
 <h2>結論</h2><p><strong>回収後の搬入・保管・処理完了</strong>に焦点を置けば、海洋ごみ対策の現場負担と未処理を小規模に減らせます。</p>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="海洋ごみの回収から保管・処理までをつなぐ小規模サービス案の確認点を示す図解" />
+        <figcaption>回収後の搬入・保管・処理完了 に焦点を置けば、海洋ごみ対策の現場負担と未処理を小規模に減らせます</figcaption>
+      </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.env.go.jp/press/press_02065.html">環境省: 漁業者と自治体の協力による海洋ごみ回収マニュアル</a></li><li><a href="https://www.env.go.jp/content/000156536.pdf">環境省: 自治体向け海洋ごみ回収資料</a></li><li><a href="https://www.env.go.jp/water/marine_litter/law.html">環境省: 海岸漂着物処理推進法関係</a></li><li><a href="https://www.env.go.jp/press/108011.html">環境省: 海底ごみ回収実証地域</a></li></ul></section></article></body></html>

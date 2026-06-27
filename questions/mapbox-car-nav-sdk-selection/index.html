@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" />
     <title>Mapboxでカーナビを作るときのSDK選定</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -11,6 +12,11 @@
       <p class="eyebrow">Question Note</p>
       <h1>Mapboxでカーナビを作るときのSDK選定</h1>
       <p class="meta">最終更新: 2026-06-07</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="Mapboxでカーナビを作るときのSDK選定の全体像を示す図解" />
+        <figcaption>Mapboxでカーナビアプリを作るときは、1つのSDKですべてを完結させるというより、 地図表示、目的地検索、経路案内、独自ロジックを役割ごとに分けて組み合わせる考え方が実用的です。 結論から言うと、運転中の案内体験を作る中心は Navigation SDK 、地図の見た目や独自レイヤー制御の中心は Maps SDK 、目的地入力や候補提示は Search SDK または Search / Geocoding API が適しています。</figcaption>
+      </figure>
+
 
       <figure>
         <img src="sdk-selection-diagram.svg" alt="Mapboxでカーナビを作る際のSDKの役割分担図" />
@@ -34,6 +40,11 @@
         <li>独自の配車、配送、車両制約ロジックを組む: バックエンド側で Directions 系 API や独自判定を併用する</li>
         <li>独自データを地図に重ねる: Maps SDK + Mapbox Studio / Tiling Service</li>
       </ul>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="Mapboxでカーナビを作るときのSDK選定の構成要素を示す図解" />
+        <figcaption>「住所を入れて候補を出す」「店舗名から目的地を選ぶ」「地図の中心点から住所を引く」といった処理は、 Navigation SDK本体よりこちらの担当です</figcaption>
+      </figure>
+
 
       <h2>SDKごとの役割</h2>
 
@@ -160,7 +171,12 @@
         Maps SDK とバックエンド設計を早めに並行検討したほうが崩れにくいです。
       </p>
 
-      <section class="sources">
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="Mapboxでカーナビを作るときのSDK選定の確認点を示す図解" />
+        <figcaption>単純な乗用車ナビなら Navigation SDK を起点に進めるのが最短で、配送や特殊車両まで踏み込むなら Maps SDK とバックエンド設計を早めに並行検討したほうが崩れにくいです</figcaption>
+      </figure>
+<section class="sources">
         <h2>Sources</h2>
         <ul>
           <li>

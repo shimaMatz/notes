@@ -1,6 +1,17 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="位置情報サービス企業の独自GIS・地理空間技術を比較し、トラックナビMVPの設計判断へ落とす技術ノート。" /><meta property="og:image" content="thumbnail.svg" /><title>位置情報サービス企業の独自GIS・地理空間技術比較</title><link rel="stylesheet" href="../../styles/site.css" /></head>
-<body class="note"><article><p class="eyebrow">Question Note / Geospatial Architecture</p><h1>位置情報サービス企業の独自GIS・地理空間技術比較</h1><p class="meta">最終更新: 2026-06-28</p><figure><img src="thumbnail.svg" alt="位置情報企業の技術比較サムネイル" /><figcaption>独自GISという言葉を、空間インデックス、ルーティング、ETA、マッチングへ分解する。</figcaption></figure><h2>この記事群の読み方</h2><p>Issue #14 の指定に沿って、Uber、Google、Mapbox、DoorDash、Lyft、Grab、project44 を1企業1ページで整理しました。ここでは全体比較だけを置き、各社ページへ移動できるようにします。</p><figure><img src="diagram.svg" alt="地理空間技術を構成要素へ分解した図解" /><figcaption>PostGISは重要だが、独自GISの全体ではなく、保存と検索の一部です。</figcaption></figure><h2>企業別ページ</h2><ul><li><a href="../uber-geospatial-h3-marketplace/">Uber: H3を中心に見る配車・ETA・独自GISの分解</a></li>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="位置情報サービス企業の独自GIS・地理空間技術を比較し、トラックナビMVPの設計判断へ落とす技術ノート。" /><meta property="og:image" content="editorial-diagram-1.svg" /><title>位置情報サービス企業の独自GIS・地理空間技術比較</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+<body class="note"><article><p class="eyebrow">Question Note / Geospatial Architecture</p><h1>位置情報サービス企業の独自GIS・地理空間技術比較</h1><p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="位置情報サービス企業の独自GIS・地理空間技術比較の全体像を示す図解" />
+        <figcaption>Issue #14 の指定に沿って、Uber、Google、Mapbox、DoorDash、Lyft、Grab、project44 を1企業1ページで整理しました。ここでは全体比較だけを置き、各社ページへ移動できるようにします。</figcaption>
+      </figure>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="位置情報サービス企業の独自GIS・地理空間技術比較の構成要素を示す図解" />
+        <figcaption>結論は PostgreSQL + PostGIS + Mapbox で十分 です</figcaption>
+      </figure>
+<h2>この記事群の読み方</h2><p>Issue #14 の指定に沿って、Uber、Google、Mapbox、DoorDash、Lyft、Grab、project44 を1企業1ページで整理しました。ここでは全体比較だけを置き、各社ページへ移動できるようにします。</p>
+<h2>企業別ページ</h2><ul><li><a href="../uber-geospatial-h3-marketplace/">Uber: H3を中心に見る配車・ETA・独自GISの分解</a></li>
 <li><a href="../google-geospatial-s2-bigquery-maps/">Google: S2 GeometryとMaps/BigQuery GISの役割</a></li>
 <li><a href="../mapbox-vector-tiles-navigation/">Mapbox: Vector Tiles・Navigation・Map Matchingの分担</a></li>
 <li><a href="../doordash-delivery-eta-dispatch/">DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</a></li>
@@ -12,4 +23,10 @@
 <tr><td><a href="../doordash-delivery-eta-dispatch/">DoorDash</a></td><td>ETA / matching / dispatch</td><td>独自GIS的な部分は、店舗、配達員、注文、顧客をリアルタイムに照合し、ETAとDispatch判断へつなぐ層</td><td>PostGISは距離・包含・近傍検索に強いが、配送ETAや割当品質はDB関数だけでは決まらない</td><td>トラックナビでは、配送ETAそのものより「地点、車両、予定、作業状態を分けて保存し、予測は後から足す」考え方が参考になる</td></tr>
 <tr><td><a href="../lyft-marketplace-eta-matching/">Lyft</a></td><td>ETA / matching / dispatch</td><td>独自GIS的な部分は、リアルタイム位置、ETA、マッチング、需要予測をマーケットプレイス判断に統合する層</td><td>PostGISは保管済みジオメトリへの問い合わせに向く</td><td>トラックナビMVPでは、リアルタイムマッチングより、施設候補を正しく出すことが優先</td></tr>
 <tr><td><a href="../grab-maps-eta-dispatch-southeast-asia/">Grab</a></td><td>ETA / matching / dispatch</td><td>独自GIS的な部分は、自社運用で得られる位置・POI・道路・ドライバー挙動を地図やETAに戻すループ</td><td>PostGISは自社DBの空間演算に使えるが、Grab型では地域の地図品質を補うデータ収集、道路補正、ETA、Dispatchまで必要になる</td><td>トラックナビでは、日本の大型車制約、駐車場入口、休憩所の実運用データを集め、地図APIだけでは足りない属性を自社データとして育てる考え方が参考になる</td></tr>
-<tr><td><a href="../project44-logistics-visibility-gps/">project44</a></td><td>GPS visibility / ETA</td><td>独自GIS的な部分は、複数ソースのGPSやステータスをshipment単位へ結びつけ、ETAと例外通知を出す統合レイヤー</td><td>PostGISは地点・ジオフェンス・到着判定に使えるが、project44型ではデータ接続、ID照合、イベント正規化、ETA、可視化が中心になる</td><td>トラックナビでは、車両位置そのものより、案件、目的地、停車、到着、遅延理由を同じIDで追える設計が参考になる</td></tr></tbody></table><figure><img src="summary.svg" alt="トラックナビMVPで採用すべき構成をまとめた図解" /><figcaption>MVPは PostgreSQL + PostGIS + Mapbox。大規模化してから H3 / S2 / Redis GEO / 独自インデックスを足す。</figcaption></figure><h2>トラックナビMVPで採用すべき構成</h2><p><strong>結論は PostgreSQL + PostGIS + Mapbox で十分</strong>です。PostGISで自社データの地点、施設、規制、ジオフェンスを扱い、Mapboxで表示と経路案内を行います。リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / Redis GEO / 独自インデックスを追加します。</p><section class="sources"><h2>Sources</h2><ul><li><a href="https://www.uber.com/en-JP/blog/h3/">Uber Engineering: H3</a></li><li><a href="https://github.com/google/s2geometry">Google S2 Geometry</a></li><li><a href="https://docs.mapbox.com/api/navigation/directions/">Mapbox Directions API</a></li><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li><li><a href="https://eng.lyft.com/">Lyft Engineering Blog</a></li><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li><li><a href="https://www.project44.com/">project44</a></li></ul></section></article></body></html>
+<tr><td><a href="../project44-logistics-visibility-gps/">project44</a></td><td>GPS visibility / ETA</td><td>独自GIS的な部分は、複数ソースのGPSやステータスをshipment単位へ結びつけ、ETAと例外通知を出す統合レイヤー</td><td>PostGISは地点・ジオフェンス・到着判定に使えるが、project44型ではデータ接続、ID照合、イベント正規化、ETA、可視化が中心になる</td><td>トラックナビでは、車両位置そのものより、案件、目的地、停車、到着、遅延理由を同じIDで追える設計が参考になる</td></tr></tbody></table>
+<h2>トラックナビMVPで採用すべき構成</h2><p><strong>結論は PostgreSQL + PostGIS + Mapbox で十分</strong>です。PostGISで自社データの地点、施設、規制、ジオフェンスを扱い、Mapboxで表示と経路案内を行います。リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / Redis GEO / 独自インデックスを追加します。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="位置情報サービス企業の独自GIS・地理空間技術比較の確認点を示す図解" />
+        <figcaption>リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / Redis GEO / 独自インデックスを追加します</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul><li><a href="https://www.uber.com/en-JP/blog/h3/">Uber Engineering: H3</a></li><li><a href="https://github.com/google/s2geometry">Google S2 Geometry</a></li><li><a href="https://docs.mapbox.com/api/navigation/directions/">Mapbox Directions API</a></li><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li><li><a href="https://eng.lyft.com/">Lyft Engineering Blog</a></li><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li><li><a href="https://www.project44.com/">project44</a></li></ul></section></article></body></html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="DoorDashの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
-    <meta property="og:image" content="thumbnail.svg" />
+    <meta property="og:image" content="editorial-diagram-1.svg" />
     <title>DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -13,17 +13,20 @@
       <p class="eyebrow">Question Note / Geospatial Architecture</p>
       <h1>DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</h1>
       <p class="meta">最終更新: 2026-06-28</p>
-      <figure><img src="thumbnail.svg" alt="DoorDashの地理空間技術の要点を示すサムネイル" /><figcaption>DoorDashをPostGIS、空間インデックス、ETA、マッチングへ分解して読む。</figcaption></figure>
-
-      <h2>何をしている企業か</h2>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の全体像を示す図解" />
+        <figcaption>レストランや小売から消費者へ商品を届けるラストマイル配送プラットフォーム。注文、店舗、配達員、顧客、道路状況を結びつける。</figcaption>
+      </figure>
+<h2>何をしている企業か</h2>
       <p>レストランや小売から消費者へ商品を届けるラストマイル配送プラットフォーム。注文、店舗、配達員、顧客、道路状況を結びつける。</p>
 
       <h2>位置情報で解いている課題</h2>
       <p>料理や商品の準備時刻、配達員の現在地、移動時間、ピックアップ待ち、ドロップオフまでのETAを同時に予測する必要がある。単なる距離順では品質が出ない。</p>
-
-      <figure><img src="diagram.svg" alt="DoorDashの地理空間基盤を構成要素へ分けた図解" /><figcaption>地図DBではなく、検索、予測、キャッシュ、業務判断を接続する層として見る。</figcaption></figure>
-
-      <h2>公開されている技術情報</h2>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の構成要素を示す図解" />
+        <figcaption>予測モデル、イベントストリーム、位置キャッシュ、業務状態管理が必要になる</figcaption>
+      </figure>
+<h2>公開されている技術情報</h2>
       <ul><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li>
 <li><a href="https://careersatdoordash.com/blog/">DoorDash Engineering: machine learning and logistics articles</a></li>
 <li><a href="https://developer.doordash.com/">DoorDash Developer Documentation</a></li></ul>
@@ -57,13 +60,15 @@ Map / Navigation API</code></pre>
 
       <h2>将来スケールしたときに参考になる点</h2>
       <p>到着予測、積卸し待ち時間、休憩候補推薦を改善する段階で、イベント履歴と位置履歴を学習・分析できる形にする。</p>
-
-      <figure><img src="summary.svg" alt="DoorDashからトラックナビMVPへ持ち帰る判断をまとめた図解" /><figcaption>MVPはPostGIS + Mapboxで始め、負荷と用途が見えた段階で空間インデックスを足す。</figcaption></figure>
-
-      <h2>結論</h2>
+<h2>結論</h2>
       <p>DoorDashの事例は、独自GISを「巨大な地図DB」ではなく、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュ、分析基盤の組み合わせとして読むと理解しやすいです。トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です。</p>
 
-      <section class="sources"><h2>Sources</h2><ul><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li>
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の確認点を示す図解" />
+        <figcaption>トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li>
 <li><a href="https://careersatdoordash.com/blog/">DoorDash Engineering: machine learning and logistics articles</a></li>
 <li><a href="https://developer.doordash.com/">DoorDash Developer Documentation</a></li></ul></section>
     </article>

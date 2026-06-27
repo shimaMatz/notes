@@ -1,10 +1,21 @@
 <!doctype html>
 <html lang="ja">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>退院後の住まい準備の抜け漏れを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>退院後の住まい準備の抜け漏れを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
   <body class="note"><article>
       <p class="eyebrow">Question Note</p><h1>退院後の住まい準備の抜け漏れを埋める小規模サービス案</h1><p class="meta">最終更新: 2026-06-18</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="退院後の住まい準備の抜け漏れを埋める小規模サービス案の全体像を示す図解" />
+        <figcaption>高齢者が住み慣れた地域で暮らし続けるには、医療、介護、住まい、生活支援が切れずにつながる必要があります。課題は制度そのものではなく、退院が決まってから自宅に戻るまでの短い期間に、家族、病院、ケアマネジャー、福祉用具事業者、住宅改修業者の確認が散ることです。</figcaption>
+      </figure>
+
       <figure><img src="ops-diagram.svg" alt="退院後の住まい準備を病院、家族、ケアマネジャー、地域事業者でつなぐ流れ" /><figcaption>退院予定日から逆算し、手すり、寝具、服薬、初週訪問を同じ台帳で確認する。</figcaption></figure>
       <h2>全体像</h2><p>高齢者が住み慣れた地域で暮らし続けるには、医療、介護、住まい、生活支援が切れずにつながる必要があります。課題は制度そのものではなく、退院が決まってから自宅に戻るまでの短い期間に、家族、病院、ケアマネジャー、福祉用具事業者、住宅改修業者の確認が散ることです。</p><p>狙いは、社会課題全体を解くことではなく、<strong>退院前後2週間の住まい準備チェックと引き継ぎ</strong>に絞ることです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="退院後の住まい準備の抜け漏れを埋める小規模サービス案の構成要素を示す図解" />
+        <figcaption>AIを使うと、画面案、CRUD、チェックリスト、PDF出力、テストデータ、家族向け説明文の初稿を短縮できます</figcaption>
+      </figure>
+
       <h2>どの社会問題を切り出すか</h2><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>退院日が先に決まる</td><td>手すり、ベッド位置、段差、トイレ動線の確認が後追いになる。</td><td>電話と紙メモでは、誰が何を確認済みか一覧しにくい。</td></tr><tr><td>家族の不安が具体化しない</td><td>初週の食事、服薬、入浴、通院付き添いが直前に不足する。</td><td>一般的なチェックリストは家庭ごとの優先度に落ちにくい。</td></tr><tr><td>事業者の手配が分断される</td><td>福祉用具、住宅改修、訪問サービスの予定が重なったり空いたりする。</td><td>各事業者の予定は個別管理で、家族向けの見通しが作りにくい。</td></tr></tbody></table>
       <h2>サービス案</h2><p>退院予定日を起点に、自宅確認、必要物品、事業者手配、初週の見守り予定を一枚の軽い台帳にまとめるサービスです。</p><ul><li>退院予定日、要介護度見込み、主な注意点、家族連絡先を最小限で登録する。</li><li>玄関、寝室、トイレ、浴室、服薬置き場を写真付きで確認する。</li><li>福祉用具、住宅改修、訪問予定、買い物・食事支援を期日別に並べる。</li><li>家族向けに「退院前」「退院日」「初週」の確認リストを出す。</li><li>完了写真、未対応項目、担当者メモを月次レポートとして残す。</li></ul>
       <h2>100万円規模に抑えた市場設定</h2><p>初年度は<strong>1市内の地域包括支援センター、居宅介護支援事業所、小規模病院を合わせた30拠点</strong>を到達可能市場とし、その中から15拠点に導入する前提にします。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>到達可能市場</td><td>1市内30拠点</td><td>説明会と個別設定を1人で回せる範囲</td></tr><tr><td>初年度導入</td><td>15拠点</td><td>地域包括、居宅、病院相談室から獲得</td></tr><tr><td>月額利用料</td><td>5,000円</td><td>900,000円/年</td></tr><tr><td>導入支援</td><td>12,000円 x 8件</td><td>96,000円</td></tr><tr><td>初年度売上予想</td><td>合計</td><td><strong>996,000円</strong></td></tr></tbody></table>
@@ -15,7 +26,12 @@
       <h2>必要人数と人材要件</h2><p>この規模では、<strong>実行者1名 + 単発外注</strong>を前提にします。</p><ul><li>実行者: Webアプリを実装でき、医療・介護・家族の言葉を業務項目に翻訳できる人</li><li>補助外注: 個人情報、利用規約、介護現場レビュー、アクセシビリティ点検を単発依頼</li><li>望ましいスキル: CRUD実装、写真管理、帳票設計、権限設計、現場ヒアリング</li></ul>
       <h2>リスクと最初の検証</h2><ul><li>医療判断や介護計画の代替に見えないよう、記録と調整に役割を限定する。</li><li>入力が多いと使われないため、最初は10項目以内のチェックから始める。</li><li>家族に見せる情報と事業者だけが見る情報を分ける。</li></ul><p>最初は2拠点、退院予定5件だけ試し、電話確認回数、未完了項目、家族からの問い合わせが減るかを見ます。</p>
       <h2>結論</h2><p>このテーマは、地域包括ケア全体を作る話ではなく、<strong>退院前後2週間の住まい準備チェックと引き継ぎ</strong>に切ると、小さな事業でも現場の負担を下げやすいです。</p>
-      <section class="sources"><h2>Sources</h2><ul>
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="退院後の住まい準備の抜け漏れを埋める小規模サービス案の確認点を示す図解" />
+        <figcaption>このテーマは、地域包括ケア全体を作る話ではなく、 退院前後2週間の住まい準備チェックと引き継ぎ に切ると、小さな事業でも現場の負担を下げやすいです</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul>
           <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/chiiki-houkatsu/">厚生労働省: 地域包括ケアシステム</a></li>
           <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/gaiyo/index.html">厚生労働省: 介護保険制度の概要</a></li>
           <li><a href="https://www8.cao.go.jp/kourei/whitepaper/index-w.html">内閣府: 高齢社会白書</a></li>

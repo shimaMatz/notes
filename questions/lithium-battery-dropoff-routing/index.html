@@ -1,9 +1,20 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>リチウム電池の捨て方判定と回収完了をつなぐ小規模サービス案</title><meta name="description" content="製品状態と自治体ルールから回収先を案内し、受付完了まで追跡する小規模事業計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>リチウム電池の捨て方判定と回収完了をつなぐ小規模サービス案</title><meta name="description" content="製品状態と自治体ルールから回収先を案内し、受付完了まで追跡する小規模事業計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head>
 <body class="note"><article><p class="eyebrow">Question Note</p><h1>リチウム電池の捨て方判定と回収完了をつなぐ小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="リチウム電池の捨て方判定と回収完了をつなぐ小規模サービス案の全体像を示す図解" />
+        <figcaption>リチウムイオン電池は家庭製品に広く入り込む一方、衝撃や高温で発火し、収集車や処理施設の火災につながります。家庭向けには自治体ごとのルール確認が必要で、電池が外せない、膨張している、メーカー回収対象か分からない、といった条件で案内が分岐します。</figcaption>
+      </figure>
+
 <figure><img src="dropoff-overview.svg" alt="自治体別の回収品目、受付場所、混雑状況を表示する一覧画面" /><figcaption>概要画面: 製品状態と地域から、持ち込み可能な回収先と受付条件を絞り込みます。</figcaption></figure>
 <figure><img src="dropoff-detail.svg" alt="膨張したモバイルバッテリーの受付条件、担当、履歴、次の行動を示す詳細画面" /><figcaption>詳細画面: 選択した製品の安全上の注意、担当窓口、受付履歴、次の行動を一画面にまとめます。</figcaption></figure>
 <h2>全体像</h2><p>リチウムイオン電池は家庭製品に広く入り込む一方、衝撃や高温で発火し、収集車や処理施設の火災につながります。家庭向けには自治体ごとのルール確認が必要で、電池が外せない、膨張している、メーカー回収対象か分からない、といった条件で案内が分岐します。</p><p>課題は捨て方の周知だけでなく、<strong>製品状態の判定、持込先ごとの受付条件、実際の回収完了</strong>が分断されていることです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="リチウム電池の捨て方判定と回収完了をつなぐ小規模サービス案の構成要素を示す図解" />
+        <figcaption>住民課金ではなく、問い合わせ削減と安全な分別を得る組織側の固定課金が適します</figcaption>
+      </figure>
+
 <h2>切り出す社会課題と対象利用者</h2><p>初年度は<strong>回収拠点を複数持つ16の自治体・小売共同体</strong>に絞ります。住民は登録不要で判定を使い、自治体担当者と回収拠点スタッフがルール、臨時停止、受入実績を更新します。</p><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>品目名が曖昧</td><td>一般ごみに混入する</td><td>PDFの分別表は製品状態まで聞き分けない</td></tr><tr><td>拠点条件が変わる</td><td>持ち込み後に断られる</td><td>電話・Web更新が各拠点でずれる</td></tr><tr><td>回収後が見えない</td><td>周知の改善点を測れない</td><td>問い合わせ数と受入件数が結び付かない</td></tr></tbody></table>
 <h2>既存の仕組みで足りない点</h2><ul><li>紙やPDFは、電池の取り外し可否、膨張・破損、メーカー名から安全な分岐を返せません。</li><li>電話やチャットでは、同じ質問が繰り返され、担当交代後に判断根拠が残りません。</li><li>表計算では住民向け地図、受付停止、匿名の完了計測を同時に安全運用しにくいです。</li></ul>
 <h2>サービス案</h2><p>「Battery Path」は、3〜5問の状態確認から地域ルールに合う回収先を案内し、拠点の受付完了までを匿名コードで閉じるWebサービスです。医療・消防判断はせず、発熱・発煙時は119番等の既存緊急窓口へ明確に誘導します。</p><ul><li>製品種別、電池の取り外し可否、膨張・破損の判定フロー</li><li>距離、営業時間、対象品目、臨時停止で絞る回収拠点地図</li><li>拠点スタッフ用の受入可否・絶縁確認・保管箱記録</li><li>案内コードを読み取る匿名の受付完了記録</li><li>自治体向けに未完了率、迷いやすい品目、拠点別実績を集計</li></ul>
@@ -17,5 +28,10 @@
 <h2>必要人数と人材要件</h2><p><strong>運営兼開発1人</strong>が顧客窓口、設定、改善を担当します。</p><ul><li>実行者: AWSサーバーレス、アクセシビリティ、自治体との要件調整</li><li>補助外注: 廃棄物実務者による安全文面レビュー、必要時の法務確認</li><li>人に残す判断: 危険品の受入可否、緊急時誘導、ルール公開承認</li></ul>
 <h2>リスクと最初の検証</h2><ul><li>誤案内は火災リスクになるため、自治体承認済みルールだけを公開する。</li><li>拠点情報が古い場合は受付不能になるため、30日ごとに再承認を求める。</li><li>住民の登録を必須にすると離脱するため、匿名判定を標準にする。</li></ul><p>最初は1自治体・3拠点で4週間、50品目の判定正答率、窓口電話件数、案内から受付完了までの率を確認します。</p>
 <h2>結論</h2><p>ごみ分別表を増やすのではなく、製品状態から安全な持込先を示し、受入結果をルール改善へ戻す狭い循環に価値があります。</p>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="リチウム電池の捨て方判定と回収完了をつなぐ小規模サービス案の確認点を示す図解" />
+        <figcaption>ごみ分別表を増やすのではなく、製品状態から安全な持込先を示し、受入結果をルール改善へ戻す狭い循環に価値があります</figcaption>
+      </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.env.go.jp/recycle/waste/lithium_1/index.html">環境省「リチウムイオン電池関係」</a></li><li><a href="https://lithium.env.go.jp/recycle/waste/lithium_1/pdf/20260413_taisakusyu_01.pdf">環境省「市町村におけるリチウムイオン電池等の適正処理に関する方針と対策集」</a></li><li><a href="https://www.meti.go.jp/policy/it_policy/kaden/index03.html">経済産業省「小型二次電池のリサイクル」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS 料金</a></li></ul></section>
 </article></body></html>

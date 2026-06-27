@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">トラックナビMVPで採用すべき構成の確認点</title><desc id="desc">リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / Redis GEO / 独自インデックスを追加します</desc>
+<rect width="1200" height="675" fill="#fff"/><rect x="0.5" y="0.5" width="1199" height="674" fill="none" stroke="#111" stroke-width="1"/>
+<text x="600" y="72" text-anchor="middle" font-size="24" letter-spacing="8" font-family="Arial, sans-serif" fill="#687386">CHECKPOINTS</text>
+<text x="86" y="145" font-size="42" font-family="Arial, sans-serif" font-weight="700" fill="#111">トラックナビMVPで採用すべき構成の確認</text>
+<text x="86" y="210.10000000000002" font-size="42" font-family="Arial, sans-serif" font-weight="700" fill="#111">点</text>
+<g transform="translate(110,335)"><circle cx="0" cy="-7" r="6" fill="#111"/><text x="22" y="0" font-size="23" font-family="Arial, sans-serif" fill="#111">Mapbox Directions API</text></g>
+<g transform="translate(110,399)"><circle cx="0" cy="-7" r="6" fill="#111"/><text x="22" y="0" font-size="23" font-family="Arial, sans-serif" fill="#111">DoorDash Engineering Blog</text></g>
+<g transform="translate(110,463)"><circle cx="0" cy="-7" r="6" fill="#111"/><text x="22" y="0" font-size="23" font-family="Arial, sans-serif" fill="#111">Lyft Engineering Blog</text></g>
+<circle cx="745" cy="288" r="150" fill="#f1f1f1"/><path d="M650 320c52-118 152-118 204 0" fill="none" stroke="#111" stroke-width="6"/><rect x="610" y="370" width="292" height="18" fill="#111"/><rect x="960" y="170" width="80" height="290" fill="none" stroke="#111" stroke-width="2"/><path d="M982 220h36M982 280h36M982 340h36M982 400h36" stroke="#111" stroke-width="3"/>
+<text x="600" y="604" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#333">リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / …</text>
+</svg>

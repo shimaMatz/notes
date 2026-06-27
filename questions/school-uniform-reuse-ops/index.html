@@ -1,10 +1,21 @@
 ﻿<!doctype html>
 <html lang="ja">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>制服・学用品リユースの在庫偏りを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>制服・学用品リユースの在庫偏りを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
   <body class="note"><article>
       <p class="eyebrow">Question Note</p><h1>制服・学用品リユースの在庫偏りを埋める小規模サービス案</h1><p class="meta">最終更新: 2026-06-12</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="制服・学用品リユースの在庫偏りを埋める小規模サービス案の全体像を示す図解" />
+        <figcaption>こどもの貧困は学習面や生活面にも影響します。制服や体操服、部活動用品は必要時期が集中し、寄付品があってもサイズ、学校、状態、受け渡しが合わないと使われません。</figcaption>
+      </figure>
+
       <figure><img src="ops-diagram.svg" alt="制服・学用品リユースの在庫偏りを埋める小規模サービス案の全体像" /><figcaption>課題を大きく背負わず、現場のずれを記録と調整に切り出す。</figcaption></figure>
       <h2>全体像</h2><p>こどもの貧困は学習面や生活面にも影響します。制服や体操服、部活動用品は必要時期が集中し、寄付品があってもサイズ、学校、状態、受け渡しが合わないと使われません。</p><p>狙いは、社会課題全体を解くことではなく、<strong>地域の制服・学用品リユース団体の在庫と予約調整</strong>に絞ることです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="制服・学用品リユースの在庫偏りを埋める小規模サービス案の構成要素を示す図解" />
+        <figcaption>AIを使うと、画面案、CRUD、CSV/PDF出力、テストデータ、説明文の初稿を短縮できます</figcaption>
+      </figure>
+
       <h2>どの社会問題を切り出すか</h2><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>サイズと学校が合わない</td><td>在庫はあるのに必要な家庭へ届かない。</td><td>写真アルバムやSNSでは検索と予約状態が残りにくい。</td></tr><tr><td>春に需要が集中する</td><td>入学前だけ担当者の連絡負荷が跳ね上がる。</td><td>表計算では状態、採寸、受け渡し枠をまとめにくい。</td></tr><tr><td>寄付品の状態確認が属人化</td><td>ほつれ、名札跡、洗濯済みかどうかの基準が揺れる。</td><td>一般フリマは支援対象や無料配布の文脈に合いにくい。</td></tr></tbody></table>
       <h2>サービス案</h2><p>制服、体操服、ランドセル、部活動用品を学校・サイズ・状態で登録し、必要な家庭の予約と受け渡し枠を管理します。</p><ul><li>学校名、サイズ、状態、写真、補修要否を登録する。</li><li>家庭側の希望を匿名予約として持つ。</li><li>入学前の受け渡し会ごとに持参品リストを出す。</li><li>不足サイズを自動集計して寄付募集文を作る。</li><li>配布履歴を個人名を出さずに月次集計する。</li></ul>
       <h2>100万円規模に抑えた市場設定</h2><p>初年度は<strong>2市のリユース団体、PTA、支援拠点60組織</strong>を到達可能市場とし、その中から18組織に導入する前提にします。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>到達可能市場</td><td>2市のリユース団体、PTA、支援拠点60組織</td><td>面談と初期設定を1人で回せる範囲</td></tr><tr><td>初年度導入</td><td>18組織</td><td>紹介、説明会、個別導入で獲得</td></tr><tr><td>月額利用料</td><td>4,000円</td><td>864,000円/年</td></tr><tr><td>導入支援</td><td>8,000円 x 8件</td><td>64,000円</td></tr><tr><td>初年度売上予想</td><td>合計</td><td><strong>928,000円</strong></td></tr></tbody></table>
@@ -15,7 +26,12 @@
       <h2>必要人数と人材要件</h2><p>この規模では、<strong>実行者1名 + 単発外注</strong>を前提にします。</p><ul><li>実行者: Webアプリを実装でき、地域団体や現場担当者との面談ができる人</li><li>補助外注: 会計、法務、個人情報、安全確認、アクセシビリティ点検を単発依頼</li><li>望ましいスキル: CRUD実装、帳票設計、スマホUI、業務整理、地域連携の調整力</li></ul>
       <h2>リスクと最初の検証</h2><ul><li>月額課金に見合うほど、現場の調整負荷が減るかを確認する。</li><li>入力項目が多すぎると紙や電話に戻るため、初期項目を絞る。</li><li>個人情報、安全、責任範囲を利用規約と運用説明で明確にする。</li></ul><p>最初は3拠点、1か月だけ試し、連絡漏れ、記録漏れ、担当者の作業時間が減るかを見ます。</p>
       <h2>結論</h2><p>このテーマは、社会問題全体を解く巨大サービスではなく、<strong>地域の制服・学用品リユース団体の在庫と予約調整</strong>を整える方向に切ると、100万円規模でも成立しやすいです。</p>
-      <section class="sources"><h2>Sources</h2><ul>
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="制服・学用品リユースの在庫偏りを埋める小規模サービス案の確認点を示す図解" />
+        <figcaption>このテーマは、社会問題全体を解く巨大サービスではなく、 地域の制服・学用品リユース団体の在庫と予約調整 を整える方向に切ると、100万円規模でも成立しやすいです</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul>
           <li><a href="https://www.cfa.go.jp/policies/kodomonohinkon">こども家庭庁: こどもの貧困対策</a></li>
           <li><a href="https://www.mext.go.jp/a_menu/shotou/career/05010502/017.htm">文部科学省: 就学援助制度について</a></li>
           <li><a href="https://www.cfa.go.jp/policies">こども家庭庁: 政策</a></li>

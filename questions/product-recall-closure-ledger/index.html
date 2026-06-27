@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" />
 <title>小規模販売店の製品リコール対応を完了まで追うサービス案</title><meta name="description" content="対象在庫、購入者連絡、返金・交換、未回収理由を一件ずつ閉じる小規模サービスの事業計画" />
 <link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article>
 <p class="eyebrow">Question Note</p><h1>小規模販売店の製品リコール対応を完了まで追うサービス案</h1><p class="meta">最終更新: 2026-06-20</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="小規模販売店の製品リコール対応を完了まで追うサービス案の全体像を示す図解" />
+        <figcaption>経済産業省は、製品事故の危害拡大を防ぐ措置として回収等を求め、リコール開始・進捗・終了時の報告様式を公開しています。小規模販売店ではメーカー通知、POS抽出、購入者連絡、店頭返金、未回収理由がメールと表計算に分かれ、対象者が残っても追跡が止まりがちです。</figcaption>
+      </figure>
+
 <figure><img src="recall-overview.svg" alt="店舗別リコール案件一覧画面" /><figcaption>対象SKU、販売数、連絡済み、回収済み、未完了を店舗別に見る一覧画面。</figcaption></figure>
 <figure><img src="recall-detail.svg" alt="購入者ごとのリコール対応詳細画面" /><figcaption>購入者連絡から返金・交換・廃棄証明までを閉じる詳細画面。</figcaption></figure>
 <h2>全体像</h2><p>経済産業省は、製品事故の危害拡大を防ぐ措置として回収等を求め、リコール開始・進捗・終了時の報告様式を公開しています。小規模販売店ではメーカー通知、POS抽出、購入者連絡、店頭返金、未回収理由がメールと表計算に分かれ、対象者が残っても追跡が止まりがちです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="小規模販売店の製品リコール対応を完了まで追うサービス案の構成要素を示す図解" />
+        <figcaption>公開前にAWS Pricing Calculatorで再計算します</figcaption>
+      </figure>
+
 <p>メーカーの責任を代替せず、販売店が担う<strong>対象在庫の隔離 → 購入者への連絡 → 返金・交換 → 未回収の再通知 → 完了集計</strong>を一案件で閉じます。</p>
 <h2>対象と既存手段の限界</h2><table><thead><tr><th>利用者</th><th>課題</th><th>既存手段の限界</th></tr></thead><tbody>
 <tr><td>地域家電店・雑貨店</td><td>型式と販売履歴の照合</td><td>メーカーPDFとPOS抽出結果が別管理</td></tr>
@@ -32,4 +43,9 @@
 <p>初年度支出はAWS 103,200円、ドメイン3,000円、外注360,000円、営業・運営180,000円、予備費80,000円の計726,200円。<strong>売上 - 支出 = 利益</strong>より、1,020,000円 - 726,200円 = <strong>293,800円</strong>です。</p>
 <h2>最初の実証とリスク</h2><p>2店舗で過去の1案件を匿名データで再現し、対象確定時間、連絡漏れ、完了率集計時間を比較します。メーカー責任との誤認、過剰な個人情報保持、誤照合を避けるため、責任範囲表示、連絡キーの暗号化・削除期限、二者確認を必須にします。</p>
 <h2>参照情報</h2><ul><li><a href="https://www.meti.go.jp/product_safety/producer/system/09-2.html">経済産業省「リコールについて」</a></li><li><a href="https://www.meti.go.jp/product_safety/producer/ryutsuguide.html">経済産業省「製品安全に関する流通事業者向けガイド」</a></li><li><a href="https://www.recall.caa.go.jp/">消費者庁 リコール情報サイト</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul>
-<p><a href="../../index.html">一覧へ戻る</a></p></article></body></html>
+<p><a href="../../index.html">一覧へ戻る</a></p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="小規模販売店の製品リコール対応を完了まで追うサービス案の確認点を示す図解" />
+        <figcaption>メーカー責任との誤認、過剰な個人情報保持、誤照合を避けるため、責任範囲表示、連絡キーの暗号化・削除期限、二者確認を必須にします</figcaption>
+      </figure>
+</article></body></html>

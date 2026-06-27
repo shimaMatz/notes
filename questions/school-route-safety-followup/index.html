@@ -1,10 +1,21 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>通学路の危険箇所と対策完了を追跡する小規模サービス案</title><meta name="description" content="通学路合同点検後の対策状況を学校・道路管理者・警察で追跡する小規模IT事業案です。" /><link rel="stylesheet" href="../../styles/site.css" /></head>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>通学路の危険箇所と対策完了を追跡する小規模サービス案</title><meta name="description" content="通学路合同点検後の対策状況を学校・道路管理者・警察で追跡する小規模IT事業案です。" /><link rel="stylesheet" href="../../styles/site.css" /></head>
 <body class="note"><article><p class="eyebrow">Question Note</p><h1>通学路の危険箇所と対策完了を追跡する小規模サービス案</h1><p class="meta">最終更新: 2026-06-19</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="通学路の危険箇所と対策完了を追跡する小規模サービス案の全体像を示す図解" />
+        <figcaption>文部科学省は2025年6月、通学路合同点検後も暫定対策だった4,244か所の実施状況を確認し、関係機関の連携継続を求めました。社会問題は危険箇所の発見だけでなく、 学校、教育委員会、道路管理者、警察の対策案・期限・完了証拠が分断されること です。</figcaption>
+      </figure>
+
 <figure><img src="wireframe-dashboard.svg" alt="通学路危険箇所の一覧画面ワイヤーフレーム" /><figcaption>地図と案件一覧で、危険度、担当機関、期限、対策状況を確認する。</figcaption></figure>
 <figure><img src="wireframe-detail.svg" alt="通学路危険箇所の詳細・再確認画面ワイヤーフレーム" /><figcaption>一地点の写真、対策履歴、担当者、再確認結果を同じ画面で更新する。</figcaption></figure>
 <h2>全体像</h2><p>文部科学省は2025年6月、通学路合同点検後も暫定対策だった4,244か所の実施状況を確認し、関係機関の連携継続を求めました。社会問題は危険箇所の発見だけでなく、<strong>学校、教育委員会、道路管理者、警察の対策案・期限・完了証拠が分断されること</strong>です。</p>
-<h2>どの社会問題を切り出すか</h2><p>初年度は<strong>近隣自治体の小中学校とPTAが扱う通学路危険箇所の受付から再確認</strong>に絞ります。</p><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>同じ箇所が別名で届く</td><td>重複集計や見落としが起きる。</td><td>紙地図と表計算では位置を統合しにくい。</td></tr><tr><td>担当機関が複数</td><td>誰の回答待ちか分からない。</td><td>メールは案件全体の状態を示さない。</td></tr><tr><td>暫定対策後の確認が弱い</td><td>現場で危険が残っても完了扱いになる。</td><td>写真と報告書が別々に保存される。</td></tr></tbody></table>
+<h2>どの社会問題を切り出すか</h2><p>初年度は<strong>近隣自治体の小中学校とPTAが扱う通学路危険箇所の受付から再確認</strong>に絞ります。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="通学路の危険箇所と対策完了を追跡する小規模サービス案の構成要素を示す図解" />
+        <figcaption>実装前にAWS Pricing Calculatorで再計算します</figcaption>
+      </figure>
+<table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>同じ箇所が別名で届く</td><td>重複集計や見落としが起きる。</td><td>紙地図と表計算では位置を統合しにくい。</td></tr><tr><td>担当機関が複数</td><td>誰の回答待ちか分からない。</td><td>メールは案件全体の状態を示さない。</td></tr><tr><td>暫定対策後の確認が弱い</td><td>現場で危険が残っても完了扱いになる。</td><td>写真と報告書が別々に保存される。</td></tr></tbody></table>
 <h2>既存の仕組みで足りない点</h2><ul><li>紙は位置、写真、更新履歴を一体で扱えない。</li><li>電話やチャットは担当交代後に判断根拠が残りにくい。</li><li>表計算は複数機関の権限、期限通知、地図上の重複判定に弱い。</li></ul>
 <h2>サービス案</h2><p>危険箇所を地図で受け付け、合同確認、対策案、担当、期限、完了写真、再確認を一案件で追跡するWeb台帳です。</p><ul><li>位置・時間帯・危険種別・写真を登録する。</li><li>近接投稿をまとめ、個人情報を除いて共有する。</li><li>教育委員会、道路管理者、警察ごとの担当と期限を持つ。</li><li>暫定・恒久対策を分け、期限超過を通知する。</li><li>学校・保護者向け公開一覧と年度報告を出す。</li></ul>
 <h2>100万円規模に抑えた市場設定</h2><p>近隣自治体・学校50組織を到達可能市場とし、20組織を獲得します。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>初年度顧客</td><td>20組織</td><td>個別説明で運用可能</td></tr><tr><td>月額</td><td>4,000円 x 20 x 12</td><td>960,000円</td></tr><tr><td>導入支援</td><td>10,000円 x 6</td><td>60,000円</td></tr><tr><td>売上</td><td>合計</td><td><strong>1,020,000円</strong></td></tr></tbody></table><p class="meta">顧客数は市場統計ではなく、1人で営業・支援できる初年度仮説です。</p>
@@ -15,4 +26,9 @@
 <h2>必要人数と人材要件</h2><p><strong>実行者1名 + 単発外注</strong>で、実行者はWeb実装と行政・学校への聞き取りを担当し、個人情報と交通安全表現の確認を専門家へ外注します。</p>
 <h2>リスクと最初の検証</h2><ul><li>投稿が正式な改善確約と誤解される。</li><li>位置情報に児童の行動が含まれる。</li><li>既存の自治体台帳と二重入力になる。</li></ul><p>3校・20案件・3か月で、重複整理時間、期限超過、再確認率、月額4,000円の支払い意思を検証します。</p>
 <h2>結論</h2><p>危険箇所の通報アプリではなく、<strong>複数機関の対策完了と再確認を追う台帳</strong>に絞ることで、小規模でも安全改善の停滞を減らせます。</p>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="通学路の危険箇所と対策完了を追跡する小規模サービス案の確認点を示す図解" />
+        <figcaption>危険箇所の通報アプリではなく、 複数機関の対策完了と再確認を追う台帳 に絞ることで、小規模でも安全改善の停滞を減らせます</figcaption>
+      </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.mext.go.jp/a_menu/kenko/anzen/1416686_00032.htm">文部科学省: 通学路における合同点検結果を踏まえた交通安全の確保の徹底</a></li><li><a href="https://www.mext.go.jp/content/20210709-000016762_1.pdf">文部科学省: 通学路における合同点検等実施要領</a></li><li><a href="https://anzenkyouiku.mext.go.jp/tougekoubouhan/index.html">文部科学省: 登下校防犯プラン</a></li></ul></section></article></body></html>

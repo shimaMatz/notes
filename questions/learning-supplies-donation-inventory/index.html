@@ -1,10 +1,21 @@
 ﻿<!doctype html>
 <html lang="ja">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>学用品寄付の不足カテゴリを見える化する小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>学用品寄付の不足カテゴリを見える化する小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
   <body class="note"><article>
       <p class="eyebrow">Question Note</p><h1>学用品寄付の不足カテゴリを見える化する小規模サービス案</h1><p class="meta">最終更新: 2026-06-12</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="学用品寄付の不足カテゴリを見える化する小規模サービス案の全体像を示す図解" />
+        <figcaption>こどもの貧困は経済的困難だけでなく、学習面や生活面の機会にも影響します。学用品寄付は集まりやすい一方で、必要な学年、時期、状態、受け渡し方法が合わないと支援につながりません。</figcaption>
+      </figure>
+
       <figure><img src="ops-diagram.svg" alt="学用品寄付の不足カテゴリを見える化する小規模サービス案の全体像" /><figcaption>課題を大きく背負わず、現場のずれを記録と調整に切り出す。</figcaption></figure>
       <h2>全体像</h2><p>こどもの貧困は経済的困難だけでなく、学習面や生活面の機会にも影響します。学用品寄付は集まりやすい一方で、必要な学年、時期、状態、受け渡し方法が合わないと支援につながりません。</p><p>狙いは、社会課題全体を解くことではなく、<strong>地域の学習支援団体、こども食堂、学校外居場所の学用品寄付在庫</strong>に絞ることです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="学用品寄付の不足カテゴリを見える化する小規模サービス案の構成要素を示す図解" />
+        <figcaption>AIを使うと、画面案、CRUD、CSV/PDF出力、テストデータ、説明文の初稿を短縮できます</figcaption>
+      </figure>
+
       <h2>どの社会問題を切り出すか</h2><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>寄付品が偏る</td><td>鉛筆は多いが上履きや辞書が足りないなど、必要カテゴリが見えない。</td><td>SNS募集は拡散しやすいが、在庫と不足の全体像が残らない。</td></tr><tr><td>学年と時期がずれる</td><td>新学期前に必要な物が間に合わない。</td><td>表計算では予約、受け渡し、状態写真が分かれやすい。</td></tr><tr><td>受け渡し記録が弱い</td><td>同じ家庭への重複配布や不足世帯の見落としが起きる。</td><td>一般ECは無料寄付や匿名性の配慮に合いにくい。</td></tr></tbody></table>
       <h2>サービス案</h2><p>学用品寄付をカテゴリ、学年、状態、必要時期で管理し、不足カテゴリの募集文と受け渡し履歴を作るサービスです。</p><ul><li>品目、学年、状態、写真、保管場所を登録する。</li><li>支援拠点ごとの不足カテゴリを色分けする。</li><li>寄付募集文を不足品だけで自動生成する。</li><li>受け渡し会ごとの持ち出しリストを作る。</li><li>匿名IDで配布履歴と重複確認を残す。</li></ul>
       <h2>100万円規模に抑えた市場設定</h2><p>初年度は<strong>2市の学習支援、こども食堂、居場所団体80団体</strong>を到達可能市場とし、その中から20団体に導入する前提にします。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>到達可能市場</td><td>2市の学習支援、こども食堂、居場所団体80団体</td><td>面談と初期設定を1人で回せる範囲</td></tr><tr><td>初年度導入</td><td>20団体</td><td>紹介、説明会、個別導入で獲得</td></tr><tr><td>月額利用料</td><td>4,000円</td><td>960,000円/年</td></tr><tr><td>導入支援</td><td>8,000円 x 8件</td><td>64,000円</td></tr><tr><td>初年度売上予想</td><td>合計</td><td><strong>1,024,000円</strong></td></tr></tbody></table>
@@ -15,7 +26,12 @@
       <h2>必要人数と人材要件</h2><p>この規模では、<strong>実行者1名 + 単発外注</strong>を前提にします。</p><ul><li>実行者: Webアプリを実装でき、地域団体や現場担当者との面談ができる人</li><li>補助外注: 会計、法務、個人情報、安全確認、アクセシビリティ点検を単発依頼</li><li>望ましいスキル: CRUD実装、帳票設計、スマホUI、業務整理、地域連携の調整力</li></ul>
       <h2>リスクと最初の検証</h2><ul><li>月額課金に見合うほど、現場の調整負荷が減るかを確認する。</li><li>入力項目が多すぎると紙や電話に戻るため、初期項目を絞る。</li><li>個人情報、安全、責任範囲を利用規約と運用説明で明確にする。</li></ul><p>最初は3拠点、1か月だけ試し、連絡漏れ、記録漏れ、担当者の作業時間が減るかを見ます。</p>
       <h2>結論</h2><p>このテーマは、社会問題全体を解く巨大サービスではなく、<strong>地域の学習支援団体、こども食堂、学校外居場所の学用品寄付在庫</strong>を整える方向に切ると、100万円規模でも成立しやすいです。</p>
-      <section class="sources"><h2>Sources</h2><ul>
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="学用品寄付の不足カテゴリを見える化する小規模サービス案の確認点を示す図解" />
+        <figcaption>このテーマは、社会問題全体を解く巨大サービスではなく、 地域の学習支援団体、こども食堂、学校外居場所の学用品寄付在庫 を整える方向に切ると、100万円規模でも成立しやすいです</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul>
           <li><a href="https://www.cfa.go.jp/policies/kodomonohinkon">こども家庭庁: こどもの貧困対策</a></li>
           <li><a href="https://www.mext.go.jp/a_menu/shotou/career/05010502/017.htm">文部科学省: 就学援助制度について</a></li>
           <li><a href="https://www.cfa.go.jp/policies">こども家庭庁: 政策</a></li>

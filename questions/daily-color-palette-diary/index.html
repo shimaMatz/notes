@@ -1,5 +1,16 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>一日一色を集める「色標本日記」アプリ事業案</title><meta name="description" content="身近な景色から一色だけ採集し、月ごとの配色標本を育てる消費者アプリ計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>一日一色を集める「色標本日記」アプリ事業案</h1><p class="meta">最終更新: 2026-06-19</p>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>一日一色を集める「色標本日記」アプリ事業案</title><meta name="description" content="身近な景色から一色だけ採集し、月ごとの配色標本を育てる消費者アプリ計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>一日一色を集める「色標本日記」アプリ事業案</h1><p class="meta">最終更新: 2026-06-19</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="一日一色を集める「色標本日記」アプリ事業案の全体像を示す図解" />
+        <figcaption>「色標本日記」は、カメラで目の前の景色を切り取り、その日を代表する一色だけを保存するアプリです。長文も公開投稿も不要で、月末には31色以下の自分だけの配色ができます。中心の楽しさは いつもの景色から色を発見し、時間が一枚の配色へ堆積すること です。</figcaption>
+      </figure>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="一日一色を集める「色標本日記」アプリ事業案の構成要素を示す図解" />
+        <figcaption>公開前に AWS Pricing Calculatorで再計算 します</figcaption>
+      </figure>
+
 <figure><img src="color-overview.svg" alt="今月集めた色標本と今日の採集ボタンを示す一覧画面" /><figcaption>概要画面: 一日一色の標本が月の配色になり、未採集の日だけを静かに示します。</figcaption></figure><figure><img src="color-detail.svg" alt="一つの色標本の元写真、所有者、履歴、次の配色操作を示す詳細画面" /><figcaption>詳細画面: 元の景色、抽出色、記録履歴、次に試す配色を確認します。</figcaption></figure>
 <h2>体験の全体像</h2><p>「色標本日記」は、カメラで目の前の景色を切り取り、その日を代表する一色だけを保存するアプリです。長文も公開投稿も不要で、月末には31色以下の自分だけの配色ができます。中心の楽しさは<strong>いつもの景色から色を発見し、時間が一枚の配色へ堆積すること</strong>です。</p>
 <h2>利用者・きっかけ・継続ループ</h2><table><tbody><tr><th>主対象</th><td>写真日記は重いが、色・服・部屋・デザインを見るのが好きな個人</td></tr><tr><th>状況トリガー</th><td>通勤、散歩、買い物中に気になる色を見つけた瞬間</td></tr><tr><th>反復ループ</th><td>撮る → 一点を選ぶ → 色名を付ける → 月の配色を見る</td></tr><tr><th>端末面</th><td>カメラ、ホーム画面ウィジェット、月別標本帳</td></tr><tr><th>内容差分</th><td>本人の環境光、対象、季節、選択位置から毎日変わる</td></tr></table>
@@ -11,4 +22,9 @@
 <h2>売上・支出・利益</h2><p><strong>売上 - 支出 = 利益</strong></p><table><tbody><tr><th>売上</th><td>1,020,000円</td><td>年額816,000円 + テーマ204,000円</td></tr><tr><th>支出</th><td>339,600円</td><td>AWS 66,600円、ストア手数料等153,000円、デザイン80,000円、端末・告知40,000円</td></tr><tr><th>利益</th><td><strong>680,400円</strong></td><td>事業主の制作・運営人件費と税引前</td></tr></tbody></table>
 <h2>必要人数と人材要件</h2><p><strong>iOS開発・運営1名 + デザイン単発外注</strong>です。実行者がカメラ、WidgetKit、AWS同期、課金を担い、色設計とアクセシビリティを外部レビューします。</p>
 <h2>リスクと最初の検証</h2><ul><li>照明やディスプレイで色が変わるため、絶対色測定ではなく記憶の標本だと明示する。</li><li>連続日数を競わせず、空白も月の配色として残す。</li><li>色覚差に備え、色名、明度、パターンでも区別する。</li></ul><p>50人に6週間提供し、週3回以上の採集率、月末カードの保存率、年額960円の購入意思を測ります。</p>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="一日一色を集める「色標本日記」アプリ事業案の確認点を示す図解" />
+        <figcaption>50人に6週間提供し、週3回以上の採集率、月末カードの保存率、年額960円の購入意思を測ります</figcaption>
+      </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://developer.apple.com/documentation/avfoundation/avcapturephotooutput">Apple Developer「AVCapturePhotoOutput」</a></li><li><a href="https://developer.apple.com/documentation/widgetkit/creating-a-widget-extension">Apple Developer「Creating a widget extension」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul></section></article></body></html>

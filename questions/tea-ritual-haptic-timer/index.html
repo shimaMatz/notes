@@ -1,5 +1,16 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>湯待ちを味わう「茶の間タイマー」アプリ事業案</title><meta name="description" content="抽出時間を音と触覚の小さな演出に変え、一服記録を残す日常儀式アプリ計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>湯待ちを味わう「茶の間タイマー」アプリ事業案</h1><p class="meta">最終更新: 2026-06-19</p>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>湯待ちを味わう「茶の間タイマー」アプリ事業案</title><meta name="description" content="抽出時間を音と触覚の小さな演出に変え、一服記録を残す日常儀式アプリ計画です。" /><link rel="stylesheet" href="../../styles/site.css" /></head><body class="note"><article><p class="eyebrow">Question Note</p><h1>湯待ちを味わう「茶の間タイマー」アプリ事業案</h1><p class="meta">最終更新: 2026-06-19</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="湯待ちを味わう「茶の間タイマー」アプリ事業案の全体像を示す図解" />
+        <figcaption>「茶の間タイマー」は、茶葉やコーヒーの抽出待ちを、無機質なカウントダウンではなく、短い環境音、画面のにじみ、控えめな触覚で味わうアプリです。中心の楽しさは 2〜5分の待ち時間が小さな休止になり、好みの抽出を一服の記憶として残せること です。</figcaption>
+      </figure>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="湯待ちを味わう「茶の間タイマー」アプリ事業案の構成要素を示す図解" />
+        <figcaption>公開前に AWS Pricing Calculatorで再計算 します</figcaption>
+      </figure>
+
 <figure><img src="tea-overview.svg" alt="飲み物別タイマーと最近の一服記録を示す一覧画面" /><figcaption>概要画面: よく使う抽出時間と最近の一服を、すぐ開始できる形で並べます。</figcaption></figure><figure><img src="tea-detail.svg" alt="進行中の抽出時間、触覚の節目、履歴、次の操作を示す詳細画面" /><figcaption>詳細画面: 一服の残り時間、音と触覚の節目、調整履歴、完了操作を示します。</figcaption></figure>
 <h2>体験の全体像</h2><p>「茶の間タイマー」は、茶葉やコーヒーの抽出待ちを、無機質なカウントダウンではなく、短い環境音、画面のにじみ、控えめな触覚で味わうアプリです。中心の楽しさは<strong>2〜5分の待ち時間が小さな休止になり、好みの抽出を一服の記憶として残せること</strong>です。</p>
 <h2>利用者・きっかけ・継続ループ</h2><table><tbody><tr><th>主対象</th><td>自宅や職場で一日に1〜3回、茶・コーヒーを淹れる個人</td></tr><tr><th>状況トリガー</th><td>湯を注いだ瞬間</td></tr><tr><th>反復ループ</th><td>飲み物を選ぶ → タイマー開始 → 音・触覚を味わう → 濃さを一段階記録</td></tr><tr><th>端末面</th><td>ロック画面Live Activity、Dynamic Island、Apple Watch、アプリ内一服帳</td></tr><tr><th>内容差分</th><td>飲み物、時間帯、季節テーマ、音の有無、触覚パターン</td></tr></table>
@@ -11,4 +22,9 @@
 <h2>売上・支出・利益</h2><p><strong>売上 - 支出 = 利益</strong></p><table><tbody><tr><th>売上</th><td>1,020,000円</td><td>年額810,000円 + テーマ210,000円</td></tr><tr><th>支出</th><td>333,800円</td><td>AWS 70,800円、ストア手数料等153,000円、音・触覚制作75,000円、端末・検証35,000円</td></tr><tr><th>利益</th><td><strong>686,200円</strong></td><td>事業主の制作・運営人件費と税引前</td></tr></tbody></table>
 <h2>必要人数と人材要件</h2><p><strong>iOS開発・運営1名 + 音響単発外注</strong>です。実行者がActivityKit、Core Haptics、Watch、AWS同期を担い、音源制作と感覚評価を外注します。</p>
 <h2>リスクと最初の検証</h2><ul><li>端末や消音設定で体験が変わるため、視覚だけでも完了が分かるようにする。</li><li>抽出時間を安全・品質保証として断定せず、利用者が調整する目安にする。</li><li>演出が作業を邪魔する場合に、音なし・触覚なしを個別設定できるようにする。</li></ul><p>茶・コーヒー愛好者60人へ6週間提供し、週3回以上の開始率、再調整率、Live Activity利用率、年額900円の購入意思を測ります。</p>
+
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="湯待ちを味わう「茶の間タイマー」アプリ事業案の確認点を示す図解" />
+        <figcaption>茶・コーヒー愛好者60人へ6週間提供し、週3回以上の開始率、再調整率、Live Activity利用率、年額900円の購入意思を測ります</figcaption>
+      </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities">Apple Developer「Displaying live data with Live Activities」</a></li><li><a href="https://developer.apple.com/documentation/corehaptics/playing-a-custom-haptic-pattern-from-a-file">Apple Developer「Playing a Custom Haptic Pattern」</a></li><li><a href="https://aws.amazon.com/jp/pricing/">AWS料金</a></li></ul></section></article></body></html>

@@ -1,10 +1,21 @@
 ﻿<!doctype html>
 <html lang="ja">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>避難所の食物アレルギー食配布のずれを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="editorial-diagram-1.svg" /><title>避難所の食物アレルギー食配布のずれを埋める小規模サービス案</title><link rel="stylesheet" href="../../styles/site.css" /></head>
   <body class="note"><article>
       <p class="eyebrow">Question Note</p><h1>避難所の食物アレルギー食配布のずれを埋める小規模サービス案</h1><p class="meta">最終更新: 2026-06-12</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-1.svg" alt="避難所の食物アレルギー食配布のずれを埋める小規模サービス案の全体像を示す図解" />
+        <figcaption>避難所では食事、トイレ、暑さ寒さ、福祉支援など多くの生活環境対策が同時に必要になります。特に食物アレルギーは、申告、調達、配布、誤配防止の記録がずれると安全上のリスクになります。</figcaption>
+      </figure>
+
       <figure><img src="ops-diagram.svg" alt="避難所の食物アレルギー食配布のずれを埋める小規模サービス案の全体像" /><figcaption>課題を大きく背負わず、現場のずれを記録と調整に切り出す。</figcaption></figure>
       <h2>全体像</h2><p>避難所では食事、トイレ、暑さ寒さ、福祉支援など多くの生活環境対策が同時に必要になります。特に食物アレルギーは、申告、調達、配布、誤配防止の記録がずれると安全上のリスクになります。</p><p>狙いは、社会課題全体を解くことではなく、<strong>避難所訓練や地域防災会で使うアレルギー食配布の簡易台帳</strong>に絞ることです。</p>
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-2.svg" alt="避難所の食物アレルギー食配布のずれを埋める小規模サービス案の構成要素を示す図解" />
+        <figcaption>AIを使うと、画面案、CRUD、CSV/PDF出力、テストデータ、説明文の初稿を短縮できます</figcaption>
+      </figure>
+
       <h2>どの社会問題を切り出すか</h2><table><thead><tr><th>現場課題</th><th>何が起きるか</th><th>既存手段の限界</th></tr></thead><tbody><tr><td>申告情報が紙に散る</td><td>誰に何を配ってよいか、担当交代時に分からなくなる。</td><td>紙カードは現場で強いが、残数と配布履歴には弱い。</td></tr><tr><td>専用品の残数が見えない</td><td>必要な人に届く前に一般配布される恐れがある。</td><td>備蓄一覧はあるが、配布単位の引き当てができない。</td></tr><tr><td>引き継ぎが口頭</td><td>夜間や翌日の担当者に注意点が伝わらない。</td><td>汎用の避難者名簿では食事配布の粒度に合わない。</td></tr></tbody></table>
       <h2>サービス案</h2><p>アレルギー申告、配布可否、専用品の残数、担当者引き継ぎを避難所単位で記録する軽量サービスです。</p><ul><li>個人名を絞り、番号と注意カテゴリで管理する。</li><li>アレルギー対応食の入庫、引き当て、配布を記録する。</li><li>誤配防止の確認欄を配布ごとに用意する。</li><li>夜間・翌日担当への注意メモを出す。</li><li>訓練後に不足品と手順改善点をPDF化する。</li></ul>
       <h2>100万円規模に抑えた市場設定</h2><p>初年度は<strong>自治会、防災会、学校避難所訓練80拠点</strong>を到達可能市場とし、その中から20拠点に導入する前提にします。</p><table><thead><tr><th>項目</th><th>仮定</th><th>結果</th></tr></thead><tbody><tr><td>到達可能市場</td><td>自治会、防災会、学校避難所訓練80拠点</td><td>面談と初期設定を1人で回せる範囲</td></tr><tr><td>初年度導入</td><td>20拠点</td><td>紹介、説明会、個別導入で獲得</td></tr><tr><td>月額利用料</td><td>3,500円</td><td>840,000円/年</td></tr><tr><td>導入支援</td><td>8,000円 x 8件</td><td>64,000円</td></tr><tr><td>初年度売上予想</td><td>合計</td><td><strong>904,000円</strong></td></tr></tbody></table>
@@ -15,7 +26,12 @@
       <h2>必要人数と人材要件</h2><p>この規模では、<strong>実行者1名 + 単発外注</strong>を前提にします。</p><ul><li>実行者: Webアプリを実装でき、地域団体や現場担当者との面談ができる人</li><li>補助外注: 会計、法務、個人情報、安全確認、アクセシビリティ点検を単発依頼</li><li>望ましいスキル: CRUD実装、帳票設計、スマホUI、業務整理、地域連携の調整力</li></ul>
       <h2>リスクと最初の検証</h2><ul><li>月額課金に見合うほど、現場の調整負荷が減るかを確認する。</li><li>入力項目が多すぎると紙や電話に戻るため、初期項目を絞る。</li><li>個人情報、安全、責任範囲を利用規約と運用説明で明確にする。</li></ul><p>最初は3拠点、1か月だけ試し、連絡漏れ、記録漏れ、担当者の作業時間が減るかを見ます。</p>
       <h2>結論</h2><p>このテーマは、社会問題全体を解く巨大サービスではなく、<strong>避難所訓練や地域防災会で使うアレルギー食配布の簡易台帳</strong>を整える方向に切ると、100万円規模でも成立しやすいです。</p>
-      <section class="sources"><h2>Sources</h2><ul>
+      
+      <figure class="editorial-diagram">
+        <img src="editorial-diagram-3.svg" alt="避難所の食物アレルギー食配布のずれを埋める小規模サービス案の確認点を示す図解" />
+        <figcaption>このテーマは、社会問題全体を解く巨大サービスではなく、 避難所訓練や地域防災会で使うアレルギー食配布の簡易台帳 を整える方向に切ると、100万円規模でも成立しやすいです</figcaption>
+      </figure>
+<section class="sources"><h2>Sources</h2><ul>
           <li><a href="https://www.bousai.go.jp/taisaku/hinanjo/index.html">内閣府: 避難所の生活環境対策</a></li>
           <li><a href="https://www.caa.go.jp/policies/policy/food_labeling/food_sanitation/allergy/">消費者庁: 食物アレルギー表示に関する情報</a></li>
           <li><a href="https://www.maff.go.jp/j/zyukyu/foodstock/guidebook.html">農林水産省: 災害時に備えた食品ストックガイド</a></li>
