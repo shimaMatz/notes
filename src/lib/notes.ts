@@ -77,8 +77,9 @@ export const loadNotes = async (): Promise<NoteSummary[]> => {
         const title = firstMatch(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i) || firstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
         const date = firstMatch(html, /<p[^>]*class=["'][^"']*meta[^"']*["'][^>]*>[^<]*?(\d{4}-\d{2}-\d{2})[\s\S]*?<\/p>/i);
         const description = findDescription(html);
+        const articleImage = firstImage(html);
         const localThumbnail = (await fileExists(join(questionsDirectory, slug, "thumbnail.svg"))) ? "thumbnail.svg" : "";
-        const thumbnail = localThumbnail || firstImage(html);
+        const thumbnail = articleImage || localThumbnail;
 
         return {
           slug,

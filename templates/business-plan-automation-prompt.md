@@ -38,13 +38,15 @@ Check open GitHub Issues in `shimaMatz/notes`.
 
 For each of the four topics, create `/questions/<ascii-slug>/index.html` using plain HTML and `/styles/site.css`.
 
-After drafting each article, insert the completed article body into the `test` placeholder in `templates/editorial-image-generation-prompt.md`. Generate three independent 16:9 editorial images in three separate calls:
+Before generating diagrams for each article, insert `[図解1]`, `[図解2]`, and `[図解3]` at the exact places where the three editorial diagrams should appear. Then insert the completed article body, including those placeholders, into the `test` placeholder in `templates/editorial-image-generation-prompt.md`.
 
-1. `thumbnail.svg` or `thumbnail.png` - use as the article thumbnail and first image.
-2. `diagram.svg` or `diagram.png` - render in the article body.
-3. `summary.svg` or `summary.png` - render near the conclusion.
+Generate three independent 16:9 editorial images in three separate calls:
 
-Do not combine the three generated images into one grid, collage, carousel preview, or thumbnail sheet.
+1. `diagram-1.svg` or `diagram-1.png` - replaces `[図解1]` and is also used as the listing thumbnail.
+2. `diagram-2.svg` or `diagram-2.png` - replaces `[図解2]`.
+3. `diagram-3.svg` or `diagram-3.png` - replaces `[図解3]`.
+
+Do not create a separate generic thumbnail. Do not combine the three generated images into one grid, collage, carousel preview, or thumbnail sheet.
 
 For every article, create exactly two local SVG app wireframes under its note directory:
 

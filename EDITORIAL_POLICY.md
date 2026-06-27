@@ -37,7 +37,7 @@
 - 各AWSリソースについて、用途、想定使用量、月額概算、年額概算を示す。特にDynamoDBは「案件・状態・担当・期限・履歴」など、その記事で何を保存するかを明記する。
 - AWS費用は東京リージョン、無料枠を除外、為替前提を明記した概算とし、公開前にAWS Pricing Calculatorで再計算する注意書きを付ける。
 - アプリの主要一覧画面と詳細・操作画面を、それぞれ独立したローカルSVGワイヤーフレームとして2枚掲載する。概念図だけでは代替しない。
-- 記事本文を `templates/editorial-image-generation-prompt.md` の `test` に差し込み、3回に分けてサムネイル、本文図解、まとめ図解を作成する。1枚目はトップページのサムネイルとしても使い、2枚目と3枚目は本文内に掲載する。
+- 記事本文には先に `[図解1]`、`[図解2]`、`[図解3]` を入れる。その本文を `templates/editorial-image-generation-prompt.md` の `test` に差し込み、各プレースホルダー前後の文脈に合わせて3回に分けて図解を作成する。1枚目はトップページのサムネイルとしても使う。
 - 記述構成は `questions/disaster-pet-evacuation-registry/index.html` と `templates/business-plan-note-template.html` を基準にする。
 
 ## 選定手順

@@ -15,7 +15,7 @@ https://shimamatz.github.io/notes/
 - `questions/<slug>/index.html`: 1トピックごとの個別ノート
 - `questions/<slug>/...`: 記事ごとの画像や図版
 - `styles/site.css`: 共通スタイル
-- `templates/editorial-image-generation-prompt.md`: 記事本文から3枚の編集図解を作る追加プロンプト
+- `templates/editorial-image-generation-prompt.md`: 記事中の `[図解1]` `[図解2]` `[図解3]` の位置に合わせて3枚の編集図解を作る追加プロンプト
 - `.github/workflows/static.yml`: GitHub Pages デプロイ設定
 - `scripts/copy-legacy-content.mjs`: 既存記事とアセットをビルド成果物へ統合
 - `AGENTS.md`: 記事作成ルールと安全上の注意
@@ -45,7 +45,7 @@ npm run dev
 `質問:` で始まるメッセージを送ると、エージェントは次を行います。
 
 1. `questions/<slug>/index.html` にノートを作成または更新する
-2. 記事本文を追加プロンプトに差し込み、サムネイル、本文図解、まとめ図解の3枚をローカル画像として入れる
+2. 記事本文に `[図解1]` `[図解2]` `[図解3]` を入れ、その本文を追加プロンプトに差し込んで3枚のローカル図解画像を入れる
 3. Astroが記事ディレクトリを読み取り、トップページへ自動掲載する
 4. 変更を commit する
 5. `origin/main` に push する
@@ -59,7 +59,7 @@ npm run dev
 1. 毎日3時、9時、14時（Asia/Tokyo）に `shimaMatz/notes` の open issue を確認する
 2. タイトルが `質問:` で始まるもの、または `article-request` ラベルが付いたものを処理する
 3. 対象Issueが0件の場合だけ、過去記事とも相互にも重複しないアプリ機会を4件選ぶ。社会問題解決型と日常を楽しくする体験型の両方を候補にできる
-4. 各記事に3枚の編集図解を追加する。事業案では、さらにアプリの「主要一覧画面」と「詳細・操作画面」のSVGワイヤーフレームを2枚追加し、`EDITORIAL_POLICY.md` の選定ログを更新する。トップページの一覧はビルド時に自動生成される
+4. 各記事に `[図解1]` `[図解2]` `[図解3]` の文脈から生成した3枚の編集図解を追加する。事業案では、さらにアプリの「主要一覧画面」と「詳細・操作画面」のSVGワイヤーフレームを2枚追加し、`EDITORIAL_POLICY.md` の選定ログを更新する。トップページの一覧はビルド時に自動生成される
 5. commit して `main` に push する
 6. Issue起点の場合は、公開 URL をコメントして処理済み Issue を close する
 
