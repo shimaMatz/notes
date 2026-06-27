@@ -12,9 +12,9 @@
       <p class="eyebrow">Question Note</p>
       <h1>MapboxとExpoの親和性</h1>
       <p class="meta">最終更新: 2026-06-07</p>
-      <figure>
-        <img src="expo-compatibility.svg" alt="MapboxとExpoやネイティブ開発の向き不向きを比較した図" />
-        <figcaption>Expoでも組めるが、Mapboxを深く使うほど native build 前提の設計になる。</figcaption>
+      <figure class="editorial-diagram">
+        <img src="expo-mapbox-figure-1.png" alt="Expo GoではなくDevelopment Build前提でMapboxを組み込む判断を示す図解" />
+        <figcaption>MapboxとExpoは併用できるが、実装の前提はExpo GoではなくDevelopment Buildになる。</figcaption>
       </figure>
 
       <p>
@@ -22,11 +22,6 @@
         です。MapboxはネイティブSDKを土台にしているため、Expoで使うなら
         <strong>development build</strong> や <strong>prebuild</strong> 前提で考えるのが現実的です。
       </p>
-
-      <figure class="editorial-diagram">
-        <img src="expo-mapbox-figure-1.png" alt="Expo GoではなくDevelopment Build前提でMapboxを組み込む判断を示す図解" />
-        <figcaption>MapboxとExpoは併用できるが、実装の前提はExpo GoではなくDevelopment Buildになる。</figcaption>
-      </figure>
 
       <h2>まず押さえるべき点</h2>
       <ul>
