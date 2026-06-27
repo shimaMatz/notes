@@ -1,4 +1,4 @@
-import { access, readdir, readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export type NoteCategory = "tech" | "service" | "experience";
@@ -43,21 +43,18 @@ const findDescription = (html: string) => {
   return content ? textOnly(content[2]) : "概要は記事本文をご覧ください。";
 };
 
-const fileExists = async (path: string) => {
-  try {
-    await access(path);
-    return true;
-  } catch {
-    return false;
-  }
-};
-
 const firstImage = (html: string) => {
-  const metaImage = html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i);
-  if (metaImage) return decodeEntities(metaImage[1].trim());
+  const editorialFigure = html.match(
+    /<figure\s+[^>]*class=["'][^"']*editorial-diagram[^"']*["'][^>]*>[\s\S]*?<img\s+[^>]*src=["']([^"']+)["']/i,
+  );
+  if (editorialFigure) return decodeEntities(editorialFigure[1].trim());
 
   const image = html.match(/<img\s+[^>]*src=["']([^"']+)["']/i);
-  return image ? decodeEntities(image[1].trim()) : "";
+  if (image) return decodeEntities(image[1].trim());
+
+  const metaImage = html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i);
+  if (metaImage) return decodeEntities(metaImage[1].trim());
+  return "";
 };
 
 const categoryFor = (text: string): NoteCategory => {
@@ -77,9 +74,7 @@ export const loadNotes = async (): Promise<NoteSummary[]> => {
         const title = firstMatch(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i) || firstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
         const date = firstMatch(html, /<p[^>]*class=["'][^"']*meta[^"']*["'][^>]*>[^<]*?(\d{4}-\d{2}-\d{2})[\s\S]*?<\/p>/i);
         const description = findDescription(html);
-        const articleImage = firstImage(html);
-        const localThumbnail = (await fileExists(join(questionsDirectory, slug, "thumbnail.svg"))) ? "thumbnail.svg" : "";
-        const thumbnail = articleImage || localThumbnail;
+        const thumbnail = firstImage(html);
 
         return {
           slug,
