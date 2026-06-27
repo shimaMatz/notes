@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="thumbnail.svg" />
     <title>{{TITLE}}</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -11,6 +12,11 @@
       <p class="eyebrow">Question Note</p>
       <h1>{{TITLE}}</h1>
       <p class="meta">最終更新: {{YYYY-MM-DD}}</p>
+
+      <figure>
+        <img src="thumbnail.svg" alt="{{THUMBNAIL_ALT}}" />
+        <figcaption>{{THUMBNAIL_CAPTION}}</figcaption>
+      </figure>
 
       <figure>
         <img src="{{OVERVIEW_WIREFRAME_FILENAME}}" alt="{{OVERVIEW_WIREFRAME_ALT}}" />
@@ -76,6 +82,10 @@
       <p>
         {{SERVICE_CONCEPT}}
       </p>
+      <figure>
+        <img src="diagram.svg" alt="{{DIAGRAM_ALT}}" />
+        <figcaption>{{DIAGRAM_CAPTION}}</figcaption>
+      </figure>
       <ul>
         <li>{{FEATURE_OR_COMPONENT_1}}</li>
         <li>{{FEATURE_OR_COMPONENT_2}}</li>
@@ -314,6 +324,10 @@
       </p>
 
       <h2>結論</h2>
+      <figure>
+        <img src="summary.svg" alt="{{SUMMARY_ALT}}" />
+        <figcaption>{{SUMMARY_CAPTION}}</figcaption>
+      </figure>
       <p>
         {{CONCLUSION}}
       </p>

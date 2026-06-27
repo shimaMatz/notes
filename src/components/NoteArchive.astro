@@ -33,6 +33,13 @@ const categoryLabel = {
   <ul class="note-list">
     {notes.map((note) => (
       <li data-note data-category={note.category}>
+        {
+          note.thumbnail && (
+            <a class="note-thumb" href={`${base}questions/${note.slug}/`} aria-hidden="true" tabindex="-1">
+              <img src={`${base}questions/${note.slug}/${note.thumbnail}`} alt="" loading="lazy" />
+            </a>
+          )
+        }
         <div class="note-meta">
           <time datetime={note.date}>{note.date}</time>
           <span>{categoryLabel[note.category]}</span>

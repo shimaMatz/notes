@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">MVPは足して育てる</title><desc id="desc">最初はPostGIS + Mapbox、必要になったら空間インデックスを追加する。</desc>
+<rect x="0" y="0" width="1200" height="675" fill="#fff"/><rect x="0.5" y="0.5" width="1199" height="674" fill="none" stroke="#111"/>
+<text x="88" y="88" font-size="24" font-family="Arial, sans-serif" letter-spacing="4" fill="#555">SUMMARY</text>
+<text x="88" y="168" font-size="40" font-family="Arial, sans-serif" font-weight="700" fill="#111">MVPは足して育てる</text>
+<circle cx="315" cy="235" r="74" fill="#111"/><circle cx="395" cy="235" r="74" fill="none" stroke="#111" stroke-width="2"/><rect x="225" y="345" width="270" height="12" fill="#111"/>
+<g transform="translate(650,230)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">START</text></g>
+<g transform="translate(800,230)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">SCALE</text></g>
+<g transform="translate(950,230)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">LEARN</text></g>
+<text x="600" y="600" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#333">最初はPostGIS + Mapbox、必要になったら空間インデックスを追加する。</text>
+</svg>

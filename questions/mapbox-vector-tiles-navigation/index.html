@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mapboxの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
+    <meta property="og:image" content="thumbnail.svg" />
+    <title>Mapbox: Vector Tiles・Navigation・Map Matchingの分担</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note / Geospatial Architecture</p>
+      <h1>Mapbox: Vector Tiles・Navigation・Map Matchingの分担</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure><img src="thumbnail.svg" alt="Mapboxの地理空間技術の要点を示すサムネイル" /><figcaption>MapboxをPostGIS、空間インデックス、ETA、マッチングへ分解して読む。</figcaption></figure>
+
+      <h2>何をしている企業か</h2>
+      <p>開発者向けの地図表示、スタイル、ナビゲーション、ルーティング、Map Matchingなどを提供する地図プラットフォーム企業。</p>
+
+      <h2>位置情報で解いている課題</h2>
+      <p>アプリ開発者は、地図タイル表示、道路ネットワーク、経路探索、GPS軌跡補正、音声案内を自前で全て作ると重い。Mapboxはこの重い地図基盤をAPIとSDKとして提供する。</p>
+
+      <figure><img src="diagram.svg" alt="Mapboxの地理空間基盤を構成要素へ分けた図解" /><figcaption>地図DBではなく、検索、予測、キャッシュ、業務判断を接続する層として見る。</figcaption></figure>
+
+      <h2>公開されている技術情報</h2>
+      <ul><li><a href="https://docs.mapbox.com/help/glossary/vector-tiles/">Mapbox Vector Tiles glossary</a></li>
+<li><a href="https://docs.mapbox.com/api/navigation/directions/">Mapbox Directions API</a></li>
+<li><a href="https://docs.mapbox.com/api/navigation/map-matching/">Mapbox Map Matching API</a></li></ul>
+
+      <h2>使っている地理空間技術</h2>
+      <p>Vector Tilesは地図要素をタイルとして配信し、クライアント側でスタイルを当てる仕組み。Directions APIは経路探索、Map Matching APIはGPS点列を道路へ合わせる。Navigation SDKは案内UI、進行、リルートなどをまとめる。</p>
+
+      <h2>「独自GIS」と呼べる部分</h2>
+      <p>独自GIS的な部分は、地図データ配信、レンダリング、ルーティング、マップマッチング、SDK体験を統合している点。PostGISのようなDB演算ではなく、地図プロダクト基盤としての独自性が強い。</p>
+
+      <h2>PostGISとの違い</h2>
+      <p>PostGISは自社データの検索・判定・保存に向く。Mapboxは道路ネットワークや地図表示、経路計算をサービスとして提供する。DBと地図APIは競合ではなく接続する層が違う。</p>
+
+      <h2>アーキテクチャ上どこに入るか</h2>
+      <pre><code>Mobile App
+  ↓
+Backend API
+  ↓
+Geospatial Engine / Index
+  ↓
+DB / Cache
+  ↓
+Map / Navigation API</code></pre>
+      <p>この図でいう <strong>Geospatial Engine / Index</strong> が、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュを吸収する場所です。PostGISは主に <strong>DB / Cache</strong> 側の保存・検索基盤として使い、Mapbox等の地図APIは <strong>Map / Navigation API</strong> 側に置きます。</p>
+
+      <h2>トラックナビアプリに応用できる点</h2>
+      <p>トラックナビMVPではMapboxを地図表示・ルート案内に使い、自社側はPostGISでユーザー拠点、休憩所、規制、案件を管理する。GPS軌跡が荒い場合はMap Matchingを検討する。</p>
+
+      <h2>まだ真似しなくてよい点</h2>
+      <p>独自タイル生成、独自ナビSDK、独自ルーティングエンジンはMVPでは不要。</p>
+
+      <h2>将来スケールしたときに参考になる点</h2>
+      <p>大型車制約、施設内ルート、独自POIが増えたら、Mapbox APIと自社PostGISデータの合成レイヤーを育てる。</p>
+
+      <figure><img src="summary.svg" alt="MapboxからトラックナビMVPへ持ち帰る判断をまとめた図解" /><figcaption>MVPはPostGIS + Mapboxで始め、負荷と用途が見えた段階で空間インデックスを足す。</figcaption></figure>
+
+      <h2>結論</h2>
+      <p>Mapboxの事例は、独自GISを「巨大な地図DB」ではなく、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュ、分析基盤の組み合わせとして読むと理解しやすいです。トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です。</p>
+
+      <section class="sources"><h2>Sources</h2><ul><li><a href="https://docs.mapbox.com/help/glossary/vector-tiles/">Mapbox Vector Tiles glossary</a></li>
+<li><a href="https://docs.mapbox.com/api/navigation/directions/">Mapbox Directions API</a></li>
+<li><a href="https://docs.mapbox.com/api/navigation/map-matching/">Mapbox Map Matching API</a></li></ul></section>
+    </article>
+  </body>
+</html>

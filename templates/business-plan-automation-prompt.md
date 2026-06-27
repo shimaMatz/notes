@@ -38,6 +38,14 @@ Check open GitHub Issues in `shimaMatz/notes`.
 
 For each of the four topics, create `/questions/<ascii-slug>/index.html` using plain HTML and `/styles/site.css`.
 
+After drafting each article, insert the completed article body into the `test` placeholder in `templates/editorial-image-generation-prompt.md`. Generate three independent 16:9 editorial images in three separate calls:
+
+1. `thumbnail.svg` or `thumbnail.png` - use as the article thumbnail and first image.
+2. `diagram.svg` or `diagram.png` - render in the article body.
+3. `summary.svg` or `summary.png` - render near the conclusion.
+
+Do not combine the three generated images into one grid, collage, carousel preview, or thumbnail sheet.
+
 For every article, create exactly two local SVG app wireframes under its note directory:
 
 1. A primary overview/list screen showing the main records, statuses, filters, or alerts.

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="DoorDashの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
+    <meta property="og:image" content="thumbnail.svg" />
+    <title>DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note / Geospatial Architecture</p>
+      <h1>DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure><img src="thumbnail.svg" alt="DoorDashの地理空間技術の要点を示すサムネイル" /><figcaption>DoorDashをPostGIS、空間インデックス、ETA、マッチングへ分解して読む。</figcaption></figure>
+
+      <h2>何をしている企業か</h2>
+      <p>レストランや小売から消費者へ商品を届けるラストマイル配送プラットフォーム。注文、店舗、配達員、顧客、道路状況を結びつける。</p>
+
+      <h2>位置情報で解いている課題</h2>
+      <p>料理や商品の準備時刻、配達員の現在地、移動時間、ピックアップ待ち、ドロップオフまでのETAを同時に予測する必要がある。単なる距離順では品質が出ない。</p>
+
+      <figure><img src="diagram.svg" alt="DoorDashの地理空間基盤を構成要素へ分けた図解" /><figcaption>地図DBではなく、検索、予測、キャッシュ、業務判断を接続する層として見る。</figcaption></figure>
+
+      <h2>公開されている技術情報</h2>
+      <ul><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li>
+<li><a href="https://careersatdoordash.com/blog/">DoorDash Engineering: machine learning and logistics articles</a></li>
+<li><a href="https://developer.doordash.com/">DoorDash Developer Documentation</a></li></ul>
+
+      <h2>使っている地理空間技術</h2>
+      <p>公開技術ブログでは、機械学習による配送時間予測、配達員割当、物流最適化が説明されている。GISは地図DBそのものより、注文ライフサイクル上の位置・時間・状態を予測モデルへ渡す運用基盤として働く。</p>
+
+      <h2>「独自GIS」と呼べる部分</h2>
+      <p>独自GIS的な部分は、店舗、配達員、注文、顧客をリアルタイムに照合し、ETAとDispatch判断へつなぐ層。空間インデックスだけでなく、準備時間や待ち時間という業務イベントが重要になる。</p>
+
+      <h2>PostGISとの違い</h2>
+      <p>PostGISは距離・包含・近傍検索に強いが、配送ETAや割当品質はDB関数だけでは決まらない。予測モデル、イベントストリーム、位置キャッシュ、業務状態管理が必要になる。</p>
+
+      <h2>アーキテクチャ上どこに入るか</h2>
+      <pre><code>Mobile App
+  ↓
+Backend API
+  ↓
+Geospatial Engine / Index
+  ↓
+DB / Cache
+  ↓
+Map / Navigation API</code></pre>
+      <p>この図でいう <strong>Geospatial Engine / Index</strong> が、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュを吸収する場所です。PostGISは主に <strong>DB / Cache</strong> 側の保存・検索基盤として使い、Mapbox等の地図APIは <strong>Map / Navigation API</strong> 側に置きます。</p>
+
+      <h2>トラックナビアプリに応用できる点</h2>
+      <p>トラックナビでは、配送ETAそのものより「地点、車両、予定、作業状態を分けて保存し、予測は後から足す」考え方が参考になる。MVPは静的施設検索とルート案内で十分。</p>
+
+      <h2>まだ真似しなくてよい点</h2>
+      <p>リアルタイムDispatch、配達員最適割当、需要予測モデルはMVPで真似しない。</p>
+
+      <h2>将来スケールしたときに参考になる点</h2>
+      <p>到着予測、積卸し待ち時間、休憩候補推薦を改善する段階で、イベント履歴と位置履歴を学習・分析できる形にする。</p>
+
+      <figure><img src="summary.svg" alt="DoorDashからトラックナビMVPへ持ち帰る判断をまとめた図解" /><figcaption>MVPはPostGIS + Mapboxで始め、負荷と用途が見えた段階で空間インデックスを足す。</figcaption></figure>
+
+      <h2>結論</h2>
+      <p>DoorDashの事例は、独自GISを「巨大な地図DB」ではなく、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュ、分析基盤の組み合わせとして読むと理解しやすいです。トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です。</p>
+
+      <section class="sources"><h2>Sources</h2><ul><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li>
+<li><a href="https://careersatdoordash.com/blog/">DoorDash Engineering: machine learning and logistics articles</a></li>
+<li><a href="https://developer.doordash.com/">DoorDash Developer Documentation</a></li></ul></section>
+    </article>
+  </body>
+</html>

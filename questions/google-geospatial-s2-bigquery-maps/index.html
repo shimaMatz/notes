@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Googleの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
+    <meta property="og:image" content="thumbnail.svg" />
+    <title>Google: S2 GeometryとMaps/BigQuery GISの役割</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note / Geospatial Architecture</p>
+      <h1>Google: S2 GeometryとMaps/BigQuery GISの役割</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure><img src="thumbnail.svg" alt="Googleの地理空間技術の要点を示すサムネイル" /><figcaption>GoogleをPostGIS、空間インデックス、ETA、マッチングへ分解して読む。</figcaption></figure>
+
+      <h2>何をしている企業か</h2>
+      <p>検索、地図、クラウド、広告、Androidなどで地理情報を大規模に扱う企業。地球規模の検索、地図表示、分析、経路案内を複数プロダクトで提供している。</p>
+
+      <h2>位置情報で解いている課題</h2>
+      <p>球面上の距離、領域、包含、近傍を、世界規模で一貫して扱う必要がある。平面前提の単純な格子では、極や日付変更線、広域ポリゴンの扱いで破綻しやすい。</p>
+
+      <figure><img src="diagram.svg" alt="Googleの地理空間基盤を構成要素へ分けた図解" /><figcaption>地図DBではなく、検索、予測、キャッシュ、業務判断を接続する層として見る。</figcaption></figure>
+
+      <h2>公開されている技術情報</h2>
+      <ul><li><a href="https://github.com/google/s2geometry">S2 Geometry GitHub Repository</a></li>
+<li><a href="https://cloud.google.com/bigquery/docs/geospatial-data">BigQuery geospatial analytics documentation</a></li>
+<li><a href="https://developers.google.com/maps/documentation">Google Maps Platform Documentation</a></li></ul>
+
+      <h2>使っている地理空間技術</h2>
+      <p>S2 Geometryは球面をセルへ分割して扱うライブラリ。BigQuery GISは地理空間データ型とSQL関数で分析を行うサービス。Google Maps Platformは表示、検索、ルート、PlacesなどのAPIを提供する。</p>
+
+      <h2>「独自GIS」と呼べる部分</h2>
+      <p>独自GIS的な部分は、S2のような球面セル表現、膨大な地図・場所データ、検索・ルーティング・分析基盤をプロダクト横断で扱う点。公開OSSだけでGoogle Maps全体を再現できるわけではない。</p>
+
+      <h2>PostGISとの違い</h2>
+      <p>PostGISはアプリDB内で形状演算をする。S2は地球表面のセル表現で、インデックスや領域近似に向く。BigQuery GISは分析基盤であり、アプリの低レイテンシDBとは用途が違う。</p>
+
+      <h2>アーキテクチャ上どこに入るか</h2>
+      <pre><code>Mobile App
+  ↓
+Backend API
+  ↓
+Geospatial Engine / Index
+  ↓
+DB / Cache
+  ↓
+Map / Navigation API</code></pre>
+      <p>この図でいう <strong>Geospatial Engine / Index</strong> が、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュを吸収する場所です。PostGISは主に <strong>DB / Cache</strong> 側の保存・検索基盤として使い、Mapbox等の地図APIは <strong>Map / Navigation API</strong> 側に置きます。</p>
+
+      <h2>トラックナビアプリに応用できる点</h2>
+      <p>トラックナビでは、広域エリア判定や地理セルの考え方を学ぶ価値がある。ただしMVPはPostGISで拠点・休憩所・規制ポリゴンを扱い、地図と経路はMapbox等のAPIに任せる。</p>
+
+      <h2>まだ真似しなくてよい点</h2>
+      <p>Google級の地図生成、Places相当の検索、全地球スケールのセル基盤は作らない。</p>
+
+      <h2>将来スケールしたときに参考になる点</h2>
+      <p>広域集計、配送圏、ジオフェンス、地域別分析が増えたら、S2/H3的なセル設計を分析基盤へ導入する。</p>
+
+      <figure><img src="summary.svg" alt="GoogleからトラックナビMVPへ持ち帰る判断をまとめた図解" /><figcaption>MVPはPostGIS + Mapboxで始め、負荷と用途が見えた段階で空間インデックスを足す。</figcaption></figure>
+
+      <h2>結論</h2>
+      <p>Googleの事例は、独自GISを「巨大な地図DB」ではなく、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュ、分析基盤の組み合わせとして読むと理解しやすいです。トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です。</p>
+
+      <section class="sources"><h2>Sources</h2><ul><li><a href="https://github.com/google/s2geometry">S2 Geometry GitHub Repository</a></li>
+<li><a href="https://cloud.google.com/bigquery/docs/geospatial-data">BigQuery geospatial analytics documentation</a></li>
+<li><a href="https://developers.google.com/maps/documentation">Google Maps Platform Documentation</a></li></ul></section>
+    </article>
+  </body>
+</html>

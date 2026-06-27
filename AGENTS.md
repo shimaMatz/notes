@@ -8,6 +8,8 @@ This repository stores personal technical notes and publishes them as a static A
 
 - Create one page per question or topic.
 - Keep note bodies as plain HTML under `/questions/` and reference shared styles from `/styles/site.css`; Astro builds the catalog and site shell.
+- For every newly created article, create three local 16:9 editorial images from `templates/editorial-image-generation-prompt.md`: `thumbnail`, `diagram`, and `summary`.
+- Use the first generated image as the article thumbnail and render the second and third images in the article body.
 - Include exactly two relevant app wireframe images in every business-plan note page: one primary overview/list screen and one detail/action screen.
 - Store both wireframes as local SVG files in the article directory and render each in its own `<figure>` with a descriptive `<figcaption>`.
 - End every note with source links to primary references when possible.
@@ -40,6 +42,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 
 - Treat any user message starting with `質問` as a request to add or update an article in this repository.
 - After creating the article, run the Astro build and verify that the generated top page includes it.
+- Generate the three editorial images by inserting the finished article body into `templates/editorial-image-generation-prompt.md`.
 - Ensure a business-plan note includes two app wireframes: an overview/list screen and a detail/action screen.
 - Use a concise commit message based on the article topic.
 - Push to `origin/main` after the commit succeeds.
@@ -49,6 +52,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Open GitHub Issues titled with the prefix `質問:` are article requests.
 - The issue body should explain the topic, desired depth, and any required source links.
 - When processing an issue-based business-plan request, create or update the article with two app wireframes, commit, push, then comment on the issue with the published page URL and close the issue.
+- When processing any Issue-based article request, apply the editorial image prompt, include the three generated images, then comment with the published page URL and close the issue.
 
 ## No-open-issue fallback article creation
 
@@ -67,6 +71,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Explain exactly what DynamoDB stores for that product, such as organizations, cases, statuses, assignments, deadlines, and audit history. Do not use generic rows such as "backend: 36,000 yen".
 - State the AWS region, exchange-rate assumption, whether Free Tier credits are excluded, and that the estimate must be recalculated with AWS Pricing Calculator before launch.
 - Every fallback article must show two local SVG app wireframes: an overview/list screen and a detail/action screen. A conceptual flow diagram does not satisfy this requirement.
+- Every fallback article must also include the three editorial images generated from `templates/editorial-image-generation-prompt.md`; the first is the thumbnail and the second and third are body figures.
 - Use `templates/business-plan-note-template.html` as the article structure.
 - The plan must show the relation between problem, target users, existing gaps, service features, revenue, spending, profit, system requirements, AI-assisted development timeline, required people, and source links.
 - Include the formula `売上 - 支出 = 利益` and fill the numbers with realistic assumptions.

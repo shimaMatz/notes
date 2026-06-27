@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">PostGISだけではない層</title><desc id="desc">DB、キャッシュ、予測、地図APIは役割を分けて設計する。</desc>
+<rect x="0" y="0" width="1200" height="675" fill="#fff"/><rect x="0.5" y="0.5" width="1199" height="674" fill="none" stroke="#111"/>
+<text x="88" y="88" font-size="24" font-family="Arial, sans-serif" letter-spacing="4" fill="#555">LAYER / MAP</text>
+<text x="88" y="168" font-size="40" font-family="Arial, sans-serif" font-weight="700" fill="#111">PostGISだけではない層</text>
+<rect x="220" y="205" width="250" height="155" fill="none" stroke="#111" stroke-width="2"/><circle cx="345" cy="282" r="58" fill="#111"/><path d="M520 235h330M520 285h260M520 335h180" stroke="#111" stroke-width="3"/>
+<g transform="translate(650,250)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">DB</text></g>
+<g transform="translate(800,250)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">CACHE</text></g>
+<g transform="translate(950,250)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">API</text></g>
+<text x="600" y="600" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#333">DB、キャッシュ、予測、地図APIは役割を分けて設計する。</text>
+</svg>

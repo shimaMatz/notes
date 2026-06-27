@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Uberの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
+    <meta property="og:image" content="thumbnail.svg" />
+    <title>Uber: H3を中心に見る配車・ETA・独自GISの分解</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Question Note / Geospatial Architecture</p>
+      <h1>Uber: H3を中心に見る配車・ETA・独自GISの分解</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure><img src="thumbnail.svg" alt="Uberの地理空間技術の要点を示すサムネイル" /><figcaption>UberをPostGIS、空間インデックス、ETA、マッチングへ分解して読む。</figcaption></figure>
+
+      <h2>何をしている企業か</h2>
+      <p>配車、配送、食事配達を含む都市内移動のマーケットプレイスを運営する企業。乗客、ドライバー、注文、道路、需要を時々刻々と結びつける必要がある。</p>
+
+      <h2>位置情報で解いている課題</h2>
+      <p>近くの車両を探すだけでなく、需要の偏り、到着予測、料金、再配置、混雑を同時に扱う。都市を分析単位に分割し、リアルタイム位置と履歴分析を同じ言葉で扱うことが重要になる。</p>
+
+      <figure><img src="diagram.svg" alt="Uberの地理空間基盤を構成要素へ分けた図解" /><figcaption>地図DBではなく、検索、予測、キャッシュ、業務判断を接続する層として見る。</figcaption></figure>
+
+      <h2>公開されている技術情報</h2>
+      <ul><li><a href="https://www.uber.com/en-JP/blog/h3/">Uber Engineering「H3: Uber’s Hexagonal Hierarchical Spatial Index」</a></li>
+<li><a href="https://github.com/uber/h3">H3 GitHub Repository</a></li>
+<li><a href="https://h3geo.org/docs/">H3 Documentation</a></li></ul>
+
+      <h2>使っている地理空間技術</h2>
+      <p>公開情報で最も明確なのはH3。H3は六角形を中心に地球表面を階層的セルへ分割する空間インデックスで、集計、近傍探索、需要ヒートマップなどに使いやすい。Uberの独自GISはPostGISの置き換えではなく、H3、ETA、マッチング、キャッシュ、地図・道路ネットワーク処理が組み合わさった運用基盤として理解するのがよい。</p>
+
+      <h2>「独自GIS」と呼べる部分</h2>
+      <p>独自GIS的な部分は、セル単位で需要供給を見ながら、リアルタイム位置キャッシュとETAモデルを接続し、マーケットプレイス判断へ渡す層。H3そのものはOSSだが、どの粒度で、どの時刻窓で、どの需要指標とつなぐかが企業固有のノウハウになる。</p>
+
+      <h2>PostGISとの違い</h2>
+      <p>PostGISはSQLで形状、距離、包含、交差を扱うDB拡張。H3はセルIDで空間を粗く・速く分割するインデックス。正確なポリゴン演算はPostGIS、広域集計や近傍バケットはH3という棲み分けが自然。</p>
+
+      <h2>アーキテクチャ上どこに入るか</h2>
+      <pre><code>Mobile App
+  ↓
+Backend API
+  ↓
+Geospatial Engine / Index
+  ↓
+DB / Cache
+  ↓
+Map / Navigation API</code></pre>
+      <p>この図でいう <strong>Geospatial Engine / Index</strong> が、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュを吸収する場所です。PostGISは主に <strong>DB / Cache</strong> 側の保存・検索基盤として使い、Mapbox等の地図APIは <strong>Map / Navigation API</strong> 側に置きます。</p>
+
+      <h2>トラックナビアプリに応用できる点</h2>
+      <p>トラックナビMVPではPostGISとMapboxで十分。将来、休憩所・車両・案件が多くなり、近傍検索やエリア集計が重くなった段階でH3を追加する。最初からUber型のマーケットプレイス基盤は作らない。</p>
+
+      <h2>まだ真似しなくてよい点</h2>
+      <p>リアルタイム配車最適化、動的料金、供給再配置、都市別の大規模需要予測はMVPでは不要。</p>
+
+      <h2>将来スケールしたときに参考になる点</h2>
+      <p>車両位置が数万点になったら、H3セル別の混雑・待機・休憩候補集計とRedis等の位置キャッシュを検討する。</p>
+
+      <figure><img src="summary.svg" alt="UberからトラックナビMVPへ持ち帰る判断をまとめた図解" /><figcaption>MVPはPostGIS + Mapboxで始め、負荷と用途が見えた段階で空間インデックスを足す。</figcaption></figure>
+
+      <h2>結論</h2>
+      <p>Uberの事例は、独自GISを「巨大な地図DB」ではなく、空間インデックス、ルーティング、ETA、マッチング、リアルタイム位置キャッシュ、分析基盤の組み合わせとして読むと理解しやすいです。トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です。</p>
+
+      <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.uber.com/en-JP/blog/h3/">Uber Engineering「H3: Uber’s Hexagonal Hierarchical Spatial Index」</a></li>
+<li><a href="https://github.com/uber/h3">H3 GitHub Repository</a></li>
+<li><a href="https://h3geo.org/docs/">H3 Documentation</a></li></ul></section>
+    </article>
+  </body>
+</html>

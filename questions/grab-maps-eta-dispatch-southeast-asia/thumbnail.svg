@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Grabの地理空間設計</title><desc id="desc">独自GISを分解して、MVPに必要な部分だけを見る。</desc>
+<rect x="0" y="0" width="1200" height="675" fill="#fff"/><rect x="0.5" y="0.5" width="1199" height="674" fill="none" stroke="#111"/>
+<text x="88" y="88" font-size="24" font-family="Arial, sans-serif" letter-spacing="4" fill="#555">GEO / INDEX</text>
+<text x="88" y="168" font-size="54" font-family="Arial, sans-serif" font-weight="700" fill="#111">Grabの地理空間設計</text>
+<circle cx="820" cy="255" r="122" fill="#111"/><rect x="700" y="390" width="240" height="18" fill="#111"/><path d="M760 140h120M740 180h160" stroke="#111" stroke-width="3"/>
+<g transform="translate(650,250)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">GIS</text></g>
+<g transform="translate(800,250)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">ETA</text></g>
+<g transform="translate(950,250)"><rect x="0" y="0" width="118" height="64" fill="#f7f7f7" stroke="#111"/><text x="59" y="38" text-anchor="middle" font-size="20" font-weight="700">INDEX</text></g>
+<text x="600" y="600" text-anchor="middle" font-size="25" font-family="Arial, sans-serif" fill="#333">独自GISを分解して、MVPに必要な部分だけを見る。</text>
+</svg>
