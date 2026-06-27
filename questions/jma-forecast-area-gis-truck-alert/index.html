@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="気象庁の予報区等GISデータを、トラックナビの警報、津波、火山、地震速報エリアの判定にどう使うかを整理する。" />
+    <meta property="og:image" content="jma-forecast-area-gis-truck-alert-figure-1.png" />
+    <title>気象庁予報区等GISデータをトラック向け気象アラート境界に使う</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>気象庁予報区等GISデータをトラック向け気象アラート境界に使う</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="jma-forecast-area-gis-truck-alert-figure-1.png" alt="気象庁予報区等GISデータをトラック向け気象アラート境界に使うの図解1" />
+        <figcaption>気象庁 予報区等GISデータをトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>気象庁の予報区等GISデータは、警報や注意報の発表単位を地図上のポリゴンとして扱うための基礎データです。トラックナビでは、現在地や予定ルートがどの予報区、津波予報区、火山関係市町村に入るかを判定する軸になります。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> 府県予報区等、緊急地震速報／地方予報区、緊急地震速報／府県予報区、津波予報区、市町村等（火山関係）。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>MVPでは、気象庁データを直接ナビ画面に大量表示するより、バックエンドでルートと区域を照合し、関係するアラートだけを運行前確認や通知に出す使い方が向いています。</p>
+      <figure class="editorial-diagram">
+        <img src="jma-forecast-area-gis-truck-alert-figure-2.png" alt="気象庁予報区等GISデータをトラック向け気象アラート境界に使うの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>予報区ポリゴンをPostGISに取り込み、ルートライン、出発地、目的地、休憩予定地点と空間結合します。アラート本文は気象庁XML等の別データとIDで接続し、地図には該当区間だけを薄く表示します。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>気象情報の公式発表時刻と更新遅延を扱う</li>
+<li>区域に入っただけで危険と断定せず、情報種別と運行判断を分ける</li>
+<li>災害情報は医療・消防・避難判断を代替しない</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>予報区等GISデータは、トラックナビの気象アラートを「住所文字列」ではなく「ルートと区域」で結びつけるための技術です。運転中の地図演出より、事前警告と運行管理の精度に効きます。</p>
+      <figure class="editorial-diagram">
+        <img src="jma-forecast-area-gis-truck-alert-figure-3.png" alt="気象庁予報区等GISデータをトラック向け気象アラート境界に使うの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://www.data.jma.go.jp/developer/gis.html">気象庁 予報区等GISデータ</a></li>
+<li><a href="https://xml.kishou.go.jp/">気象庁 防災情報XMLフォーマット</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上で気象庁の予報区等GISデータを利用していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

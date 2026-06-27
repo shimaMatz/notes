@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="国土地理院ベクトルタイルを、トラックナビの背景地図、地名表示、行政界確認にどう使うかを整理する技術スタックノート。" />
+    <meta property="og:image" content="gsi-vector-tiles-truck-map-figure-1.png" />
+    <title>国土地理院ベクトルタイルをトラックナビの基礎地図として読む</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>国土地理院ベクトルタイルをトラックナビの基礎地図として読む</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="gsi-vector-tiles-truck-map-figure-1.png" alt="国土地理院ベクトルタイルをトラックナビの基礎地図として読むの図解1" />
+        <figcaption>国土地理院ベクトルタイルをトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>国土地理院ベクトルタイルは、日本国内の背景地図を自前で理解したいトラックナビにとって、Mapbox等の商用地図APIとは別の参照軸になります。道路、地名、行政界、公共施設の見え方を確認し、独自データを重ねるときの基礎地図として使えます。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> 国土地理院ベクトルタイル提供実験、多言語化用ベクトルタイル、国土地理院最適化ベクトルタイルを加工して作成。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>MVPでは、ナビゲーション用の経路探索をこれだけで作るのではなく、背景地図や検証用レイヤーとして使うのが安全です。商用SDKの地図と見比べることで、大型車向け注意地点、休憩候補、施設入口の表示漏れを発見できます。</p>
+      <figure class="editorial-diagram">
+        <img src="gsi-vector-tiles-truck-map-figure-2.png" alt="国土地理院ベクトルタイルをトラックナビの基礎地図として読むの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>アプリ本体はMapbox/MapLibreで描画し、自社APIがPostGISから施設、規制、駐車候補を返します。国土地理院ベクトルタイルは、背景地図または管理画面の検証地図として読み込みます。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>利用条件と出典表示を画面内またはクレジット画面に置く</li>
+<li>ルート探索エンジンではなく地図データとして扱う</li>
+<li>商用地図との差分を独自DBにそのまま流し込まず、根拠を確認する</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>トラックナビでは、国土地理院ベクトルタイルを「日本の地図表現を検証する基準」として持つ価値があります。経路案内の主エンジンにするより、背景、行政界、地名、施設確認の補助レイヤーとして使う順番が現実的です。</p>
+      <figure class="editorial-diagram">
+        <img src="gsi-vector-tiles-truck-map-figure-3.png" alt="国土地理院ベクトルタイルをトラックナビの基礎地図として読むの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院 地理院タイル一覧</a></li>
+<li><a href="https://github.com/gsi-cyberjapan/gsimaps-vector-experiment">国土地理院 ベクトルタイル提供実験</a></li>
+<li><a href="https://github.com/gsi-cyberjapan/optimal_bvmap">国土地理院 最適化ベクトルタイル</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上で国土地理院ベクトルタイル提供実験、多言語化用ベクトルタイル、国土地理院最適化ベクトルタイルを加工して作成していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

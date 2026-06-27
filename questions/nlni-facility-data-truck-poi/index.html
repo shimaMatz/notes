@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="国土数値情報の公共施設、医療機関、鉄道、学校、道の駅、空港などをトラックナビのPOI候補として使う整理。" />
+    <meta property="og:image" content="nlni-facility-data-truck-poi-figure-1.png" />
+    <title>国土数値情報をトラックナビの公共施設・交通POI候補に使う</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>国土数値情報をトラックナビの公共施設・交通POI候補に使う</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="nlni-facility-data-truck-poi-figure-1.png" alt="国土数値情報をトラックナビの公共施設・交通POI候補に使うの図解1" />
+        <figcaption>国土数値情報をトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>国土数値情報は、行政区域、公共施設、交通施設などをGISデータとして公開する国土交通省のデータ群です。トラックナビでは、休憩候補、緊急時の公共施設、道の駅、空港、鉄道周辺の注意地点など、独自POIの初期候補を作る材料になります。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> 行政区域、消防署、警察署、都市公園、医療機関、鉄道、学校、道の駅、市町村役場等及び公的集会施設、空港データを加工して作成。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>MVPでは、そのまま運転案内に使うのではなく、管理画面で候補を取り込み、人が大型車向け属性を付与してから公開する流れが安全です。大型車進入可否、駐車枠、入口位置は別途確認が必要です。</p>
+      <figure class="editorial-diagram">
+        <img src="nlni-facility-data-truck-poi-figure-2.png" alt="国土数値情報をトラックナビの公共施設・交通POI候補に使うの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>国土数値情報をETLでPostGISに取り込み、種別、住所、座標、更新年、確認状態を保持します。公開用APIは確認済みPOIだけを返し、未確認候補は運用者のレビューキューに置きます。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>データ年次が古いものを混在させると誤案内につながる</li>
+<li>施設の存在と大型車利用可否は別属性として管理する</li>
+<li>加工したデータの出典表示を残す</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>国土数値情報は、トラックナビのPOIをゼロから集める負担を下げます。ただし、最終的な価値は公的データそのものではなく、大型車向けに確認、補正、運用履歴化する層にあります。</p>
+      <figure class="editorial-diagram">
+        <img src="nlni-facility-data-truck-poi-figure-3.png" alt="国土数値情報をトラックナビの公共施設・交通POI候補に使うの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://nlftp.mlit.go.jp/ksj/">国土数値情報ダウンロードサイト</a></li>
+<li><a href="https://nlftp.mlit.go.jp/ksj/other/yakkan.html">国土数値情報 利用約款</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上で国土数値情報の各種データを加工して作成していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

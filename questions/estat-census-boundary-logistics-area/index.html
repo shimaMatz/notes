@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="e-Statの国勢調査町丁・字等別境界データを、トラックナビの配送エリア、需要密度、営業優先度分析に使う技術メモ。" />
+    <meta property="og:image" content="estat-census-boundary-logistics-area-figure-1.png" />
+    <title>e-Stat国勢調査境界データを配送エリア分析に使う</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>e-Stat国勢調査境界データを配送エリア分析に使う</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="estat-census-boundary-logistics-area-figure-1.png" alt="e-Stat国勢調査境界データを配送エリア分析に使うの図解1" />
+        <figcaption>e-Stat 国勢調査 町丁・字等別境界データをトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>e-Statの国勢調査境界データは、町丁・字等の境界と統計を地図上で扱うための基礎データです。トラックナビでは、配送密度、商圏、利用候補地域、ドライバーの滞在しやすい地域を分析するための面データとして使えます。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> 政府統計の総合窓口（e-Stat） 国勢調査 町丁・字等別境界データを加工して作成。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>運転中のナビ画面に直接出すより、営業計画、拠点配置、休憩施設の優先整備、広告配信地域の分析に向いています。ルート案内ではなく意思決定用の分析レイヤーです。</p>
+      <figure class="editorial-diagram">
+        <img src="estat-census-boundary-logistics-area-figure-2.png" alt="e-Stat国勢調査境界データを配送エリア分析に使うの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>町丁・字等境界をPostGISに保存し、案件、走行ログ、休憩検索、未対応エリアを空間集計します。個人情報を扱わず、集計済みのメッシュや区域単位で可視化します。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>統計の時点と最新の道路・施設状況は一致しない</li>
+<li>個人や特定事業者を推定できる粒度にしない</li>
+<li>分析結果をルート安全判断の唯一の根拠にしない</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>e-Stat境界データは、トラックナビを単なる地図アプリから、エリア別に改善できる運行支援サービスへ広げるための土台です。MVPの運転画面ではなく、管理者向け分析から入れるのがよいです。</p>
+      <figure class="editorial-diagram">
+        <img src="estat-census-boundary-logistics-area-figure-3.png" alt="e-Stat国勢調査境界データを配送エリア分析に使うの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://www.e-stat.go.jp/gis">e-Stat 統計地理情報システム</a></li>
+<li><a href="https://www.e-stat.go.jp/">e-Stat 政府統計の総合窓口</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上でe-Statの国勢調査町丁・字等別境界データを加工して作成していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

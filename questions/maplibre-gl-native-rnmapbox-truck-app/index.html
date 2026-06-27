@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MapLibre GL Nativeとrnmapbox/mapsを、React Native製トラックナビの地図描画SDK候補として整理する。" />
+    <meta property="og:image" content="maplibre-gl-native-rnmapbox-truck-app-figure-1.png" />
+    <title>MapLibre GL Nativeとrnmapboxをモバイル地図SDK候補として見る</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>MapLibre GL Nativeとrnmapboxをモバイル地図SDK候補として見る</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="maplibre-gl-native-rnmapbox-truck-app-figure-1.png" alt="MapLibre GL Nativeとrnmapboxをモバイル地図SDK候補として見るの図解1" />
+        <figcaption>MapLibre GL Native / rnmapbox/mapsをトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>MapLibre GL Nativeは、ベクトルタイルをネイティブ環境で描画するためのオープンソース地図レンダラです。rnmapbox/mapsはReact NativeからMapbox/MapLibre系の地図機能を扱うためのライブラリで、トラックナビのクロスプラットフォーム地図UI候補になります。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> MapLibre GL Native BSD 2-Clause、react-native-mapbox-gl / rnmapbox license。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>React Nativeでトラックナビを作るなら、地図表示、カメラ制御、ライン、シンボル、独自レイヤーの実装候補になります。ただし、音声案内、オフルート判定、ルート再計算まで含むナビSDKの代替にはなりません。</p>
+      <figure class="editorial-diagram">
+        <img src="maplibre-gl-native-rnmapbox-truck-app-figure-2.png" alt="MapLibre GL Nativeとrnmapboxをモバイル地図SDK候補として見るの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>アプリはReact Native、地図表示はrnmapbox/maps、タイル描画はMapLibre/Mapbox系、独自データはAPIからGeoJSONまたはベクトルタイルで渡します。経路探索は外部Navigation APIまたは自社バックエンドへ分離します。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>商用Mapbox SDK/APIとの利用条件を混同しない</li>
+<li>ナビゲーション機能は描画SDKだけで完結しない</li>
+<li>Android/iOSのネイティブ依存とバージョン追従を保守計画に入れる</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>MapLibre GL Nativeとrnmapboxは、トラックナビの地図表示をReact Nativeで組むときの現実的な候補です。採用判断では、地図描画とナビ案内を分けて評価することが重要です。</p>
+      <figure class="editorial-diagram">
+        <img src="maplibre-gl-native-rnmapbox-truck-app-figure-3.png" alt="MapLibre GL Nativeとrnmapboxをモバイル地図SDK候補として見るの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://github.com/maplibre/maplibre-gl-native/blob/main/LICENSE.md">MapLibre GL Native LICENSE</a></li>
+<li><a href="https://github.com/rnmapbox/maps">rnmapbox/maps</a></li>
+<li><a href="https://github.com/rnmapbox/maps/blob/main/LICENSE.md">rnmapbox/maps LICENSE</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上でMapLibre GL Nativeとreact-native-mapbox-glを利用していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

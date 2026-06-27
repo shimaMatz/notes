@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Turf.jsを、React NativeやWeb管理画面で距離、包含、バッファ、簡易ジオフェンス判定に使う技術メモ。" />
+    <meta property="og:image" content="turf-geospatial-processing-truck-app-figure-1.png" />
+    <title>Turf.jsをトラックナビの軽量な空間処理に使う</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>Turf.jsをトラックナビの軽量な空間処理に使う</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="turf-geospatial-processing-truck-app-figure-1.png" alt="Turf.jsをトラックナビの軽量な空間処理に使うの図解1" />
+        <figcaption>@turf/turfをトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>Turf.jsは、JavaScriptでGeoJSONの空間処理を行うためのライブラリです。距離、面積、バッファ、点がポリゴン内にあるか、ラインとの交差などをクライアントやNode.jsで扱えます。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> @turf/turf license。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>トラックナビでは、現在地が独自ジオフェンスに入ったか、目的地から何メートル以内か、管理画面でポリゴンを描いたときの簡易検証などに使えます。大量データや正式な検索はPostGIS側に寄せます。</p>
+      <figure class="editorial-diagram">
+        <img src="turf-geospatial-processing-truck-app-figure-2.png" alt="Turf.jsをトラックナビの軽量な空間処理に使うの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>サーバーではPostGISを正とし、アプリや管理画面ではTurf.jsで即時フィードバックを返します。例えばドラッグ中の規制ポリゴン確認、停車判定のプレビュー、候補地点の一時フィルタに使います。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>大量件数の近傍検索をTurfだけで処理しない</li>
+<li>測地系、単位、精度の前提を明示する</li>
+<li>最終判定はサーバー側のPostGISとログに残す</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>Turf.jsは、トラックナビの空間処理を全部担う中核DBではありません。UIの手触りを良くする軽量処理として使い、正規の保存・検索・監査はPostGISに任せる分担が堅いです。</p>
+      <figure class="editorial-diagram">
+        <img src="turf-geospatial-processing-truck-app-figure-3.png" alt="Turf.jsをトラックナビの軽量な空間処理に使うの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://turfjs.org/">Turf.js</a></li>
+<li><a href="https://github.com/Turfjs/turf/blob/master/LICENSE">Turf.js GitHub LICENSE</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上で@turf/turfを利用していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

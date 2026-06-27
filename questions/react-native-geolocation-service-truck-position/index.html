@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="react-native-geolocation-serviceを、React Native製トラックナビの現在地取得と権限設計の観点で整理する。" />
+    <meta property="og:image" content="react-native-geolocation-service-truck-position-figure-1.png" />
+    <title>react-native-geolocation-serviceを走行位置取得の入口として見る</title>
+    <link rel="stylesheet" href="../../styles/site.css" />
+  </head>
+  <body class="note">
+    <article>
+      <p class="eyebrow">Tech Stack / Truck Navi</p>
+      <h1>react-native-geolocation-serviceを走行位置取得の入口として見る</h1>
+      <p class="meta">最終更新: 2026-06-28</p>
+      <figure class="editorial-diagram">
+        <img src="react-native-geolocation-service-truck-position-figure-1.png" alt="react-native-geolocation-serviceを走行位置取得の入口として見るの図解1" />
+        <figcaption>react-native-geolocation-serviceをトラックナビのどの層で使うかを整理する。</figcaption>
+      </figure>
+
+      <h2>この技術は何か</h2>
+      <p>react-native-geolocation-serviceは、React Nativeアプリから端末の現在地を取得するためのライブラリです。トラックナビでは、地図の現在地表示、目的地接近、停車検知、走行ログの入口になります。</p>
+      <p><strong>NERV防災のライセンス情報から見える利用形態:</strong> react-native-geolocation-service license。</p>
+
+      <h2>トラックナビで使えそうな理由</h2>
+      <p>MVPでは、常時バックグラウンド追跡より、前景ナビ中の現在地取得と、到着前後の最低限のログから始めるのが現実的です。業務アプリでは権限説明、バッテリー、プライバシー、ログ保存期間を最初に設計します。</p>
+      <figure class="editorial-diagram">
+        <img src="react-native-geolocation-service-truck-position-figure-2.png" alt="react-native-geolocation-serviceを走行位置取得の入口として見るの図解2" />
+        <figcaption>MVPでは、地図表示、独自データ、運行判断を分けて小さく接続する。</figcaption>
+      </figure>
+
+      <h2>アーキテクチャ上の置き場所</h2>
+      <p>端末位置はアプリ内でフィルタし、必要なイベントだけをAPIへ送ります。サーバー側では車両、案件、予定地点、到着判定、例外理由と紐付け、詳細な個人追跡にならない粒度で保存します。</p>
+      <pre><code>Mobile App / Admin UI
+  ↓
+Truck Navi API
+  ↓
+PostGIS / business data
+  ↓
+Map, tile, weather, or device layer</code></pre>
+
+      <h2>採用時の注意点</h2>
+      <ul>
+<li>位置情報の取得目的、保存期間、利用者説明を明文化する</li>
+<li>OSごとのバックグラウンド権限制約をテストする</li>
+<li>GPS誤差を前提にジオフェンス半径と到着判定を設計する</li>
+      </ul>
+
+      <h2>結論</h2>
+      <p>react-native-geolocation-serviceは、トラックナビの位置取得入口として使えます。ただし価値はライブラリそのものより、権限、誤差、保存、業務イベントへの変換をどう設計するかで決まります。</p>
+      <figure class="editorial-diagram">
+        <img src="react-native-geolocation-service-truck-position-figure-3.png" alt="react-native-geolocation-serviceを走行位置取得の入口として見るの図解3" />
+        <figcaption>採用判断は、表示、分析、経路案内、業務判断の責務を分けて行う。</figcaption>
+      </figure>
+
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+<li><a href="https://github.com/Agontuk/react-native-geolocation-service">react-native-geolocation-service</a></li>
+<li><a href="https://reactnative.dev/docs/permissionsandroid">React Native PermissionsAndroid</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>この技術を使っていると表明しているサービス</h2>
+        <ul>
+          <li>NERV防災は、提示されたライセンス情報上でreact-native-geolocation-serviceを利用していると表明している。</li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>
