@@ -11,6 +11,9 @@ This repository stores personal technical notes and publishes them as a static A
 - For every newly created article, first insert exactly three placeholders in the article text: `[図解1]`, `[図解2]`, and `[図解3]`.
 - Then create three local 16:9 editorial diagrams from `templates/editorial-image-generation-prompt.md`, using the article text with those placeholders included.
 - Replace the three placeholders with the generated diagrams. Use the first generated diagram as the article listing thumbnail through `og:image`.
+- For technical notes, the article body should contain exactly those three generated editorial diagrams and no legacy diagram images. Replace or remove old `editorial-diagram-*.svg`, generic `thumbnail.svg`, and old conceptual SVGs such as `diagram.svg`, `summary.svg`, `*-flow.svg`, `*-diagram.svg`, `*-overview.svg`, and `*-detail.svg` unless the article is a business-plan note that still requires app wireframes.
+- Store generated technical-note diagrams as local PNG files named predictably, such as `<slug>-figure-1.png`, `<slug>-figure-2.png`, and `<slug>-figure-3.png`. Set `<meta property="og:image" content="<slug>-figure-1.png" />`.
+- Do not create, keep, or reference a separate listing-only thumbnail image. The listing thumbnail must be the same file as the first generated diagram used in the article body.
 - Include exactly two relevant app wireframe images in every business-plan note page: one primary overview/list screen and one detail/action screen.
 - Store both wireframes as local SVG files in the article directory and render each in its own `<figure>` with a descriptive `<figcaption>`.
 - End every note with source links to primary references when possible.
@@ -44,6 +47,7 @@ When I start a request with `質問`, create a new HTML note under `/questions/<
 - Treat any user message starting with `質問` as a request to add or update an article in this repository.
 - After creating the article, run the Astro build and verify that the generated top page includes it.
 - Insert `[図解1]`, `[図解2]`, and `[図解3]` at the intended positions before image generation. Generate the three editorial diagrams by inserting that finished article body into `templates/editorial-image-generation-prompt.md`.
+- For technical-note updates, after replacing placeholders or legacy figures, verify that the article has exactly three body images, all three are the generated diagram PNGs, `og:image` points to the first PNG, and the generated top page uses that same first PNG as the listing thumbnail.
 - Ensure a business-plan note includes two app wireframes: an overview/list screen and a detail/action screen.
 - Use a concise commit message based on the article topic.
 - Push to `origin/main` after the commit succeeds.

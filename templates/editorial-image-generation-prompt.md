@@ -19,6 +19,13 @@ Workflow:
 
 Do not ask for a separate generic thumbnail. The first diagram is also the listing thumbnail when the article has no dedicated cover image.
 
+For technical notes, keep the final article body to exactly three generated editorial diagrams:
+
+- Do not leave old `editorial-diagram-*.svg` figures in the article.
+- Do not leave old conceptual SVGs such as `diagram.svg`, `summary.svg`, `*-flow.svg`, `*-diagram.svg`, `*-overview.svg`, or `*-detail.svg` unless the article is explicitly a business-plan note and the SVG is one of the required app wireframes.
+- Prefer predictable PNG filenames: `<slug>-figure-1.png`, `<slug>-figure-2.png`, and `<slug>-figure-3.png`.
+- Verify that the generated catalog/listing uses the same first PNG that appears in the article body.
+
 ```text
 あなたはプロの編集デザイナーです。
 note記事内に挿入する図解画像を、3枚作ります。全3枚で世界観を統一しつつ、画像生成を3回に分けて1枚ずつ独立した画像として順番に生成してください。
