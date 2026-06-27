@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:image" content="editorial-diagram-1.svg" />
+    <meta property="og:image" content="mapbox-special-road-display-figure-1.png" />
     <title>Mapbox SDKで高速道路など特殊な表示を実装する方法</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -13,12 +13,12 @@
       <h1>Mapbox SDKで高速道路など特殊な表示を実装する方法</h1>
       <p class="meta">最終更新: 2026-06-07</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="Mapbox SDKで高速道路など特殊な表示を実装する方法の全体像を示す図解" />
+        <img src="mapbox-special-road-display-figure-1.png" alt="Mapbox SDKで高速道路など特殊な表示を実装する方法の全体像を示す図解" />
         <figcaption>Mapboxで高速道路や業務道路のような特殊な表示をしたいときは、 既存の地図そのものを書き換えるというより、 Maps SDKのスタイル機能で独自レイヤーを重ねる という考え方が基本になります。実装の中心はMaps SDKで、Mapbox Studioでベーススタイルを整え、 必要に応じてGeoJSON、ベクトルタイル、アノテーション、カスタムレイヤーを併用します。</figcaption>
       </figure>
 
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="Mapbox SDKで高速道路など特殊な表示を実装する方法の構成要素を示す図解" />
+        <img src="mapbox-special-road-display-figure-2.png" alt="Mapbox SDKで高速道路など特殊な表示を実装する方法の構成要素を示す図解" />
         <figcaption>高速道路だけ色を変える、特定条件の道路だけ太線にする、ズームでラベルを切り替える、といった表現は スタイルレイヤーで作るのが本筋です</figcaption>
       </figure>
 
@@ -123,7 +123,7 @@
 
       
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="Mapbox SDKで高速道路など特殊な表示を実装する方法の確認点を示す図解" />
+        <img src="mapbox-special-road-display-figure-3.png" alt="Mapbox SDKで高速道路など特殊な表示を実装する方法の確認点を示す図解" />
         <figcaption>ベース地図は静的なデザイン調整、アプリ側は走行ルートや業務データの動的表示、と責務を分けると崩れにくくなります</figcaption>
       </figure>
 <section class="sources">

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Uberの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
-    <meta property="og:image" content="editorial-diagram-1.svg" />
+    <meta property="og:image" content="uber-geospatial-h3-marketplace-figure-1.png" />
     <title>Uber: H3を中心に見る配車・ETA・独自GISの分解</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -14,7 +14,7 @@
       <h1>Uber: H3を中心に見る配車・ETA・独自GISの分解</h1>
       <p class="meta">最終更新: 2026-06-28</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="Uber: H3を中心に見る配車・ETA・独自GISの分解の全体像を示す図解" />
+        <img src="uber-geospatial-h3-marketplace-figure-1.png" alt="Uber: H3を中心に見る配車・ETA・独自GISの分解の全体像を示す図解" />
         <figcaption>配車、配送、食事配達を含む都市内移動のマーケットプレイスを運営する企業。乗客、ドライバー、注文、道路、需要を時々刻々と結びつける必要がある。</figcaption>
       </figure>
 <h2>何をしている企業か</h2>
@@ -23,7 +23,7 @@
       <h2>位置情報で解いている課題</h2>
       <p>近くの車両を探すだけでなく、需要の偏り、到着予測、料金、再配置、混雑を同時に扱う。都市を分析単位に分割し、リアルタイム位置と履歴分析を同じ言葉で扱うことが重要になる。</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="Uber: H3を中心に見る配車・ETA・独自GISの分解の構成要素を示す図解" />
+        <img src="uber-geospatial-h3-marketplace-figure-2.png" alt="Uber: H3を中心に見る配車・ETA・独自GISの分解の構成要素を示す図解" />
         <figcaption>H3はセルIDで空間を粗く・速く分割するインデックス</figcaption>
       </figure>
 <h2>公開されている技術情報</h2>
@@ -65,7 +65,7 @@ Map / Navigation API</code></pre>
 
       
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="Uber: H3を中心に見る配車・ETA・独自GISの分解の確認点を示す図解" />
+        <img src="uber-geospatial-h3-marketplace-figure-3.png" alt="Uber: H3を中心に見る配車・ETA・独自GISの分解の確認点を示す図解" />
         <figcaption>トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です</figcaption>
       </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.uber.com/en-JP/blog/h3/">Uber Engineering「H3: Uber’s Hexagonal Hierarchical Spatial Index」</a></li>

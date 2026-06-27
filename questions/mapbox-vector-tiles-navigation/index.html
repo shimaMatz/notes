@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Mapboxの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
-    <meta property="og:image" content="editorial-diagram-1.svg" />
+    <meta property="og:image" content="mapbox-vector-tiles-navigation-figure-1.png" />
     <title>Mapbox: Vector Tiles・Navigation・Map Matchingの分担</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -14,7 +14,7 @@
       <h1>Mapbox: Vector Tiles・Navigation・Map Matchingの分担</h1>
       <p class="meta">最終更新: 2026-06-28</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="Mapbox: Vector Tiles・Navigation・Map Matchingの分担の全体像を示す図解" />
+        <img src="mapbox-vector-tiles-navigation-figure-1.png" alt="Mapbox: Vector Tiles・Navigation・Map Matchingの分担の全体像を示す図解" />
         <figcaption>開発者向けの地図表示、スタイル、ナビゲーション、ルーティング、Map Matchingなどを提供する地図プラットフォーム企業。</figcaption>
       </figure>
 <h2>何をしている企業か</h2>
@@ -23,7 +23,7 @@
       <h2>位置情報で解いている課題</h2>
       <p>アプリ開発者は、地図タイル表示、道路ネットワーク、経路探索、GPS軌跡補正、音声案内を自前で全て作ると重い。Mapboxはこの重い地図基盤をAPIとSDKとして提供する。</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="Mapbox: Vector Tiles・Navigation・Map Matchingの分担の構成要素を示す図解" />
+        <img src="mapbox-vector-tiles-navigation-figure-2.png" alt="Mapbox: Vector Tiles・Navigation・Map Matchingの分担の構成要素を示す図解" />
         <figcaption>Mapboxは道路ネットワークや地図表示、経路計算をサービスとして提供する</figcaption>
       </figure>
 <h2>公開されている技術情報</h2>
@@ -65,7 +65,7 @@ Map / Navigation API</code></pre>
 
       
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="Mapbox: Vector Tiles・Navigation・Map Matchingの分担の確認点を示す図解" />
+        <img src="mapbox-vector-tiles-navigation-figure-3.png" alt="Mapbox: Vector Tiles・Navigation・Map Matchingの分担の確認点を示す図解" />
         <figcaption>トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です</figcaption>
       </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://docs.mapbox.com/help/glossary/vector-tiles/">Mapbox Vector Tiles glossary</a></li>

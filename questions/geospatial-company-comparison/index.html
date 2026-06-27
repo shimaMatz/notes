@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="位置情報サービス企業の独自GIS・地理空間技術を比較し、トラックナビMVPの設計判断へ落とす技術ノート。" /><meta property="og:image" content="editorial-diagram-1.svg" /><title>位置情報サービス企業の独自GIS・地理空間技術比較</title><link rel="stylesheet" href="../../styles/site.css" /></head>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="位置情報サービス企業の独自GIS・地理空間技術を比較し、トラックナビMVPの設計判断へ落とす技術ノート。" /><meta property="og:image" content="geospatial-company-comparison-figure-1.png" /><title>位置情報サービス企業の独自GIS・地理空間技術比較</title><link rel="stylesheet" href="../../styles/site.css" /></head>
 <body class="note"><article><p class="eyebrow">Question Note / Geospatial Architecture</p><h1>位置情報サービス企業の独自GIS・地理空間技術比較</h1><p class="meta">最終更新: 2026-06-28</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="位置情報サービス企業の独自GIS・地理空間技術比較の全体像を示す図解" />
+        <img src="geospatial-company-comparison-figure-1.png" alt="位置情報サービス企業の独自GIS・地理空間技術比較の全体像を示す図解" />
         <figcaption>Issue #14 の指定に沿って、Uber、Google、Mapbox、DoorDash、Lyft、Grab、project44 を1企業1ページで整理しました。ここでは全体比較だけを置き、各社ページへ移動できるようにします。</figcaption>
       </figure>
 
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="位置情報サービス企業の独自GIS・地理空間技術比較の構成要素を示す図解" />
+        <img src="geospatial-company-comparison-figure-2.png" alt="位置情報サービス企業の独自GIS・地理空間技術比較の構成要素を示す図解" />
         <figcaption>結論は PostgreSQL + PostGIS + Mapbox で十分 です</figcaption>
       </figure>
 <h2>この記事群の読み方</h2><p>Issue #14 の指定に沿って、Uber、Google、Mapbox、DoorDash、Lyft、Grab、project44 を1企業1ページで整理しました。ここでは全体比較だけを置き、各社ページへ移動できるようにします。</p>
@@ -26,7 +26,7 @@
 <tr><td><a href="../project44-logistics-visibility-gps/">project44</a></td><td>GPS visibility / ETA</td><td>独自GIS的な部分は、複数ソースのGPSやステータスをshipment単位へ結びつけ、ETAと例外通知を出す統合レイヤー</td><td>PostGISは地点・ジオフェンス・到着判定に使えるが、project44型ではデータ接続、ID照合、イベント正規化、ETA、可視化が中心になる</td><td>トラックナビでは、車両位置そのものより、案件、目的地、停車、到着、遅延理由を同じIDで追える設計が参考になる</td></tr></tbody></table>
 <h2>トラックナビMVPで採用すべき構成</h2><p><strong>結論は PostgreSQL + PostGIS + Mapbox で十分</strong>です。PostGISで自社データの地点、施設、規制、ジオフェンスを扱い、Mapboxで表示と経路案内を行います。リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / Redis GEO / 独自インデックスを追加します。</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="位置情報サービス企業の独自GIS・地理空間技術比較の確認点を示す図解" />
+        <img src="geospatial-company-comparison-figure-3.png" alt="位置情報サービス企業の独自GIS・地理空間技術比較の確認点を示す図解" />
         <figcaption>リアルタイム位置検索、大量車両、広域集計が必要になった段階で、H3 / S2 / Redis GEO / 独自インデックスを追加します</figcaption>
       </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://www.uber.com/en-JP/blog/h3/">Uber Engineering: H3</a></li><li><a href="https://github.com/google/s2geometry">Google S2 Geometry</a></li><li><a href="https://docs.mapbox.com/api/navigation/directions/">Mapbox Directions API</a></li><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li><li><a href="https://eng.lyft.com/">Lyft Engineering Blog</a></li><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li><li><a href="https://www.project44.com/">project44</a></li></ul></section></article></body></html>

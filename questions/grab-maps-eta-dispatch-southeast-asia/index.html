@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Grabの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
-    <meta property="og:image" content="editorial-diagram-1.svg" />
+    <meta property="og:image" content="grab-maps-eta-dispatch-southeast-asia-figure-1.png" />
     <title>Grab: 東南アジアの地図・ETA・Dispatch基盤</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -14,7 +14,7 @@
       <h1>Grab: 東南アジアの地図・ETA・Dispatch基盤</h1>
       <p class="meta">最終更新: 2026-06-28</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の全体像を示す図解" />
+        <img src="grab-maps-eta-dispatch-southeast-asia-figure-1.png" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の全体像を示す図解" />
         <figcaption>東南アジアを中心に、配車、配送、決済などを展開するスーパーアプリ企業。地域ごとに地図品質、住所体系、交通事情が大きく異なる。</figcaption>
       </figure>
 <h2>何をしている企業か</h2>
@@ -23,7 +23,7 @@
       <h2>位置情報で解いている課題</h2>
       <p>地域差のある道路、住所、POI、交通状況の中で、配車・配送のETAとDispatchを成立させる必要がある。欧米の地図前提をそのまま使えない地域適応が重要になる。</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の構成要素を示す図解" />
+        <img src="grab-maps-eta-dispatch-southeast-asia-figure-2.png" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の構成要素を示す図解" />
         <figcaption>PostGISは自社DBの空間演算に使えるが、Grab型では地域の地図品質を補うデータ収集、道路補正、ETA、Dispatchまで必要になる</figcaption>
       </figure>
 <h2>公開されている技術情報</h2>
@@ -65,7 +65,7 @@ Map / Navigation API</code></pre>
 
       
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の確認点を示す図解" />
+        <img src="grab-maps-eta-dispatch-southeast-asia-figure-3.png" alt="Grab: 東南アジアの地図・ETA・Dispatch基盤の確認点を示す図解" />
         <figcaption>トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です</figcaption>
       </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://engineering.grab.com/">Grab Tech Blog</a></li>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="DoorDashの地理空間技術を、PostGIS、空間インデックス、ルーティング、ETA、マッチングの観点で整理する技術ノート。" />
-    <meta property="og:image" content="editorial-diagram-1.svg" />
+    <meta property="og:image" content="doordash-delivery-eta-dispatch-figure-1.png" />
     <title>DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</title>
     <link rel="stylesheet" href="../../styles/site.css" />
   </head>
@@ -14,7 +14,7 @@
       <h1>DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計</h1>
       <p class="meta">最終更新: 2026-06-28</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-1.svg" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の全体像を示す図解" />
+        <img src="doordash-delivery-eta-dispatch-figure-1.png" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の全体像を示す図解" />
         <figcaption>レストランや小売から消費者へ商品を届けるラストマイル配送プラットフォーム。注文、店舗、配達員、顧客、道路状況を結びつける。</figcaption>
       </figure>
 <h2>何をしている企業か</h2>
@@ -23,7 +23,7 @@
       <h2>位置情報で解いている課題</h2>
       <p>料理や商品の準備時刻、配達員の現在地、移動時間、ピックアップ待ち、ドロップオフまでのETAを同時に予測する必要がある。単なる距離順では品質が出ない。</p>
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-2.svg" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の構成要素を示す図解" />
+        <img src="doordash-delivery-eta-dispatch-figure-2.png" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の構成要素を示す図解" />
         <figcaption>予測モデル、イベントストリーム、位置キャッシュ、業務状態管理が必要になる</figcaption>
       </figure>
 <h2>公開されている技術情報</h2>
@@ -65,7 +65,7 @@ Map / Navigation API</code></pre>
 
       
       <figure class="editorial-diagram">
-        <img src="editorial-diagram-3.svg" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の確認点を示す図解" />
+        <img src="doordash-delivery-eta-dispatch-figure-3.png" alt="DoorDash: 配送ETA・Dispatch・物流最適化の地理空間設計の確認点を示す図解" />
         <figcaption>トラックナビMVPでは、まずPostgreSQL + PostGIS + Mapboxで実用範囲を作り、後からH3/S2/Redis GEO/独自インデックスを足す順番が安全です</figcaption>
       </figure>
 <section class="sources"><h2>Sources</h2><ul><li><a href="https://careersatdoordash.com/blog/engineering/">DoorDash Engineering Blog</a></li>
